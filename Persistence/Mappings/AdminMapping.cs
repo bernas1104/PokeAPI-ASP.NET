@@ -9,7 +9,7 @@ namespace Persistence.Mappings {
     public void Configure(EntityTypeBuilder<Admin> builder) {
       builder.HasKey(admin => admin.Id);
 
-      builder.Property(admin => admin.Username).IsRequired().HasMaxLength(100);
+      builder.Property(admin => admin.Email).IsRequired().HasMaxLength(100);
 
       builder.Property(admin => admin.Password).IsRequired().HasMaxLength(255);
 
