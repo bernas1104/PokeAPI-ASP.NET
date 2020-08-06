@@ -4,6 +4,7 @@ using Moq;
 using Xunit;
 
 using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.Configuration;
 
 using Domain;
 using Services.DTOs;
@@ -14,6 +15,7 @@ using Persistence.Repositories.Interfaces;
 
 namespace Tests.UnitTests {
   public class AdminAuthenticationServiceTest {
+    private Mock<IConfiguration> configuration;
     private Mock<AdminsRepository> adminsRepository;
     private Mock<IPasswordHasher<Admin>> passwordHasher;
     private AdminAuthenticationService adminAuthenticationService;
@@ -21,7 +23,9 @@ namespace Tests.UnitTests {
     public AdminAuthenticationServiceTest() {
       adminsRepository = new Mock<AdminsRepository>();
       passwordHasher = new Mock<IPasswordHasher<Admin>>();
+      configuration = new Mock<IConfiguration>();
       adminAuthenticationService = new AdminAuthenticationServiceImpl(
+        configuration.Object,
         adminsRepository.Object,
         passwordHasher.Object
       );
@@ -48,6 +52,8 @@ namespace Tests.UnitTests {
         )
       )
       .Returns(PasswordVerificationResult.Success);
+      configuration.Setup(obj => obj["JWTSecret"])
+        .Returns("fedaf7d8863b48e197b9287d492b708e");
 
       var auth = new AuthenticationAdminDTO() {
         Email = "johndoe@example.com",
@@ -60,6 +66,8 @@ namespace Tests.UnitTests {
       // Assert
       Assert.Equal(1, response.Id);
       Assert.Equal("johndoe@example.com", response.Email);
+      Assert.Equal(DateTime.Today.Date, response.ValidFrom.Date);
+      Assert.Equal(DateTime.Today.AddDays(1).Date, response.ExpiresIn.Date);
     }
 
     [Fact]

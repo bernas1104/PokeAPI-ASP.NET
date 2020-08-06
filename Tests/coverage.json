@@ -1,0 +1,2027 @@
+{
+  "Domain.dll": {
+    "/home/bernardo/Desktop/PokeAPI-ASP.NET/Domain/Entities/Ability.cs": {
+      "Domain.Ability": {
+        "System.Int32 Domain.Ability::get_Id()": {
+          "Lines": {
+            "6": 0
+          },
+          "Branches": []
+        },
+        "System.String Domain.Ability::get_Effect()": {
+          "Lines": {
+            "7": 0
+          },
+          "Branches": []
+        },
+        "System.String Domain.Ability::get_Name()": {
+          "Lines": {
+            "8": 0
+          },
+          "Branches": []
+        },
+        "System.DateTime Domain.Ability::get_CreatedAt()": {
+          "Lines": {
+            "9": 0
+          },
+          "Branches": []
+        },
+        "System.DateTime Domain.Ability::get_UpdatedAt()": {
+          "Lines": {
+            "10": 0
+          },
+          "Branches": []
+        },
+        "System.Nullable`1<System.DateTime> Domain.Ability::get_DeletedAt()": {
+          "Lines": {
+            "11": 0
+          },
+          "Branches": []
+        },
+        "System.Collections.Generic.IEnumerable`1<Domain.PokemonAbilities> Domain.Ability::get_PokemonAbilities()": {
+          "Lines": {
+            "13": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "/home/bernardo/Desktop/PokeAPI-ASP.NET/Domain/Entities/Admin.cs": {
+      "Domain.Admin": {
+        "System.Int32 Domain.Admin::get_Id()": {
+          "Lines": {
+            "5": 4
+          },
+          "Branches": []
+        },
+        "System.String Domain.Admin::get_Email()": {
+          "Lines": {
+            "6": 6
+          },
+          "Branches": []
+        },
+        "System.String Domain.Admin::get_Password()": {
+          "Lines": {
+            "7": 5
+          },
+          "Branches": []
+        },
+        "System.DateTime Domain.Admin::get_CreatedAt()": {
+          "Lines": {
+            "8": 0
+          },
+          "Branches": []
+        },
+        "System.DateTime Domain.Admin::get_UpdatedAt()": {
+          "Lines": {
+            "9": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "/home/bernardo/Desktop/PokeAPI-ASP.NET/Domain/Entities/Pokemon.cs": {
+      "Domain.Pokemon": {
+        "System.Int32 Domain.Pokemon::get_Id()": {
+          "Lines": {
+            "6": 0
+          },
+          "Branches": []
+        },
+        "System.String Domain.Pokemon::get_Name()": {
+          "Lines": {
+            "7": 0
+          },
+          "Branches": []
+        },
+        "System.Nullable`1<System.Int32> Domain.Pokemon::get_PreEvolutionId()": {
+          "Lines": {
+            "8": 0
+          },
+          "Branches": []
+        },
+        "System.Nullable`1<System.Int32> Domain.Pokemon::get_EvolutionId()": {
+          "Lines": {
+            "9": 0
+          },
+          "Branches": []
+        },
+        "System.Nullable`1<System.Int32> Domain.Pokemon::get_EvolutionLevel()": {
+          "Lines": {
+            "10": 0
+          },
+          "Branches": []
+        },
+        "System.Int32 Domain.Pokemon::get_LevelingRate()": {
+          "Lines": {
+            "11": 0
+          },
+          "Branches": []
+        },
+        "System.Int32 Domain.Pokemon::get_CatchRate()": {
+          "Lines": {
+            "12": 0
+          },
+          "Branches": []
+        },
+        "System.Int32 Domain.Pokemon::get_HatchTime()": {
+          "Lines": {
+            "13": 0
+          },
+          "Branches": []
+        },
+        "System.DateTime Domain.Pokemon::get_CreatedAt()": {
+          "Lines": {
+            "14": 0
+          },
+          "Branches": []
+        },
+        "System.DateTime Domain.Pokemon::get_UpdatedAt()": {
+          "Lines": {
+            "15": 0
+          },
+          "Branches": []
+        },
+        "System.Nullable`1<System.DateTime> Domain.Pokemon::get_DeletedAt()": {
+          "Lines": {
+            "16": 0
+          },
+          "Branches": []
+        },
+        "Domain.Pokemon Domain.Pokemon::get_PreEvolution()": {
+          "Lines": {
+            "18": 0
+          },
+          "Branches": []
+        },
+        "Domain.Pokemon Domain.Pokemon::get_Evolution()": {
+          "Lines": {
+            "19": 0
+          },
+          "Branches": []
+        },
+        "System.Collections.Generic.IEnumerable`1<Domain.PokemonAbilities> Domain.Pokemon::get_PokemonAbilities()": {
+          "Lines": {
+            "20": 0
+          },
+          "Branches": []
+        },
+        "Domain.Stats Domain.Pokemon::get_Stats()": {
+          "Lines": {
+            "21": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "/home/bernardo/Desktop/PokeAPI-ASP.NET/Domain/Entities/PokemonAbilities.cs": {
+      "Domain.PokemonAbilities": {
+        "System.Int32 Domain.PokemonAbilities::get_PokemonId()": {
+          "Lines": {
+            "3": 0
+          },
+          "Branches": []
+        },
+        "System.Int32 Domain.PokemonAbilities::get_AbilityId()": {
+          "Lines": {
+            "4": 0
+          },
+          "Branches": []
+        },
+        "System.Boolean Domain.PokemonAbilities::get_Hidden()": {
+          "Lines": {
+            "5": 0
+          },
+          "Branches": []
+        },
+        "Domain.Pokemon Domain.PokemonAbilities::get_Pokemon()": {
+          "Lines": {
+            "7": 0
+          },
+          "Branches": []
+        },
+        "Domain.Ability Domain.PokemonAbilities::get_Ability()": {
+          "Lines": {
+            "8": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "/home/bernardo/Desktop/PokeAPI-ASP.NET/Domain/Entities/Stats.cs": {
+      "Domain.Stats": {
+        "System.Int32 Domain.Stats::get_Id()": {
+          "Lines": {
+            "5": 0
+          },
+          "Branches": []
+        },
+        "System.Int32 Domain.Stats::get_HitPoints()": {
+          "Lines": {
+            "6": 0
+          },
+          "Branches": []
+        },
+        "System.Int32 Domain.Stats::get_Attack()": {
+          "Lines": {
+            "7": 0
+          },
+          "Branches": []
+        },
+        "System.Int32 Domain.Stats::get_Defense()": {
+          "Lines": {
+            "8": 0
+          },
+          "Branches": []
+        },
+        "System.Int32 Domain.Stats::get_SpecialAttack()": {
+          "Lines": {
+            "9": 0
+          },
+          "Branches": []
+        },
+        "System.Int32 Domain.Stats::get_SpecialDefense()": {
+          "Lines": {
+            "10": 0
+          },
+          "Branches": []
+        },
+        "System.Int32 Domain.Stats::get_Speed()": {
+          "Lines": {
+            "11": 0
+          },
+          "Branches": []
+        },
+        "System.Int32 Domain.Stats::get_Total()": {
+          "Lines": {
+            "12": 0
+          },
+          "Branches": []
+        },
+        "System.Int32 Domain.Stats::get_PokemonId()": {
+          "Lines": {
+            "13": 0
+          },
+          "Branches": []
+        },
+        "System.DateTime Domain.Stats::get_CreatedAt()": {
+          "Lines": {
+            "14": 0
+          },
+          "Branches": []
+        },
+        "System.DateTime Domain.Stats::get_UpdatedAt()": {
+          "Lines": {
+            "15": 0
+          },
+          "Branches": []
+        },
+        "System.Nullable`1<System.DateTime> Domain.Stats::get_DeletedAt()": {
+          "Lines": {
+            "16": 0
+          },
+          "Branches": []
+        },
+        "Domain.Pokemon Domain.Stats::get_Pokemon()": {
+          "Lines": {
+            "18": 0
+          },
+          "Branches": []
+        }
+      }
+    }
+  },
+  "PokeAPI.dll": {
+    "/home/bernardo/Desktop/PokeAPI-ASP.NET/PokeAPI/Program.cs": {
+      "PokeAPI.Program": {
+        "System.Void PokeAPI.Program::Main(System.String[])": {
+          "Lines": {
+            "15": 0,
+            "16": 0,
+            "17": 0
+          },
+          "Branches": []
+        },
+        "Microsoft.Extensions.Hosting.IHostBuilder PokeAPI.Program::CreateHostBuilder(System.String[])": {
+          "Lines": {
+            "20": 0,
+            "21": 0,
+            "22": 0,
+            "23": 0,
+            "24": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "/home/bernardo/Desktop/PokeAPI-ASP.NET/PokeAPI/Startup.cs": {
+      "PokeAPI.Startup": {
+        "Microsoft.Extensions.Configuration.IConfiguration PokeAPI.Startup::get_Configuration()": {
+          "Lines": {
+            "22": 0
+          },
+          "Branches": []
+        },
+        "System.Void PokeAPI.Startup::ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)": {
+          "Lines": {
+            "25": 0,
+            "26": 0,
+            "27": 0,
+            "28": 0,
+            "30": 0,
+            "31": 0,
+            "32": 0
+          },
+          "Branches": []
+        },
+        "System.Void PokeAPI.Startup::Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)": {
+          "Lines": {
+            "35": 0,
+            "36": 0,
+            "37": 0,
+            "38": 0,
+            "39": 0,
+            "41": 0,
+            "43": 0,
+            "45": 0,
+            "47": 0,
+            "48": 0,
+            "49": 0,
+            "50": 0,
+            "51": 0
+          },
+          "Branches": [
+            {
+              "Line": 36,
+              "Offset": 9,
+              "EndOffset": 11,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 36,
+              "Offset": 9,
+              "EndOffset": 20,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            }
+          ]
+        },
+        "System.Void PokeAPI.Startup::.ctor(Microsoft.Extensions.Configuration.IConfiguration)": {
+          "Lines": {
+            "18": 0,
+            "19": 0,
+            "20": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "/home/bernardo/Desktop/PokeAPI-ASP.NET/PokeAPI/ViewModels/SessionVIewModel.cs": {
+      "PokeAPI.ViewModels.SessionViewModel": {
+        "System.Int32 PokeAPI.ViewModels.SessionViewModel::get_Id()": {
+          "Lines": {
+            "5": 0
+          },
+          "Branches": []
+        },
+        "System.String PokeAPI.ViewModels.SessionViewModel::get_Email()": {
+          "Lines": {
+            "6": 0
+          },
+          "Branches": []
+        },
+        "System.String PokeAPI.ViewModels.SessionViewModel::get_Token()": {
+          "Lines": {
+            "7": 0
+          },
+          "Branches": []
+        },
+        "System.DateTime PokeAPI.ViewModels.SessionViewModel::get_ValidFrom()": {
+          "Lines": {
+            "8": 0
+          },
+          "Branches": []
+        },
+        "System.DateTime PokeAPI.ViewModels.SessionViewModel::get_ExpiresIn()": {
+          "Lines": {
+            "9": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "/home/bernardo/Desktop/PokeAPI-ASP.NET/PokeAPI/ViewModels/Exceptions/ViewModelException.cs": {
+      "PokeAPI.ViewModels.Exceptions.ViewModelException": {
+        "System.Int32 PokeAPI.ViewModels.Exceptions.ViewModelException::get_StatusCode()": {
+          "Lines": {
+            "8": 0
+          },
+          "Branches": []
+        },
+        "System.Collections.Generic.IReadOnlyCollection`1<Flunt.Notifications.Notification> PokeAPI.ViewModels.Exceptions.ViewModelException::get_Validations()": {
+          "Lines": {
+            "9": 0
+          },
+          "Branches": []
+        },
+        "System.Void PokeAPI.ViewModels.Exceptions.ViewModelException::.ctor(System.String)": {
+          "Lines": {
+            "11": 0
+          },
+          "Branches": []
+        },
+        "System.Void PokeAPI.ViewModels.Exceptions.ViewModelException::.ctor(System.String,System.Int32,System.Collections.Generic.IReadOnlyCollection`1<Flunt.Notifications.Notification>)": {
+          "Lines": {
+            "17": 0,
+            "18": 0,
+            "19": 0,
+            "20": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "/home/bernardo/Desktop/PokeAPI-ASP.NET/PokeAPI/Middlewares/ExceptionsHandlerMIddleware.cs": {
+      "PokeAPI.Middlewares.ExceptionsHandlerMiddleware": {
+        "System.Threading.Tasks.Task PokeAPI.Middlewares.ExceptionsHandlerMiddleware::HandleValidationException(Microsoft.AspNetCore.Http.HttpContext,PokeAPI.ViewModels.Exceptions.ViewModelException)": {
+          "Lines": {
+            "33": 0,
+            "34": 0,
+            "35": 0,
+            "36": 0,
+            "37": 0,
+            "38": 0,
+            "40": 0,
+            "41": 0,
+            "43": 0,
+            "44": 0
+          },
+          "Branches": []
+        },
+        "System.Threading.Tasks.Task PokeAPI.Middlewares.ExceptionsHandlerMiddleware::HandleUnknownException(Microsoft.AspNetCore.Http.HttpContext,System.Exception)": {
+          "Lines": {
+            "49": 0,
+            "52": 0,
+            "53": 0,
+            "54": 0,
+            "55": 0,
+            "56": 0,
+            "57": 0,
+            "58": 0,
+            "59": 0,
+            "60": 0,
+            "62": 0,
+            "63": 0,
+            "65": 0,
+            "66": 0
+          },
+          "Branches": [
+            {
+              "Line": 52,
+              "Offset": 22,
+              "EndOffset": 24,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 52,
+              "Offset": 22,
+              "EndOffset": 27,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            }
+          ]
+        },
+        "System.Void PokeAPI.Middlewares.ExceptionsHandlerMiddleware::.ctor(Microsoft.AspNetCore.Hosting.IWebHostEnvironment)": {
+          "Lines": {
+            "14": 0,
+            "16": 0,
+            "17": 0,
+            "18": 0
+          },
+          "Branches": []
+        }
+      },
+      "PokeAPI.Middlewares.ExceptionsHandlerMiddleware/<InvokeAsync>d__3": {
+        "System.Void PokeAPI.Middlewares.ExceptionsHandlerMiddleware/<InvokeAsync>d__3::MoveNext()": {
+          "Lines": {
+            "20": 0,
+            "21": 0,
+            "22": 0,
+            "23": 0,
+            "24": 0,
+            "25": 0,
+            "26": 0,
+            "27": 0,
+            "28": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "/home/bernardo/Desktop/PokeAPI-ASP.NET/PokeAPI/Controllers/SessionsController.cs": {
+      "PokeAPI.Controllers.SessionsController": {
+        "Microsoft.AspNetCore.Mvc.ActionResult`1<PokeAPI.ViewModels.SessionViewModel> PokeAPI.Controllers.SessionsController::Create(Services.DTOs.AuthenticationAdminDTO)": {
+          "Lines": {
+            "29": 0,
+            "30": 0,
+            "32": 0,
+            "33": 0,
+            "34": 0,
+            "35": 0,
+            "36": 0,
+            "37": 0,
+            "42": 0,
+            "43": 0
+          },
+          "Branches": [
+            {
+              "Line": 32,
+              "Offset": 16,
+              "EndOffset": 18,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 32,
+              "Offset": 16,
+              "EndOffset": 41,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            }
+          ]
+        },
+        "System.Void PokeAPI.Controllers.SessionsController::.ctor()": {
+          "Lines": {
+            "21": 0,
+            "23": 0
+          },
+          "Branches": []
+        }
+      }
+    }
+  },
+  "Services.dll": {
+    "/home/bernardo/Desktop/PokeAPI-ASP.NET/Services/Implementations/AdminAuthenticationServiceImpl.cs": {
+      "Services.Implementations.AdminAuthenticationServiceImpl": {
+        "System.Void Services.Implementations.AdminAuthenticationServiceImpl::.ctor(Microsoft.Extensions.Configuration.IConfiguration,Persistence.Repositories.Interfaces.AdminsRepository,Microsoft.AspNetCore.Identity.IPasswordHasher`1<Domain.Admin>)": {
+          "Lines": {
+            "21": 3,
+            "22": 3,
+            "23": 3,
+            "24": 3,
+            "25": 3,
+            "26": 6,
+            "27": 3,
+            "28": 3,
+            "29": 3,
+            "30": 3
+          },
+          "Branches": []
+        }
+      },
+      "Services.Implementations.AdminAuthenticationServiceImpl/<AuthenticateAdmin>d__4": {
+        "System.Void Services.Implementations.AdminAuthenticationServiceImpl/<AuthenticateAdmin>d__4::MoveNext()": {
+          "Lines": {
+            "34": 3,
+            "35": 3,
+            "37": 3,
+            "39": 4,
+            "40": 1,
+            "41": 1,
+            "42": 1,
+            "43": 1,
+            "46": 2,
+            "47": 2,
+            "48": 2,
+            "49": 2,
+            "50": 2,
+            "52": 3,
+            "53": 1,
+            "54": 1,
+            "55": 1,
+            "56": 1,
+            "59": 1,
+            "61": 1,
+            "62": 1,
+            "63": 1,
+            "64": 1,
+            "65": 1,
+            "66": 1,
+            "67": 1,
+            "68": 1
+          },
+          "Branches": [
+            {
+              "Line": 39,
+              "Offset": 184,
+              "EndOffset": 186,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 1
+            },
+            {
+              "Line": 39,
+              "Offset": 184,
+              "EndOffset": 203,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 2
+            },
+            {
+              "Line": 52,
+              "Offset": 269,
+              "EndOffset": 271,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 1
+            },
+            {
+              "Line": 52,
+              "Offset": 269,
+              "EndOffset": 288,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 1
+            }
+          ]
+        }
+      }
+    },
+    "/home/bernardo/Desktop/PokeAPI-ASP.NET/Services/Implementations/TokenService.cs": {
+      "Services.Implementations.TokenService": {
+        "Services.DTOs.TokenDTO Services.Implementations.TokenService::GenerateToken(Microsoft.Extensions.Configuration.IConfiguration,Domain.Admin)": {
+          "Lines": {
+            "17": 2,
+            "18": 2,
+            "19": 2,
+            "20": 2,
+            "21": 2,
+            "22": 2,
+            "23": 2,
+            "24": 2,
+            "25": 2,
+            "26": 2,
+            "27": 2,
+            "28": 2,
+            "29": 2,
+            "30": 2,
+            "32": 2,
+            "34": 2,
+            "35": 2,
+            "36": 2,
+            "37": 2,
+            "38": 2,
+            "40": 2,
+            "41": 2
+          },
+          "Branches": []
+        }
+      }
+    },
+    "/home/bernardo/Desktop/PokeAPI-ASP.NET/Services/Exceptions/AdminException.cs": {
+      "Services.Exceptions.AdminException": {
+        "System.Int32 Services.Exceptions.AdminException::get_StatusCode()": {
+          "Lines": {
+            "5": 0
+          },
+          "Branches": []
+        },
+        "System.Void Services.Exceptions.AdminException::.ctor(System.String,System.Int32)": {
+          "Lines": {
+            "7": 4,
+            "8": 2,
+            "9": 2
+          },
+          "Branches": []
+        }
+      }
+    },
+    "/home/bernardo/Desktop/PokeAPI-ASP.NET/Services/DTOs/AuthenticatedAdminDTO.cs": {
+      "Services.DTOs.AuthenticatedAdminDTO": {
+        "System.Int32 Services.DTOs.AuthenticatedAdminDTO::get_Id()": {
+          "Lines": {
+            "5": 2
+          },
+          "Branches": []
+        },
+        "System.String Services.DTOs.AuthenticatedAdminDTO::get_Email()": {
+          "Lines": {
+            "6": 2
+          },
+          "Branches": []
+        },
+        "System.String Services.DTOs.AuthenticatedAdminDTO::get_Token()": {
+          "Lines": {
+            "7": 0
+          },
+          "Branches": []
+        },
+        "System.DateTime Services.DTOs.AuthenticatedAdminDTO::get_ValidFrom()": {
+          "Lines": {
+            "8": 2
+          },
+          "Branches": []
+        },
+        "System.DateTime Services.DTOs.AuthenticatedAdminDTO::get_ExpiresIn()": {
+          "Lines": {
+            "9": 2
+          },
+          "Branches": []
+        }
+      }
+    },
+    "/home/bernardo/Desktop/PokeAPI-ASP.NET/Services/DTOs/AuthenticationAdminDTO.cs": {
+      "Services.DTOs.AuthenticationAdminDTO": {
+        "System.String Services.DTOs.AuthenticationAdminDTO::get_Email()": {
+          "Lines": {
+            "6": 6
+          },
+          "Branches": []
+        },
+        "System.String Services.DTOs.AuthenticationAdminDTO::get_Password()": {
+          "Lines": {
+            "7": 5
+          },
+          "Branches": []
+        },
+        "System.Void Services.DTOs.AuthenticationAdminDTO::Validate()": {
+          "Lines": {
+            "9": 0,
+            "10": 0,
+            "11": 0,
+            "12": 0,
+            "13": 0,
+            "14": 0,
+            "15": 0,
+            "16": 0,
+            "17": 0,
+            "18": 0,
+            "19": 0,
+            "20": 0,
+            "21": 0,
+            "22": 0,
+            "23": 0,
+            "24": 0,
+            "25": 0,
+            "26": 0,
+            "27": 0,
+            "28": 0,
+            "29": 0,
+            "30": 0,
+            "31": 0,
+            "32": 0,
+            "33": 0,
+            "34": 0,
+            "35": 0,
+            "36": 0,
+            "37": 0,
+            "38": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "/home/bernardo/Desktop/PokeAPI-ASP.NET/Services/DTOs/TokenDTO.cs": {
+      "Services.DTOs.TokenDTO": {
+        "System.String Services.DTOs.TokenDTO::get_Token()": {
+          "Lines": {
+            "5": 3
+          },
+          "Branches": []
+        },
+        "System.DateTime Services.DTOs.TokenDTO::get_ValidFrom()": {
+          "Lines": {
+            "6": 4
+          },
+          "Branches": []
+        },
+        "System.DateTime Services.DTOs.TokenDTO::get_ValidTo()": {
+          "Lines": {
+            "7": 4
+          },
+          "Branches": []
+        }
+      }
+    }
+  },
+  "Persistence.dll": {
+    "/home/bernardo/Desktop/PokeAPI-ASP.NET/Persistence/Migrations/20200804220313_InitialMigrations.cs": {
+      "Persistence.Migrations.InitialMigrations": {
+        "System.Void Persistence.Migrations.InitialMigrations::Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)": {
+          "Lines": {
+            "10": 0,
+            "11": 0,
+            "12": 0,
+            "13": 0,
+            "14": 0,
+            "15": 0,
+            "16": 0,
+            "17": 0,
+            "18": 0,
+            "19": 0,
+            "20": 0,
+            "21": 0,
+            "22": 0,
+            "23": 0,
+            "24": 0,
+            "25": 0,
+            "26": 0,
+            "28": 0,
+            "29": 0,
+            "30": 0,
+            "31": 0,
+            "32": 0,
+            "33": 0,
+            "34": 0,
+            "35": 0,
+            "36": 0,
+            "37": 0,
+            "38": 0,
+            "39": 0,
+            "40": 0,
+            "41": 0,
+            "42": 0,
+            "44": 0,
+            "45": 0,
+            "46": 0,
+            "47": 0,
+            "48": 0,
+            "49": 0,
+            "50": 0,
+            "51": 0,
+            "52": 0,
+            "53": 0,
+            "54": 0,
+            "55": 0,
+            "56": 0,
+            "57": 0,
+            "58": 0,
+            "59": 0,
+            "60": 0,
+            "61": 0,
+            "62": 0,
+            "63": 0,
+            "64": 0,
+            "65": 0,
+            "66": 0,
+            "67": 0,
+            "68": 0,
+            "69": 0,
+            "70": 0,
+            "72": 0,
+            "73": 0,
+            "74": 0,
+            "75": 0,
+            "76": 0,
+            "77": 0,
+            "78": 0,
+            "79": 0,
+            "80": 0,
+            "81": 0,
+            "82": 0,
+            "83": 0,
+            "84": 0,
+            "85": 0,
+            "86": 0,
+            "87": 0,
+            "88": 0,
+            "89": 0,
+            "90": 0,
+            "91": 0,
+            "92": 0,
+            "93": 0,
+            "94": 0,
+            "95": 0,
+            "97": 0,
+            "98": 0,
+            "99": 0,
+            "100": 0,
+            "101": 0,
+            "102": 0,
+            "103": 0,
+            "104": 0,
+            "105": 0,
+            "106": 0,
+            "107": 0,
+            "108": 0,
+            "109": 0,
+            "110": 0,
+            "111": 0,
+            "112": 0,
+            "113": 0,
+            "114": 0,
+            "115": 0,
+            "116": 0,
+            "117": 0,
+            "118": 0,
+            "119": 0,
+            "120": 0,
+            "121": 0,
+            "122": 0,
+            "123": 0,
+            "124": 0,
+            "126": 0,
+            "127": 0,
+            "128": 0,
+            "129": 0,
+            "131": 0,
+            "132": 0,
+            "133": 0,
+            "134": 0,
+            "135": 0,
+            "137": 0,
+            "138": 0,
+            "139": 0,
+            "140": 0,
+            "141": 0,
+            "142": 0
+          },
+          "Branches": []
+        },
+        "System.Void Persistence.Migrations.InitialMigrations::Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)": {
+          "Lines": {
+            "145": 0,
+            "146": 0,
+            "147": 0,
+            "149": 0,
+            "150": 0,
+            "152": 0,
+            "153": 0,
+            "155": 0,
+            "156": 0,
+            "158": 0,
+            "159": 0,
+            "160": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "/home/bernardo/Desktop/PokeAPI-ASP.NET/Persistence/Migrations/20200804220313_InitialMigrations.Designer.cs": {
+      "Persistence.Migrations.InitialMigrations": {
+        "System.Void Persistence.Migrations.InitialMigrations::BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)": {
+          "Lines": {
+            "17": 0,
+            "19": 0,
+            "20": 0,
+            "21": 0,
+            "22": 0,
+            "24": 0,
+            "25": 0,
+            "26": 0,
+            "27": 0,
+            "28": 0,
+            "29": 0,
+            "30": 0,
+            "31": 0,
+            "32": 0,
+            "33": 0,
+            "34": 0,
+            "35": 0,
+            "36": 0,
+            "37": 0,
+            "38": 0,
+            "39": 0,
+            "40": 0,
+            "41": 0,
+            "42": 0,
+            "43": 0,
+            "44": 0,
+            "45": 0,
+            "46": 0,
+            "47": 0,
+            "48": 0,
+            "49": 0,
+            "50": 0,
+            "51": 0,
+            "52": 0,
+            "53": 0,
+            "54": 0,
+            "55": 0,
+            "56": 0,
+            "57": 0,
+            "59": 0,
+            "60": 0,
+            "61": 0,
+            "62": 0,
+            "63": 0,
+            "64": 0,
+            "65": 0,
+            "66": 0,
+            "67": 0,
+            "68": 0,
+            "69": 0,
+            "70": 0,
+            "71": 0,
+            "72": 0,
+            "73": 0,
+            "74": 0,
+            "75": 0,
+            "76": 0,
+            "77": 0,
+            "78": 0,
+            "79": 0,
+            "80": 0,
+            "81": 0,
+            "82": 0,
+            "83": 0,
+            "84": 0,
+            "85": 0,
+            "86": 0,
+            "87": 0,
+            "88": 0,
+            "89": 0,
+            "91": 0,
+            "92": 0,
+            "93": 0,
+            "94": 0,
+            "95": 0,
+            "96": 0,
+            "97": 0,
+            "98": 0,
+            "99": 0,
+            "100": 0,
+            "101": 0,
+            "102": 0,
+            "103": 0,
+            "104": 0,
+            "105": 0,
+            "106": 0,
+            "107": 0,
+            "108": 0,
+            "109": 0,
+            "110": 0,
+            "111": 0,
+            "112": 0,
+            "113": 0,
+            "114": 0,
+            "115": 0,
+            "116": 0,
+            "117": 0,
+            "118": 0,
+            "119": 0,
+            "120": 0,
+            "121": 0,
+            "122": 0,
+            "123": 0,
+            "124": 0,
+            "125": 0,
+            "126": 0,
+            "127": 0,
+            "128": 0,
+            "129": 0,
+            "130": 0,
+            "131": 0,
+            "132": 0,
+            "133": 0,
+            "134": 0,
+            "135": 0,
+            "136": 0,
+            "137": 0,
+            "138": 0,
+            "139": 0,
+            "140": 0,
+            "142": 0,
+            "143": 0,
+            "144": 0,
+            "145": 0,
+            "146": 0,
+            "147": 0,
+            "148": 0,
+            "149": 0,
+            "150": 0,
+            "151": 0,
+            "152": 0,
+            "153": 0,
+            "154": 0,
+            "155": 0,
+            "156": 0,
+            "157": 0,
+            "158": 0,
+            "160": 0,
+            "161": 0,
+            "162": 0,
+            "163": 0,
+            "164": 0,
+            "165": 0,
+            "166": 0,
+            "167": 0,
+            "168": 0,
+            "169": 0,
+            "170": 0,
+            "171": 0,
+            "172": 0,
+            "173": 0,
+            "174": 0,
+            "175": 0,
+            "176": 0,
+            "177": 0,
+            "178": 0,
+            "179": 0,
+            "180": 0,
+            "181": 0,
+            "182": 0,
+            "183": 0,
+            "184": 0,
+            "185": 0,
+            "186": 0,
+            "187": 0,
+            "188": 0,
+            "189": 0,
+            "190": 0,
+            "191": 0,
+            "192": 0,
+            "193": 0,
+            "194": 0,
+            "195": 0,
+            "196": 0,
+            "197": 0,
+            "198": 0,
+            "199": 0,
+            "200": 0,
+            "201": 0,
+            "202": 0,
+            "203": 0,
+            "204": 0,
+            "205": 0,
+            "206": 0,
+            "207": 0,
+            "208": 0,
+            "209": 0,
+            "210": 0,
+            "212": 0,
+            "213": 0,
+            "214": 0,
+            "215": 0,
+            "216": 0,
+            "217": 0,
+            "218": 0,
+            "220": 0,
+            "221": 0,
+            "222": 0,
+            "223": 0,
+            "224": 0,
+            "225": 0,
+            "226": 0,
+            "227": 0,
+            "228": 0,
+            "229": 0,
+            "230": 0,
+            "231": 0,
+            "232": 0,
+            "233": 0,
+            "235": 0,
+            "236": 0,
+            "237": 0,
+            "238": 0,
+            "239": 0,
+            "240": 0,
+            "241": 0,
+            "242": 0,
+            "244": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "/home/bernardo/Desktop/PokeAPI-ASP.NET/Persistence/Migrations/20200805190920_AdminEmailAdded.cs": {
+      "Persistence.Migrations.AdminEmailAdded": {
+        "System.Void Persistence.Migrations.AdminEmailAdded::Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)": {
+          "Lines": {
+            "9": 0,
+            "10": 0,
+            "11": 0,
+            "12": 0,
+            "14": 0,
+            "15": 0,
+            "16": 0,
+            "17": 0,
+            "18": 0,
+            "19": 0,
+            "20": 0,
+            "21": 0,
+            "23": 0,
+            "24": 0,
+            "25": 0,
+            "26": 0,
+            "27": 0,
+            "28": 0,
+            "29": 0,
+            "30": 0,
+            "32": 0,
+            "33": 0,
+            "34": 0,
+            "35": 0,
+            "36": 0,
+            "37": 0,
+            "38": 0,
+            "39": 0,
+            "41": 0,
+            "42": 0,
+            "43": 0,
+            "44": 0,
+            "45": 0,
+            "46": 0,
+            "47": 0,
+            "48": 0,
+            "50": 0,
+            "51": 0,
+            "52": 0,
+            "53": 0,
+            "54": 0,
+            "55": 0,
+            "56": 0,
+            "57": 0,
+            "59": 0,
+            "60": 0,
+            "61": 0,
+            "62": 0,
+            "63": 0,
+            "64": 0,
+            "65": 0,
+            "66": 0,
+            "68": 0,
+            "69": 0,
+            "70": 0,
+            "71": 0,
+            "72": 0,
+            "73": 0,
+            "75": 0,
+            "76": 0,
+            "77": 0,
+            "78": 0,
+            "79": 0,
+            "80": 0,
+            "81": 0,
+            "82": 0,
+            "84": 0,
+            "85": 0,
+            "86": 0,
+            "87": 0,
+            "88": 0,
+            "89": 0,
+            "90": 0,
+            "91": 0,
+            "92": 0
+          },
+          "Branches": []
+        },
+        "System.Void Persistence.Migrations.AdminEmailAdded::Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)": {
+          "Lines": {
+            "95": 0,
+            "96": 0,
+            "97": 0,
+            "98": 0,
+            "100": 0,
+            "101": 0,
+            "102": 0,
+            "103": 0,
+            "104": 0,
+            "105": 0,
+            "106": 0,
+            "107": 0,
+            "109": 0,
+            "110": 0,
+            "111": 0,
+            "112": 0,
+            "113": 0,
+            "114": 0,
+            "115": 0,
+            "116": 0,
+            "118": 0,
+            "119": 0,
+            "120": 0,
+            "121": 0,
+            "122": 0,
+            "123": 0,
+            "124": 0,
+            "125": 0,
+            "127": 0,
+            "128": 0,
+            "129": 0,
+            "130": 0,
+            "131": 0,
+            "132": 0,
+            "133": 0,
+            "134": 0,
+            "136": 0,
+            "137": 0,
+            "138": 0,
+            "139": 0,
+            "140": 0,
+            "141": 0,
+            "142": 0,
+            "143": 0,
+            "145": 0,
+            "146": 0,
+            "147": 0,
+            "148": 0,
+            "149": 0,
+            "150": 0,
+            "151": 0,
+            "152": 0,
+            "154": 0,
+            "155": 0,
+            "156": 0,
+            "157": 0,
+            "158": 0,
+            "159": 0,
+            "160": 0,
+            "162": 0,
+            "163": 0,
+            "164": 0,
+            "165": 0,
+            "166": 0,
+            "167": 0,
+            "168": 0,
+            "169": 0,
+            "171": 0,
+            "172": 0,
+            "173": 0,
+            "174": 0,
+            "175": 0,
+            "176": 0,
+            "177": 0,
+            "178": 0,
+            "179": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "/home/bernardo/Desktop/PokeAPI-ASP.NET/Persistence/Migrations/20200805190920_AdminEmailAdded.Designer.cs": {
+      "Persistence.Migrations.AdminEmailAdded": {
+        "System.Void Persistence.Migrations.AdminEmailAdded::BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)": {
+          "Lines": {
+            "17": 0,
+            "19": 0,
+            "20": 0,
+            "21": 0,
+            "22": 0,
+            "24": 0,
+            "25": 0,
+            "26": 0,
+            "27": 0,
+            "28": 0,
+            "29": 0,
+            "30": 0,
+            "31": 0,
+            "32": 0,
+            "33": 0,
+            "34": 0,
+            "35": 0,
+            "36": 0,
+            "37": 0,
+            "38": 0,
+            "39": 0,
+            "40": 0,
+            "41": 0,
+            "42": 0,
+            "43": 0,
+            "44": 0,
+            "45": 0,
+            "46": 0,
+            "47": 0,
+            "48": 0,
+            "49": 0,
+            "50": 0,
+            "51": 0,
+            "52": 0,
+            "53": 0,
+            "54": 0,
+            "55": 0,
+            "56": 0,
+            "57": 0,
+            "59": 0,
+            "60": 0,
+            "61": 0,
+            "62": 0,
+            "63": 0,
+            "64": 0,
+            "65": 0,
+            "66": 0,
+            "67": 0,
+            "68": 0,
+            "69": 0,
+            "70": 0,
+            "71": 0,
+            "72": 0,
+            "73": 0,
+            "74": 0,
+            "75": 0,
+            "76": 0,
+            "77": 0,
+            "78": 0,
+            "79": 0,
+            "80": 0,
+            "81": 0,
+            "82": 0,
+            "83": 0,
+            "84": 0,
+            "85": 0,
+            "86": 0,
+            "87": 0,
+            "88": 0,
+            "89": 0,
+            "91": 0,
+            "92": 0,
+            "93": 0,
+            "94": 0,
+            "95": 0,
+            "96": 0,
+            "97": 0,
+            "98": 0,
+            "99": 0,
+            "100": 0,
+            "101": 0,
+            "102": 0,
+            "103": 0,
+            "104": 0,
+            "105": 0,
+            "106": 0,
+            "107": 0,
+            "108": 0,
+            "109": 0,
+            "110": 0,
+            "111": 0,
+            "112": 0,
+            "113": 0,
+            "114": 0,
+            "115": 0,
+            "116": 0,
+            "117": 0,
+            "118": 0,
+            "119": 0,
+            "120": 0,
+            "121": 0,
+            "122": 0,
+            "123": 0,
+            "124": 0,
+            "125": 0,
+            "126": 0,
+            "127": 0,
+            "128": 0,
+            "129": 0,
+            "130": 0,
+            "131": 0,
+            "132": 0,
+            "133": 0,
+            "134": 0,
+            "135": 0,
+            "136": 0,
+            "137": 0,
+            "138": 0,
+            "139": 0,
+            "140": 0,
+            "142": 0,
+            "143": 0,
+            "144": 0,
+            "145": 0,
+            "146": 0,
+            "147": 0,
+            "148": 0,
+            "149": 0,
+            "150": 0,
+            "151": 0,
+            "152": 0,
+            "153": 0,
+            "154": 0,
+            "155": 0,
+            "156": 0,
+            "157": 0,
+            "158": 0,
+            "160": 0,
+            "161": 0,
+            "162": 0,
+            "163": 0,
+            "164": 0,
+            "165": 0,
+            "166": 0,
+            "167": 0,
+            "168": 0,
+            "169": 0,
+            "170": 0,
+            "171": 0,
+            "172": 0,
+            "173": 0,
+            "174": 0,
+            "175": 0,
+            "176": 0,
+            "177": 0,
+            "178": 0,
+            "179": 0,
+            "180": 0,
+            "181": 0,
+            "182": 0,
+            "183": 0,
+            "184": 0,
+            "185": 0,
+            "186": 0,
+            "187": 0,
+            "188": 0,
+            "189": 0,
+            "190": 0,
+            "191": 0,
+            "192": 0,
+            "193": 0,
+            "194": 0,
+            "195": 0,
+            "196": 0,
+            "197": 0,
+            "198": 0,
+            "199": 0,
+            "200": 0,
+            "201": 0,
+            "202": 0,
+            "203": 0,
+            "204": 0,
+            "205": 0,
+            "206": 0,
+            "207": 0,
+            "208": 0,
+            "209": 0,
+            "210": 0,
+            "212": 0,
+            "213": 0,
+            "214": 0,
+            "215": 0,
+            "216": 0,
+            "217": 0,
+            "218": 0,
+            "220": 0,
+            "221": 0,
+            "222": 0,
+            "223": 0,
+            "224": 0,
+            "225": 0,
+            "226": 0,
+            "227": 0,
+            "228": 0,
+            "229": 0,
+            "230": 0,
+            "231": 0,
+            "232": 0,
+            "233": 0,
+            "235": 0,
+            "236": 0,
+            "237": 0,
+            "238": 0,
+            "239": 0,
+            "240": 0,
+            "241": 0,
+            "242": 0,
+            "244": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "/home/bernardo/Desktop/PokeAPI-ASP.NET/Persistence/Migrations/PokemonDbContextModelSnapshot.cs": {
+      "Persistence.Migrations.PokemonDbContextModelSnapshot": {
+        "System.Void Persistence.Migrations.PokemonDbContextModelSnapshot::BuildModel(Microsoft.EntityFrameworkCore.ModelBuilder)": {
+          "Lines": {
+            "15": 0,
+            "17": 0,
+            "18": 0,
+            "19": 0,
+            "20": 0,
+            "22": 0,
+            "23": 0,
+            "24": 0,
+            "25": 0,
+            "26": 0,
+            "27": 0,
+            "28": 0,
+            "29": 0,
+            "30": 0,
+            "31": 0,
+            "32": 0,
+            "33": 0,
+            "34": 0,
+            "35": 0,
+            "36": 0,
+            "37": 0,
+            "38": 0,
+            "39": 0,
+            "40": 0,
+            "41": 0,
+            "42": 0,
+            "43": 0,
+            "44": 0,
+            "45": 0,
+            "46": 0,
+            "47": 0,
+            "48": 0,
+            "49": 0,
+            "50": 0,
+            "51": 0,
+            "52": 0,
+            "53": 0,
+            "54": 0,
+            "55": 0,
+            "57": 0,
+            "58": 0,
+            "59": 0,
+            "60": 0,
+            "61": 0,
+            "62": 0,
+            "63": 0,
+            "64": 0,
+            "65": 0,
+            "66": 0,
+            "67": 0,
+            "68": 0,
+            "69": 0,
+            "70": 0,
+            "71": 0,
+            "72": 0,
+            "73": 0,
+            "74": 0,
+            "75": 0,
+            "76": 0,
+            "77": 0,
+            "78": 0,
+            "79": 0,
+            "80": 0,
+            "81": 0,
+            "82": 0,
+            "83": 0,
+            "84": 0,
+            "85": 0,
+            "86": 0,
+            "87": 0,
+            "89": 0,
+            "90": 0,
+            "91": 0,
+            "92": 0,
+            "93": 0,
+            "94": 0,
+            "95": 0,
+            "96": 0,
+            "97": 0,
+            "98": 0,
+            "99": 0,
+            "100": 0,
+            "101": 0,
+            "102": 0,
+            "103": 0,
+            "104": 0,
+            "105": 0,
+            "106": 0,
+            "107": 0,
+            "108": 0,
+            "109": 0,
+            "110": 0,
+            "111": 0,
+            "112": 0,
+            "113": 0,
+            "114": 0,
+            "115": 0,
+            "116": 0,
+            "117": 0,
+            "118": 0,
+            "119": 0,
+            "120": 0,
+            "121": 0,
+            "122": 0,
+            "123": 0,
+            "124": 0,
+            "125": 0,
+            "126": 0,
+            "127": 0,
+            "128": 0,
+            "129": 0,
+            "130": 0,
+            "131": 0,
+            "132": 0,
+            "133": 0,
+            "134": 0,
+            "135": 0,
+            "136": 0,
+            "137": 0,
+            "138": 0,
+            "140": 0,
+            "141": 0,
+            "142": 0,
+            "143": 0,
+            "144": 0,
+            "145": 0,
+            "146": 0,
+            "147": 0,
+            "148": 0,
+            "149": 0,
+            "150": 0,
+            "151": 0,
+            "152": 0,
+            "153": 0,
+            "154": 0,
+            "155": 0,
+            "156": 0,
+            "158": 0,
+            "159": 0,
+            "160": 0,
+            "161": 0,
+            "162": 0,
+            "163": 0,
+            "164": 0,
+            "165": 0,
+            "166": 0,
+            "167": 0,
+            "168": 0,
+            "169": 0,
+            "170": 0,
+            "171": 0,
+            "172": 0,
+            "173": 0,
+            "174": 0,
+            "175": 0,
+            "176": 0,
+            "177": 0,
+            "178": 0,
+            "179": 0,
+            "180": 0,
+            "181": 0,
+            "182": 0,
+            "183": 0,
+            "184": 0,
+            "185": 0,
+            "186": 0,
+            "187": 0,
+            "188": 0,
+            "189": 0,
+            "190": 0,
+            "191": 0,
+            "192": 0,
+            "193": 0,
+            "194": 0,
+            "195": 0,
+            "196": 0,
+            "197": 0,
+            "198": 0,
+            "199": 0,
+            "200": 0,
+            "201": 0,
+            "202": 0,
+            "203": 0,
+            "204": 0,
+            "205": 0,
+            "206": 0,
+            "207": 0,
+            "208": 0,
+            "210": 0,
+            "211": 0,
+            "212": 0,
+            "213": 0,
+            "214": 0,
+            "215": 0,
+            "216": 0,
+            "218": 0,
+            "219": 0,
+            "220": 0,
+            "221": 0,
+            "222": 0,
+            "223": 0,
+            "224": 0,
+            "225": 0,
+            "226": 0,
+            "227": 0,
+            "228": 0,
+            "229": 0,
+            "230": 0,
+            "231": 0,
+            "233": 0,
+            "234": 0,
+            "235": 0,
+            "236": 0,
+            "237": 0,
+            "238": 0,
+            "239": 0,
+            "240": 0,
+            "242": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "/home/bernardo/Desktop/PokeAPI-ASP.NET/Persistence/Mappings/AbilityMapping.cs": {
+      "Persistence.Mappings.AbilityMapping": {
+        "System.Void Persistence.Mappings.AbilityMapping::Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder`1<Domain.Ability>)": {
+          "Lines": {
+            "9": 0,
+            "10": 0,
+            "12": 0,
+            "13": 0,
+            "14": 0,
+            "15": 0,
+            "17": 0,
+            "18": 0,
+            "19": 0,
+            "20": 0,
+            "22": 0,
+            "23": 0,
+            "24": 0,
+            "25": 0,
+            "27": 0,
+            "28": 0,
+            "29": 0,
+            "30": 0,
+            "32": 0,
+            "33": 0,
+            "34": 0,
+            "35": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "/home/bernardo/Desktop/PokeAPI-ASP.NET/Persistence/Mappings/AdminMapping.cs": {
+      "Persistence.Mappings.AdminMapping": {
+        "System.Void Persistence.Mappings.AdminMapping::Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder`1<Domain.Admin>)": {
+          "Lines": {
+            "9": 0,
+            "10": 0,
+            "12": 0,
+            "14": 0,
+            "16": 0,
+            "17": 0,
+            "18": 0,
+            "19": 0,
+            "21": 0,
+            "22": 0,
+            "23": 0,
+            "24": 0,
+            "25": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "/home/bernardo/Desktop/PokeAPI-ASP.NET/Persistence/Mappings/PokemonAbilitiesMapping.cs": {
+      "Persistence.Mappings.PokemonAbilitiesMapping": {
+        "System.Void Persistence.Mappings.PokemonAbilitiesMapping::Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder`1<Domain.PokemonAbilities>)": {
+          "Lines": {
+            "10": 0,
+            "11": 0,
+            "12": 0,
+            "13": 0,
+            "14": 0,
+            "16": 0,
+            "17": 0,
+            "18": 0,
+            "19": 0,
+            "21": 0,
+            "22": 0,
+            "23": 0,
+            "24": 0,
+            "25": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "/home/bernardo/Desktop/PokeAPI-ASP.NET/Persistence/Mappings/PokemonMapping.cs": {
+      "Persistence.Mappings.PokemonMapping": {
+        "System.Void Persistence.Mappings.PokemonMapping::Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder`1<Domain.Pokemon>)": {
+          "Lines": {
+            "9": 0,
+            "10": 0,
+            "12": 0,
+            "13": 0,
+            "14": 0,
+            "15": 0,
+            "17": 0,
+            "18": 0,
+            "19": 0,
+            "20": 0,
+            "21": 0,
+            "22": 0,
+            "23": 0,
+            "24": 0,
+            "26": 0,
+            "27": 0,
+            "28": 0,
+            "29": 0,
+            "30": 0,
+            "31": 0,
+            "32": 0,
+            "33": 0,
+            "35": 0,
+            "36": 0,
+            "37": 0,
+            "39": 0,
+            "40": 0,
+            "41": 0,
+            "43": 0,
+            "44": 0,
+            "45": 0,
+            "47": 0,
+            "48": 0,
+            "49": 0,
+            "51": 0,
+            "52": 0,
+            "53": 0,
+            "54": 0,
+            "55": 0,
+            "57": 0,
+            "58": 0,
+            "59": 0,
+            "60": 0,
+            "62": 0,
+            "63": 0,
+            "64": 0,
+            "65": 0,
+            "67": 0,
+            "68": 0,
+            "69": 0,
+            "70": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "/home/bernardo/Desktop/PokeAPI-ASP.NET/Persistence/Mappings/StatsMapping.cs": {
+      "Persistence.Mappings.StatsMapping": {
+        "System.Void Persistence.Mappings.StatsMapping::Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder`1<Domain.Stats>)": {
+          "Lines": {
+            "9": 0,
+            "10": 0,
+            "12": 0,
+            "14": 0,
+            "16": 0,
+            "18": 0,
+            "20": 0,
+            "22": 0,
+            "24": 0,
+            "26": 0,
+            "27": 0,
+            "28": 0,
+            "29": 0,
+            "31": 0,
+            "32": 0,
+            "33": 0,
+            "34": 0,
+            "36": 0,
+            "37": 0,
+            "38": 0,
+            "39": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "/home/bernardo/Desktop/PokeAPI-ASP.NET/Persistence/Context/PokemonDbContext.cs": {
+      "Persistence.Context.PokemonDbContext": {
+        "Microsoft.EntityFrameworkCore.DbSet`1<Domain.Pokemon> Persistence.Context.PokemonDbContext::get_Pokemons()": {
+          "Lines": {
+            "8": 0
+          },
+          "Branches": []
+        },
+        "Microsoft.EntityFrameworkCore.DbSet`1<Domain.Ability> Persistence.Context.PokemonDbContext::get_Abilities()": {
+          "Lines": {
+            "9": 0
+          },
+          "Branches": []
+        },
+        "Microsoft.EntityFrameworkCore.DbSet`1<Domain.Stats> Persistence.Context.PokemonDbContext::get_Stats()": {
+          "Lines": {
+            "10": 0
+          },
+          "Branches": []
+        },
+        "Microsoft.EntityFrameworkCore.DbSet`1<Domain.Admin> Persistence.Context.PokemonDbContext::get_Admins()": {
+          "Lines": {
+            "11": 0
+          },
+          "Branches": []
+        },
+        "System.Void Persistence.Context.PokemonDbContext::OnModelCreating(Microsoft.EntityFrameworkCore.ModelBuilder)": {
+          "Lines": {
+            "16": 0,
+            "17": 0,
+            "18": 0,
+            "19": 0,
+            "20": 0,
+            "21": 0,
+            "22": 0
+          },
+          "Branches": []
+        },
+        "System.Void Persistence.Context.PokemonDbContext::.ctor(Microsoft.EntityFrameworkCore.DbContextOptions`1<Persistence.Context.PokemonDbContext>)": {
+          "Lines": {
+            "14": 0
+          },
+          "Branches": []
+        }
+      }
+    }
+  }
+}

@@ -1,23 +1,30 @@
 using System.Threading.Tasks;
+using System.IdentityModel.Tokens.Jwt;
 
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.Configuration;
 
 using Domain;
 using Services.DTOs;
+using Services.Exceptions;
 using Services.Interfaces;
 using Persistence.Repositories.Interfaces;
-using Services.Exceptions;
-using Microsoft.AspNetCore.Http;
+using System;
 
 namespace Services.Implementations {
   public class AdminAuthenticationServiceImpl : AdminAuthenticationService {
+    private readonly IConfiguration configuration;
     private readonly AdminsRepository adminsRepository;
     private readonly IPasswordHasher<Admin> passwordHasher;
 
     public AdminAuthenticationServiceImpl(
+      IConfiguration configuration,
       AdminsRepository adminsRepository,
       IPasswordHasher<Admin> passwordHasher
+
     ) {
+      this.configuration = configuration;
       this.passwordHasher = passwordHasher;
       this.adminsRepository = adminsRepository;
     }
@@ -26,6 +33,8 @@ namespace Services.Implementations {
       AuthenticationAdminDTO auth
     ) {
       var admin = await adminsRepository.FindByEmail(auth.Email);
+
+      Console.WriteLine(admin == null);
 
       if (admin == null) {
         throw new AdminException(
@@ -47,11 +56,14 @@ namespace Services.Implementations {
         );
       }
 
-      // GENERATE TOKEN!!
+      var token = TokenService.GenerateToken(configuration, admin);
 
       return new AuthenticatedAdminDTO() {
         Id = admin.Id,
         Email = admin.Email,
+        Token = token.Token,
+        ValidFrom = token.ValidFrom,
+        ExpiresIn = token.ValidTo,
       };
     }
   }
