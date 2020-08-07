@@ -66,8 +66,11 @@ namespace Tests.UnitTests {
       // Assert
       Assert.Equal(1, response.Id);
       Assert.Equal("johndoe@example.com", response.Email);
-      Assert.Equal(DateTime.Today.Date, response.ValidFrom.Date);
-      Assert.Equal(DateTime.Today.AddDays(1).Date, response.ExpiresIn.Date);
+      Assert.Equal(DateTime.Today.Date, response.ValidFrom.ToLocalTime().Date);
+      Assert.Equal(
+        DateTime.Today.AddDays(1).Date,
+        response.ValidTo.ToLocalTime().Date
+      );
     }
 
     [Fact]

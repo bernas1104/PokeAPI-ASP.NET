@@ -10,21 +10,22 @@ using Microsoft.AspNetCore.Authorization;
 
 using Services.DTOs;
 using PokeAPI.ViewModels;
+using Services.Interfaces;
 using PokeAPI.ViewModels.Exceptions;
 
 namespace PokeAPI.Controllers {
   [ApiController]
   [Route("v1/[controller]")]
   public class SessionsController : ControllerBase {
-    // Services!
+    private readonly AdminAuthenticationService adminAuthentication;
 
-    public SessionsController() {
-      //
+    public SessionsController(AdminAuthenticationService adminAuthentication) {
+      this.adminAuthentication = adminAuthentication;
     }
 
     [HttpPost]
     [AllowAnonymous]
-    public ActionResult<SessionViewModel> Create(
+    public async Task<ActionResult<SessionViewModel>> Create(
       [FromBody] AuthenticationAdminDTO auth
     ) {
       auth.Validate();
@@ -37,9 +38,15 @@ namespace PokeAPI.Controllers {
         );
       }
 
-      // Calls the auth service!
+      var session = await adminAuthentication.AuthenticateAdmin(auth);
 
-      return new SessionViewModel();
+      return Ok(new SessionViewModel() {
+        Id = session.Id,
+        Email = session.Email,
+        Token = session.Token,
+        ValidFrom = session.ValidFrom,
+        ValidTo = session.ValidTo
+      });
     }
   }
 }

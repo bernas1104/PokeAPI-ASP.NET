@@ -34,8 +34,6 @@ namespace Services.Implementations {
     ) {
       var admin = await adminsRepository.FindByEmail(auth.Email);
 
-      Console.WriteLine(admin == null);
-
       if (admin == null) {
         throw new AdminException(
           "Invalid e-mail/password combination",
@@ -63,7 +61,7 @@ namespace Services.Implementations {
         Email = admin.Email,
         Token = token.Token,
         ValidFrom = token.ValidFrom,
-        ExpiresIn = token.ValidTo,
+        ValidTo = token.ValidTo,
       };
     }
   }

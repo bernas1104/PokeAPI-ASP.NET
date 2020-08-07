@@ -13,6 +13,8 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Persistence.Context;
 
+using PokeAPI.Configuration;
+
 namespace PokeAPI {
     public class Startup {
       public Startup(IConfiguration configuration) {
@@ -27,8 +29,14 @@ namespace PokeAPI {
           options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection"));
         });
 
+        services.AddCors();
+
         services.AddControllers();
         services.AddScoped<PokemonDbContext>();
+
+        services.AddAuthenticationConfiguration(Configuration);
+        services.AddExceptionsMiddleware();
+        services.ResolveDependencies();
       }
 
       // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -40,9 +48,18 @@ namespace PokeAPI {
 
         app.UseHttpsRedirection();
 
+        app.UseCors(x => x
+          .AllowAnyOrigin()
+          .AllowAnyMethod()
+          .AllowAnyHeader()
+        );
+
         app.UseRouting();
 
         app.UseAuthorization();
+        app.UseAuthentication();
+
+        app.UseExceptionsMiddlewareHandler();
 
         app.UseEndpoints(endpoints =>
         {
