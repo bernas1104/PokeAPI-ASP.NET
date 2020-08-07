@@ -1,3 +1,5 @@
+using System;
+
 using Microsoft.EntityFrameworkCore;
 
 using Domain;
@@ -19,6 +21,15 @@ namespace Persistence.Context {
       builder.ApplyConfiguration(new StatsMapping());
       builder.ApplyConfiguration(new AdminMapping());
       builder.ApplyConfiguration(new PokemonAbilitiesMapping());
+
+
+      builder.Entity<Admin>().HasData(new Admin() {
+        Id = 1,
+        Email = "bernardoc1104@gmail.com",
+        Password = "AQAAAAEAACcQAAAAEBwF+KTzyPtq0ReO+PjXxZKOg4WzIB1OD7RC+s8DYkVYeOgumfgoq3K6a6LQ3Th4AQ==",
+        CreatedAt = DateTime.Now,
+        UpdatedAt = DateTime.Now,
+      });
     }
   }
 }
