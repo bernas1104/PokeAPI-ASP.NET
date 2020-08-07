@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 
-using PokeAPI.ViewModels.Exceptions;
+using Services.Exceptions;
 
 namespace PokeAPI.Middlewares {
   public class ExceptionsHandlerMiddleware : IMiddleware {
@@ -20,8 +20,10 @@ namespace PokeAPI.Middlewares {
     public async Task InvokeAsync(HttpContext context, RequestDelegate next) {
       try {
         await next(context);
-      } catch (ViewModelException vm) {
-        await HandleValidationException(context, vm);
+      } catch (ServiceDTOException sde) {
+        await HandleValidationException(context, sde);
+      } catch (ServiceException se) {
+        await HandleServiceException(context, se);
       } catch (Exception ex) {
         await HandleUnknownException(context, ex);
       }
@@ -29,15 +31,30 @@ namespace PokeAPI.Middlewares {
 
     private Task HandleValidationException(
       HttpContext context,
-      ViewModelException vmException
+      ServiceDTOException sdException
     ) {
       var json = JsonConvert.SerializeObject(new {
-        vmException.StatusCode,
-        message = vmException.Message,
-        details = vmException.Validations,
+        sdException.StatusCode,
+        message = sdException.Message,
+        details = sdException.Validations,
       });
 
-      context.Response.StatusCode = vmException.StatusCode;
+      context.Response.StatusCode = sdException.StatusCode;
+      context.Response.ContentType = ContentType;
+
+      return context.Response.WriteAsync(json);
+    }
+
+    private Task HandleServiceException(
+      HttpContext context,
+      ServiceException sException
+    ) {
+      var json = JsonConvert.SerializeObject(new {
+        sException.StatusCode,
+        message = sException.Message,
+      });
+
+      context.Response.StatusCode = sException.StatusCode;
       context.Response.ContentType = ContentType;
 
       return context.Response.WriteAsync(json);

@@ -11,11 +11,12 @@ using Microsoft.AspNetCore.Authorization;
 using Services.DTOs;
 using PokeAPI.ViewModels;
 using Services.Interfaces;
-using PokeAPI.ViewModels.Exceptions;
+using Services.Exceptions;
 
 namespace PokeAPI.Controllers {
   [ApiController]
   [Route("v1/[controller]")]
+  [Produces("application/json")]
   public class SessionsController : ControllerBase {
     private readonly AdminAuthenticationService adminAuthentication;
 
@@ -31,7 +32,7 @@ namespace PokeAPI.Controllers {
       auth.Validate();
 
       if (auth.Invalid) {
-        throw new ViewModelException(
+        throw new ServiceDTOException(
           "An error occurred while trying to authenticate the system admin",
           StatusCodes.Status400BadRequest,
           auth.Notifications

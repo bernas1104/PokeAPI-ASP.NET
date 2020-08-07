@@ -13,7 +13,7 @@ using Services.Interfaces;
 using Services.Implementations;
 using Persistence.Repositories.Interfaces;
 
-namespace Tests.UnitTests {
+namespace Tests.UnitTests.Services {
   public class AdminAuthenticationServiceTest {
     private Mock<IConfiguration> configuration;
     private Mock<AdminsRepository> adminsRepository;

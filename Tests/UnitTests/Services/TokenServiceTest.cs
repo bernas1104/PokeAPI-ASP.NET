@@ -7,7 +7,7 @@ using Microsoft.Extensions.Configuration;
 using Domain;
 using Services.Implementations;
 
-namespace Tests.UnitTests {
+namespace Tests.UnitTests.Services {
   public class TokenServiceTest {
     private readonly Mock<IConfiguration> configuration;
 

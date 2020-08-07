@@ -3,14 +3,14 @@ using System.Collections.Generic;
 
 using Flunt.Notifications;
 
-namespace PokeAPI.ViewModels.Exceptions {
-  public class ViewModelException : Exception {
+namespace Services.Exceptions {
+  public class ServiceDTOException : Exception {
     public int StatusCode { get; }
     public IReadOnlyCollection<Notification> Validations { get; }
 
-    public ViewModelException(string message) : base(message) {}
+    public ServiceDTOException(string message) : base(message) {}
 
-    public ViewModelException(
+    public ServiceDTOException(
       string message,
       int statusCode,
       IReadOnlyCollection<Notification> validations
