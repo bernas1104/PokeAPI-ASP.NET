@@ -1,11 +1,8 @@
-﻿using System;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Collections.Generic;
+﻿using System.Threading.Tasks;
 
+using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.Logging;
 using Microsoft.AspNetCore.Authorization;
 
 using Services.DTOs;
@@ -18,10 +15,15 @@ namespace PokeAPI.Controllers {
   [Route("v1/[controller]")]
   [Produces("application/json")]
   public class SessionsController : ControllerBase {
+    private readonly IMapper mapper;
     private readonly AdminAuthenticationService adminAuthentication;
 
-    public SessionsController(AdminAuthenticationService adminAuthentication) {
+    public SessionsController(
+      AdminAuthenticationService adminAuthentication,
+      IMapper mapper
+    ) {
       this.adminAuthentication = adminAuthentication;
+      this.mapper = mapper;
     }
 
     [HttpPost]
@@ -40,14 +42,9 @@ namespace PokeAPI.Controllers {
       }
 
       var session = await adminAuthentication.AuthenticateAdmin(auth);
+      var sessionViewModel = mapper.Map<SessionViewModel>(session);
 
-      return Ok(new SessionViewModel() {
-        Id = session.Id,
-        Email = session.Email,
-        Token = session.Token,
-        ValidFrom = session.ValidFrom,
-        ValidTo = session.ValidTo
-      });
+      return Ok(session);
     }
   }
 }

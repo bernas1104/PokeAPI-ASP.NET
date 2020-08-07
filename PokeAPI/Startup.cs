@@ -1,18 +1,12 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-using Persistence.Context;
 
+using Persistence.Context;
 using PokeAPI.Configuration;
 
 namespace PokeAPI {
@@ -36,6 +30,7 @@ namespace PokeAPI {
 
         services.AddAuthenticationConfiguration(Configuration);
         services.AddExceptionsMiddleware();
+        services.AddAutoMapper(typeof(Startup));
         services.ResolveDependencies();
       }
 
