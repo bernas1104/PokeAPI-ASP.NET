@@ -1,5 +1,5 @@
 namespace Domain {
-  public class PokemonAbilities {
+  public class PokemonAbility {
     public int PokemonId { get; set; }
     public int AbilityId { get; set; }
     public bool Hidden { get; set; }

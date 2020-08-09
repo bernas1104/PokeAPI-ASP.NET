@@ -9,7 +9,7 @@ namespace Domain {
     public int? EvolutionId { get; set; }
     public int? EvolutionLevel { get; set; }
     public int LevelingRate { get; set; }
-    public int CatchRate { get; set; }
+    public float CatchRate { get; set; }
     public int HatchTime { get; set; }
     public DateTime CreatedAt { get; set; }
     public DateTime UpdatedAt { get; set; }
@@ -17,7 +17,7 @@ namespace Domain {
 
     public Pokemon PreEvolution { get; set; }
     public Pokemon Evolution { get; set; }
-    public IEnumerable<PokemonAbilities> PokemonAbilities { get; set; }
+    public IEnumerable<PokemonAbility> PokemonAbilities { get; set; }
     public Stats Stats { get; set; }
   }
 }

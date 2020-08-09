@@ -10,6 +10,6 @@ namespace Domain {
     public DateTime UpdatedAt { get; set; }
     public DateTime? DeletedAt { get; set; }
 
-    public IEnumerable<PokemonAbilities> PokemonAbilities { get; set; }
+    public IEnumerable<PokemonAbility> PokemonAbilities { get; set; }
   }
 }

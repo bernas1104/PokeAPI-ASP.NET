@@ -5,22 +5,22 @@ using Domain;
 using System;
 
 namespace Persistence.Mappings {
-  public class PokemonAbilitiesMapping
-    : IEntityTypeConfiguration<PokemonAbilities> {
-    public void Configure(EntityTypeBuilder<PokemonAbilities> builder) {
-      builder.HasKey(pkmnabilities => new {
-        pkmnabilities.PokemonId,
-        pkmnabilities.AbilityId
+  public class PokemonAbilityMapping
+    : IEntityTypeConfiguration<PokemonAbility> {
+    public void Configure(EntityTypeBuilder<PokemonAbility> builder) {
+      builder.HasKey(pkmnability => new {
+        pkmnability.PokemonId,
+        pkmnability.AbilityId
       });
 
       builder
         .HasOne(pkmnabilites => pkmnabilites.Pokemon)
         .WithMany(pkmn => pkmn.PokemonAbilities)
-        .HasForeignKey(pkmnabilities => pkmnabilities.PokemonId);
+        .HasForeignKey(pkmnability => pkmnability.PokemonId);
 
       builder
         .HasOne(pkmnabilites => pkmnabilites.Ability)
-        .WithMany(abilities => abilities.PokemonAbilities)
+        .WithMany(Ability => Ability.PokemonAbilities)
         .HasForeignKey(pkmnabilites => pkmnabilites.AbilityId);
     }
   }
