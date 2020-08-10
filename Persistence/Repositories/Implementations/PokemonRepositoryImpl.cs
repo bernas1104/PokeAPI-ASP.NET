@@ -1,5 +1,3 @@
-using System;
-using System.Linq;
 using System.Threading.Tasks;
 
 using Microsoft.EntityFrameworkCore;
@@ -17,11 +15,15 @@ namespace Persistence.Repositories.Implementations {
     }
 
     public async Task<bool> ExistsById(int id) {
-      return await dbContext.Pokemons.AnyAsync(pkmn => pkmn.Id == id);
+      return await dbContext.Pokemons
+        .AsNoTracking()
+        .AnyAsync(pkmn => pkmn.Id == id);
     }
 
     public async Task<bool> ExistsByName(string name) {
-      return await dbContext.Pokemons.AnyAsync(pkmn => pkmn.Name == name);
+      return await dbContext.Pokemons
+        .AsNoTracking()
+        .AnyAsync(pkmn => pkmn.Name == name);
     }
 
     public async Task<Pokemon> CreatePokemon(Pokemon pokemon) {
@@ -34,7 +36,16 @@ namespace Persistence.Repositories.Implementations {
       int pokemonId,
       int abilityId
     ) {
-      throw new NotImplementedException();
+      var pokemonAbility = new PokemonAbility() {
+        PokemonId = pokemonId,
+        AbilityId = abilityId,
+      };
+
+      dbContext.PokemonAbilities.Add(pokemonAbility);
+
+      await SaveChangesToDatabase();
+
+      return pokemonAbility;
     }
 
     private async Task SaveChangesToDatabase() {

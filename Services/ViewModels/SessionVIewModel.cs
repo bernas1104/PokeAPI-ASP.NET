@@ -1,7 +1,7 @@
 using System;
 
-namespace Services.DTOs {
-  public class AuthenticatedAdminDTO {
+namespace Services.ViewModels {
+  public class SessionViewModel {
     public int Id { get; set; }
     public string Email { get; set; }
     public string Token { get; set; }

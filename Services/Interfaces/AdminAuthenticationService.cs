@@ -1,11 +1,11 @@
 using System.Threading.Tasks;
 
-using Services.DTOs;
+using Services.ViewModels;
 
 namespace Services.Interfaces {
   public interface AdminAuthenticationService {
-    public Task<AuthenticatedAdminDTO> AuthenticateAdmin(
-      AuthenticationAdminDTO auth
+    public Task<SessionViewModel> AuthenticateAdmin(
+      LoginViewModel auth
     );
   }
 }

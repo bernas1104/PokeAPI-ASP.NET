@@ -1,12 +1,15 @@
 using AutoMapper;
 
+using Domain;
 using Services.DTOs;
-using PokeAPI.ViewModels;
+using Services.ViewModels;
 
 namespace PokeAPI.Configuration {
   public class AutoMapperConfiguration : Profile {
     public AutoMapperConfiguration() {
-      CreateMap<AuthenticatedAdminDTO, SessionViewModel>();
+      CreateMap<Pokemon, PokemonViewModel>().ReverseMap();
+      CreateMap<Stats, StatsViewModel>().ReverseMap();
+      CreateMap<Ability, AbilityViewModel>().ReverseMap();
     }
   }
 }

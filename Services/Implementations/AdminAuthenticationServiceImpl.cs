@@ -7,6 +7,7 @@ using Microsoft.Extensions.Configuration;
 
 using Domain;
 using Services.DTOs;
+using Services.ViewModels;
 using Services.Exceptions;
 using Services.Interfaces;
 using Persistence.Repositories.Interfaces;
@@ -29,8 +30,8 @@ namespace Services.Implementations {
       this.adminsRepository = adminsRepository;
     }
 
-    public async Task<AuthenticatedAdminDTO> AuthenticateAdmin(
-      AuthenticationAdminDTO auth
+    public async Task<SessionViewModel> AuthenticateAdmin(
+      LoginViewModel auth
     ) {
       var admin = await adminsRepository.FindByEmail(auth.Email);
 
@@ -56,7 +57,7 @@ namespace Services.Implementations {
 
       var token = TokenService.GenerateToken(configuration, admin);
 
-      return new AuthenticatedAdminDTO() {
+      return new SessionViewModel() {
         Id = admin.Id,
         Email = admin.Email,
         Token = token.Token,

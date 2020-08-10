@@ -51,8 +51,8 @@ namespace PokeAPI {
 
         app.UseRouting();
 
-        app.UseAuthorization();
         app.UseAuthentication();
+        app.UseAuthorization();
 
         app.UseExceptionsMiddlewareHandler();
 

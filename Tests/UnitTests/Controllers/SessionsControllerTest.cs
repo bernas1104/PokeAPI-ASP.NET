@@ -6,9 +6,8 @@ using Xunit;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 
-using Services.DTOs;
-using PokeAPI.ViewModels;
 using PokeAPI.Controllers;
+using Services.ViewModels;
 using Services.Interfaces;
 using Services.Exceptions;
 
@@ -25,12 +24,12 @@ namespace Tests.UnitTests.Controllers {
     [Fact]
     public async Task Should_Return_200_Status_Code_With_Valid_DTO() {
       // Arrange
-      var data = new AuthenticationAdminDTO() {
+      var data = new LoginViewModel() {
         Email = "johndoe@example.com",
         Password = "123456"
       };
 
-      var session = new AuthenticatedAdminDTO() {
+      var session = new SessionViewModel() {
         Id = 1,
         Email = "johndoe@example.com",
         Token = "JWTToken",
@@ -66,7 +65,7 @@ namespace Tests.UnitTests.Controllers {
     [Fact]
     public async Task Should_Throw_Exception_With_Invalid_DTO() {
       // Arrange
-      var data = new AuthenticationAdminDTO() {
+      var data = new LoginViewModel() {
         Email = null,
         Password = null
       };
@@ -79,7 +78,7 @@ namespace Tests.UnitTests.Controllers {
       // Act
 
       // Assert
-      await Assert.ThrowsAsync<ServiceDTOException>(
+      await Assert.ThrowsAsync<ServiceViewModelException>(
         () => sessionsController.Create(data)
       );
     }

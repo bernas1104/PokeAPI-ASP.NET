@@ -5,8 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Authorization;
 
-using Services.DTOs;
-using PokeAPI.ViewModels;
+using Services.ViewModels;
 using Services.Interfaces;
 using Services.Exceptions;
 
@@ -29,12 +28,12 @@ namespace PokeAPI.Controllers {
     [HttpPost]
     [AllowAnonymous]
     public async Task<ActionResult<SessionViewModel>> Create(
-      [FromBody] AuthenticationAdminDTO auth
+      [FromBody] LoginViewModel auth
     ) {
       auth.Validate();
 
       if (auth.Invalid) {
-        throw new ServiceDTOException(
+        throw new ServiceViewModelException(
           "An error occurred while trying to authenticate the system admin",
           StatusCodes.Status400BadRequest,
           auth.Notifications

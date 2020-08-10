@@ -14,10 +14,17 @@ namespace PokeAPI.Configuration {
       services.AddScoped<PokemonDbContext>();
 
       services.AddScoped<AdminsRepository, AdminsRepositoryImpl>();
+      services.AddScoped<AbilitiesRepository, AbilitiesRepositoryImpl>();
+      services.AddScoped<PokemonRepository, PokemonRepositoryImpl>();
+      services.AddScoped<StatsRepository, StatsRepositoryImpl>();
 
       services.AddTransient<
         AdminAuthenticationService,
         AdminAuthenticationServiceImpl
+      >();
+      services.AddTransient<
+        PokemonServices,
+        PokemonServicesImpl
       >();
 
       return services;

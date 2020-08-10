@@ -9,7 +9,7 @@ using Xunit;
 using Newtonsoft.Json;
 
 using PokeAPI;
-using Services.DTOs;
+using Services.ViewModels;
 
 namespace Tests.IntegrationTests {
   public class AdminAuthenticationTest
@@ -26,7 +26,7 @@ namespace Tests.IntegrationTests {
     public async Task Should_Authenticate_Admin() {
       // Arrange
       var client = factory.CreateClient();
-      var data = new AuthenticationAdminDTO() {
+      var data = new LoginViewModel() {
         Email = "johndoe@example.com",
         Password = "123456"
       };
@@ -44,7 +44,7 @@ namespace Tests.IntegrationTests {
       // Assert
       Assert.Equal(HttpStatusCode.OK, response.StatusCode);
 
-      var session = JsonConvert.DeserializeObject<AuthenticatedAdminDTO>(
+      var session = JsonConvert.DeserializeObject<SessionViewModel>(
         await response.Content.ReadAsStringAsync()
       );
 
@@ -77,7 +77,7 @@ namespace Tests.IntegrationTests {
     ) {
       // Arrange
       var client = factory.CreateClient();
-      var data = new AuthenticationAdminDTO() {
+      var data = new LoginViewModel() {
         Email = email,
         Password = password
       };
@@ -100,7 +100,7 @@ namespace Tests.IntegrationTests {
     public async Task Should_Not_Authenticate_Non_Existing_Admin() {
       // Arrange
       var client = factory.CreateClient();
-      var data = new AuthenticationAdminDTO() {
+      var data = new LoginViewModel() {
         Email = "johntre@example.com",
         Password = "123456"
       };
@@ -123,7 +123,7 @@ namespace Tests.IntegrationTests {
     public async Task Should_Not_Authenticate_With_Wrong_Password() {
       // Arrange
       var client = factory.CreateClient();
-      var data = new AuthenticationAdminDTO() {
+      var data = new LoginViewModel() {
         Email = "johndoe@example.com",
         Password = "123455"
       };

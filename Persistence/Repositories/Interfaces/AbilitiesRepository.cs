@@ -5,6 +5,7 @@ using Domain;
 
 namespace Persistence.Repositories.Interfaces {
   public interface AbilitiesRepository {
+    public Task<bool> ExistsById(int abilityId);
     public Task<IList<Ability>> FindByPokemonId(int pokemonId);
   }
 }

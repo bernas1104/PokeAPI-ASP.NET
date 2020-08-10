@@ -1,8 +1,8 @@
 using Flunt.Validations;
 using Flunt.Notifications;
 
-namespace Services.DTOs {
-  public class AuthenticationAdminDTO : Notifiable, IValidatable {
+namespace Services.ViewModels {
+  public class LoginViewModel : Notifiable, IValidatable {
     public string Email { get; set; }
     public string Password { get; set; }
 

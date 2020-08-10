@@ -20,7 +20,7 @@ namespace PokeAPI.Middlewares {
     public async Task InvokeAsync(HttpContext context, RequestDelegate next) {
       try {
         await next(context);
-      } catch (ServiceDTOException sde) {
+      } catch (ServiceViewModelException sde) {
         await HandleValidationException(context, sde);
       } catch (ServiceException se) {
         await HandleServiceException(context, se);
@@ -31,7 +31,7 @@ namespace PokeAPI.Middlewares {
 
     private Task HandleValidationException(
       HttpContext context,
-      ServiceDTOException sdException
+      ServiceViewModelException sdException
     ) {
       var json = JsonConvert.SerializeObject(new {
         sdException.StatusCode,

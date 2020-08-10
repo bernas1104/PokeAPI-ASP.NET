@@ -1,13 +1,12 @@
-using System;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 
 using AutoMapper;
 
 using Domain;
-using Services.DTOs;
 using Services.Interfaces;
 using Services.ViewModels;
+using Services.Exceptions;
 using Persistence.Repositories.Interfaces;
 
 namespace Services.Implementations {
@@ -29,56 +28,76 @@ namespace Services.Implementations {
       this.mapper = mapper;
     }
 
-    public async Task<PokemonViewModel> CreatePokemon(CreatePokemonDTO data) {
-      var pokemonData = data.PokemonData;
+    public async Task<PokemonViewModel> CreatePokemon(PokemonViewModel data) {
+      var pokemon = mapper.Map<Pokemon>(data);
 
-      var pokemon = await pokemonRepository.CreatePokemon(pokemonData);
+      var pokemonNumberRegistered = await pokemonRepository.ExistsById(
+        pokemon.Id
+      );
 
-      var statsData = data.PokemonStatsData;
+      if (pokemonNumberRegistered) {
+        throw new PokemonException(
+          "Pokemon number must be unique",
+          400
+        );
+      }
 
-      var stats = await statsRepository.CreateStats(statsData);
+      var pokemonNameRegistered = await pokemonRepository.ExistsByName(
+        pokemon.Name
+      );
+
+      if (pokemonNameRegistered) {
+        throw new PokemonException(
+          "Pokemon name must be unique",
+          400
+        );
+      }
+
+      var abilityExists = await abilitiesRepository.ExistsById(
+        data.Abilities[0].Id
+      );
+
+      if (!abilityExists) {
+        throw new AbilityException(
+          "Informed ability does not exist",
+          404
+        );
+      }
+
+      abilityExists = await abilitiesRepository.ExistsById(
+        data.Abilities[1].Id
+      );
+
+      if (!abilityExists) {
+        throw new AbilityException(
+          "Informed hidden ability does not exist",
+          404
+        );
+      }
+
+      pokemon = await pokemonRepository.CreatePokemon(pokemon);
+
+      var stats = mapper.Map<Stats>(data.Stats);
+      stats.PokemonId = pokemon.Id;
+      stats = await statsRepository.CreateStats(stats);
 
       var ability = await pokemonRepository.CreatePokemonAbility(
         pokemon.Id,
-        data.AbilityId
+        data.Abilities[0].Id
       );
       var hiddenAbility = await pokemonRepository.CreatePokemonAbility(
         pokemon.Id,
-        data.HiddenAbilityId
+        data.Abilities[1].Id
       );
 
       var abilities = await abilitiesRepository.FindByPokemonId(pokemon.Id);
 
-      return new PokemonViewModel() {
-        Id = pokemon.Id,
-        Name = pokemon.Name,
-        EvolutionLevel = pokemon.EvolutionLevel,
-        LevelingRate = pokemon.LevelingRate,
-        CatchRate = pokemon.CatchRate,
-        HatchTime = pokemon.HatchTime,
-        Stats = new StatsViewModel() {
-          HitPoints = stats.HitPoints,
-          Attack = stats.Attack,
-          Defense = stats.Defense,
-          SpecialAttack = stats.SpecialAttack,
-          SpecialDefense = stats.SpecialDefense,
-          Speed = stats.Speed,
-          Total = stats.Total,
-        },
-        Abilities = new List<AbilityViewModel>() {
-          new AbilityViewModel() {
-            Id = abilities[0].Id,
-            Name = abilities[0].Name,
-            Effect = abilities[0].Effect
-          },
-          new AbilityViewModel() {
-            Id = abilities[1].Id,
-            Name = abilities[1].Name,
-            Effect = abilities[1].Effect
-          },
-        },
-        CreatedAt = pokemon.CreatedAt
-      };
+      var pokemonViewModel = mapper.Map<PokemonViewModel>(pokemon);
+      pokemonViewModel.Stats = mapper.Map<StatsViewModel>(stats);
+      pokemonViewModel.Abilities = mapper
+        .Map<List<AbilityViewModel>>(abilities);
+
+      return pokemonViewModel;
     }
   }
 }

@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 
 using Domain;
-using Services.DTOs;
+using Services.ViewModels;
 using Services.Exceptions;
 using Services.Interfaces;
 using Services.Implementations;
@@ -55,7 +55,7 @@ namespace Tests.UnitTests.Services {
       configuration.Setup(obj => obj["JWTSecret"])
         .Returns("fedaf7d8863b48e197b9287d492b708e");
 
-      var auth = new AuthenticationAdminDTO() {
+      var auth = new LoginViewModel() {
         Email = "johndoe@example.com",
         Password = "123456"
       };
@@ -89,7 +89,7 @@ namespace Tests.UnitTests.Services {
       )
       .Returns(PasswordVerificationResult.Success);
 
-      var auth = new AuthenticationAdminDTO() {
+      var auth = new LoginViewModel() {
         Email = "johndoe@example.com",
         Password = "123456"
       };
@@ -127,7 +127,7 @@ namespace Tests.UnitTests.Services {
       // Act
 
       // Assert
-      var auth = new AuthenticationAdminDTO() {
+      var auth = new LoginViewModel() {
         Email = "johndoe@example.com",
         Password = "123456"
       };
