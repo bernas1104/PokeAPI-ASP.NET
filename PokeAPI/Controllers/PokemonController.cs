@@ -32,7 +32,7 @@ namespace PokeAPI.Controllers {
 
       var response = await pokemonServices.CreatePokemon(data);
 
-      return Ok(response);
+      return Created(nameof(Create), response);
     }
   }
 }

@@ -1,6 +1,11 @@
 using System;
+using System.Text;
 using System.Linq;
+using System.Net.Http;
+using System.Threading.Tasks;
+using System.Net.Http.Headers;
 
+using Newtonsoft.Json;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.AspNetCore.Identity;
@@ -10,6 +15,8 @@ using Microsoft.Extensions.DependencyInjection;
 
 using Domain;
 using Persistence.Context;
+using Services.ViewModels;
+using System.Collections.Generic;
 
 namespace Tests {
   public class CustomWebApplicationFactory<TStartup>
@@ -50,6 +57,20 @@ namespace Tests {
             admin.Password = passwordHasher.HashPassword(admin, "123456");
 
             db.Admins.Add(admin);
+
+            var abilities = new List<Ability>() {
+              new Ability() {
+                Name = "Lorem Ipsum",
+                Effect = "Lorem Ipsum"
+              },
+              new Ability() {
+                Name = "Lorem Ipsum",
+                Effect = "Lorem Ipsum"
+              }
+            };
+
+            db.Abilities.AddRange(abilities);
+
             db.SaveChanges();
           } catch (Exception ex) {
             logger.LogError(ex, "An error has occurred seeding the " +
@@ -58,6 +79,36 @@ namespace Tests {
           }
         }
       });
+    }
+
+    public async Task AuthenticateAsync(HttpClient client) {
+      var token = await GetJwtAsync(client);
+
+      client.DefaultRequestHeaders.Authorization =
+        new AuthenticationHeaderValue("bearer", token);
+    }
+
+    private async Task<string> GetJwtAsync(HttpClient client) {
+      var response = await client.PostAsync("/v1/sessions",
+        new StringContent(
+          JsonConvert.SerializeObject(
+            new LoginViewModel() {
+              Email = "johndoe@example.com",
+              Password = "123456"
+            }
+          ), Encoding.UTF8
+        ) {
+          Headers = {
+            ContentType = new MediaTypeHeaderValue("application/json")
+          }
+        }
+      );
+
+      var session = JsonConvert.DeserializeObject<SessionViewModel>(
+        await response.Content.ReadAsStringAsync()
+      );
+
+      return session.Token;
     }
   }
 }

@@ -1,7 +1,6 @@
 using AutoMapper;
 
 using Domain;
-using Services.DTOs;
 using Services.ViewModels;
 
 namespace PokeAPI.Configuration {

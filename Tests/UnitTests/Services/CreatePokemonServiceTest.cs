@@ -8,10 +8,11 @@ using Xunit;
 using AutoMapper;
 
 using Domain;
-using Services.DTOs;
+using Tests.Bogus.Domain;
 using Services.ViewModels;
 using Services.Interfaces;
 using Services.Exceptions;
+using Tests.Bogus.ViewModel;
 using Services.Implementations;
 using Persistence.Repositories.Interfaces;
 
@@ -40,98 +41,52 @@ namespace Tests.UnitTests {
     [Fact]
     public async Task Should_Be_Able_To_Create_New_Pokemon() {
       // Arrange
-      var pokemon = new Pokemon() {
-        Id = 1,
-        Name = "Bulbasaur",
-        EvolutionLevel = 16,
-        LevelingRate = 3,
-        CatchRate = 11.9F,
-        HatchTime = 5268,
-        CreatedAt = DateTime.Now,
-      };
+      var pokemon = BogusDomain.PokemonFaker();
 
-      var stats = new Stats() {
-        HitPoints = 45,
-        Attack = 49,
-        Defense = 49,
-        SpecialAttack = 65,
-        SpecialDefense = 65,
-        Speed = 45,
-        Total = 318,
-      };
+      var stats = BogusDomain.StatsFaker();
 
-      var data = new PokemonViewModel() {
-        Id = 1,
-        Name = "Bulbasaur",
-        EvolutionLevel = 16,
-        LevelingRate = 3,
-        CatchRate = 11.9F,
-        HatchTime = 5268,
-        CreatedAt = DateTime.Now,
-        Stats = new StatsViewModel() {
-          HitPoints = 45,
-          Attack = 49,
-          Defense = 49,
-          SpecialAttack = 65,
-          SpecialDefense = 65,
-          Speed = 45,
-          Total = 318,
-        },
-        Abilities = new List<AbilityViewModel>() {
-          new AbilityViewModel() { Id = 1},
-          new AbilityViewModel() { Id = 2},
-        },
-      };
+      var abilities = BogusDomain.AbilitiesFaker();
 
-      var ability = new Ability() {
-        Id = 1,
-        Name = "Lorem Ipsum #1",
-        Effect = "Some description of the ability effect"
-      };
+      var data = BogusViewModel.PokemonViewModelFaker(pokemon, stats, abilities);
 
-      var hiddenAbility = new Ability() {
-        Id = 2,
-        Name = "Lorem Ipsum #2",
-        Effect = "Some description of the ability effect"
-      };
-
-      var abilities = new List<Ability>() {ability, hiddenAbility};
-
-      var pokemonViewModel = new PokemonViewModel() {
-        Id = 1,
-        Name = "Bulbasaur",
-        EvolutionLevel = 16,
-        LevelingRate = 3,
-        CatchRate = 11.9F,
-        HatchTime = 5268,
-        CreatedAt = DateTime.Now,
+      var response = new PokemonViewModel() {
+        Id = pokemon.Id,
+        Name = pokemon.Name,
+        EvolutionLevel = pokemon.EvolutionLevel,
+        LevelingRate = pokemon.LevelingRate,
+        CatchRate = pokemon.CatchRate,
+        HatchTime = pokemon.HatchTime,
+        CreatedAt = pokemon.CreatedAt,
       };
 
       var statsViewModel = data.Stats;
 
       var abilityViewModel = new AbilityViewModel() {
-        Id = ability.Id,
-        Name = ability.Name,
-        Effect = ability.Effect,
+        Id = abilities[0].Id,
+        Name = abilities[0].Name,
+        Effect = abilities[0].Effect,
       };
 
       var hiddenAbilityViewModel = new AbilityViewModel() {
-        Id = hiddenAbility.Id,
-        Name = hiddenAbility.Name,
-        Effect = hiddenAbility.Effect,
+        Id = abilities[1].Id,
+        Name = abilities[1].Name,
+        Effect = abilities[1].Effect,
       };
 
       mapper.Setup(x => x.Map<Pokemon>(data)).Returns(pokemon);
       mapper.Setup(x => x.Map<Stats>(data.Stats)).Returns(stats);
-      pokemonRepository.Setup(x => x.ExistsById(1)).ReturnsAsync(false);
-      pokemonRepository.Setup(x => x.ExistsByName("Bulbasaur"))
+      pokemonRepository.Setup(x => x.ExistsById(pokemon.Id)).ReturnsAsync(false);
+      pokemonRepository.Setup(x => x.ExistsByName(pokemon.Name))
         .ReturnsAsync(false);
       pokemonRepository.Setup(x => x.CreatePokemon(pokemon))
         .ReturnsAsync(pokemon);
       statsRepository.Setup(x => x.CreateStats(stats))
         .ReturnsAsync(stats);
       abilitiesRepository.Setup(x => x.ExistsById(
-        It.IsInRange<int>(1, 2, Moq.Range.Inclusive)
+        abilities[0].Id
+      )).ReturnsAsync(true);
+      abilitiesRepository.Setup(x => x.ExistsById(
+        abilities[1].Id
       )).ReturnsAsync(true);
       pokemonRepository.Setup(x => x.CreatePokemonAbility(
         data.Id, data.Abilities[0].Id
@@ -147,11 +102,11 @@ namespace Tests.UnitTests {
       });
       abilitiesRepository.Setup(x => x.FindByPokemonId(data.Id))
         .ReturnsAsync(new List<Ability>(){
-          ability,
-          hiddenAbility
+          abilities[0],
+          abilities[1]
         });
       mapper.Setup(x => x.Map<PokemonViewModel>(pokemon)).Returns(
-        pokemonViewModel
+        response
       );
       mapper.Setup(x => x.Map<StatsViewModel>(stats)).Returns(
         statsViewModel
@@ -164,59 +119,34 @@ namespace Tests.UnitTests {
       );
 
       // Act
-      var response = await pokemonServices.CreatePokemon(data);
+      var result = await pokemonServices.CreatePokemon(data);
 
       // Assert
-      Assert.IsType<PokemonViewModel>(response);
-      Assert.IsType<StatsViewModel>(response.Stats);
-      Assert.IsType<List<AbilityViewModel>>(response.Abilities);
-      Assert.Equal(1, response.Id);
-      Assert.Equal(318, response.Stats.Total);
-      Assert.Equal(2, response.Abilities.Count);
+      Assert.IsType<PokemonViewModel>(result);
+      Assert.IsType<StatsViewModel>(result.Stats);
+      Assert.IsType<List<AbilityViewModel>>(result.Abilities);
+      Assert.Equal(pokemon.Id, result.Id);
+      Assert.Equal(stats.Total, result.Stats.Total);
+      Assert.Equal(2, result.Abilities.Count);
       Assert.Equal(
         DateTime.Today.ToLocalTime().Date,
-        response.CreatedAt.ToLocalTime().Date
+        result.CreatedAt.ToLocalTime().Date
       );
     }
 
     [Fact]
     public async Task Should_Not_Create_Pokemon_If_Number_Not_Unique() {
       // Arrange
-      var pokemon = new Pokemon() {
-        Id = 1,
-        Name = "Bulbasaur",
-        EvolutionLevel = 16,
-        LevelingRate = 3,
-        CatchRate = 11.9F,
-        HatchTime = 5268,
-        CreatedAt = DateTime.Now
-      };
+      var pokemon = BogusDomain.PokemonFaker();
 
-      var data = new PokemonViewModel() {
-        Id = 1,
-        Name = "Bulbasaur",
-        EvolutionLevel = 16,
-        LevelingRate = 3,
-        CatchRate = 11.9F,
-        HatchTime = 5268,
-        CreatedAt = DateTime.Now,
-        Stats = new StatsViewModel() {
-          HitPoints = 45,
-          Attack = 49,
-          Defense = 49,
-          SpecialAttack = 65,
-          SpecialDefense = 65,
-          Speed = 45,
-          Total = 318,
-        },
-        Abilities = new List<AbilityViewModel>() {
-          new AbilityViewModel() { Id = 1},
-          new AbilityViewModel() { Id = 2},
-        },
-      };
+      var stats = BogusDomain.StatsFaker();
+
+      var abilities = BogusDomain.AbilitiesFaker();
+
+      var data = BogusViewModel.PokemonViewModelFaker(pokemon, stats, abilities);
 
       mapper.Setup(x => x.Map<Pokemon>(data)).Returns(pokemon);
-      pokemonRepository.Setup(x => x.ExistsById(1)).ReturnsAsync(true);
+      pokemonRepository.Setup(x => x.ExistsById(pokemon.Id)).ReturnsAsync(true);
 
       // Act
 
@@ -229,44 +159,17 @@ namespace Tests.UnitTests {
     [Fact]
     public async Task Should_Not_Create_Pokemon_If_Name_Not_Unique() {
       // Arrange
-      var pokemon = new Pokemon() {
-        Id = 1,
-        Name = "Bulbasaur",
-        EvolutionLevel = 16,
-        LevelingRate = 3,
-        CatchRate = 11.9F,
-        HatchTime = 5268,
-        CreatedAt = DateTime.Now
-      };
+      var pokemon = BogusDomain.PokemonFaker();
 
-      var pokemonStats = new StatsViewModel() {
-        HitPoints = 45,
-        Attack = 49,
-        Defense = 49,
-        SpecialAttack = 65,
-        SpecialDefense = 65,
-        Speed = 45,
-        Total = 318,
-      };
+      var stats = BogusDomain.StatsFaker();
 
-      var data = new PokemonViewModel() {
-        Id = 1,
-        Name = "Bulbasaur",
-        EvolutionLevel = 16,
-        LevelingRate = 3,
-        CatchRate = 11.9F,
-        HatchTime = 5268,
-        CreatedAt = DateTime.Now,
-        Stats = pokemonStats,
-        Abilities = new List<AbilityViewModel>() {
-          new AbilityViewModel() { Id = 1},
-          new AbilityViewModel() { Id = 2},
-        },
-      };
+      var abilities = BogusDomain.AbilitiesFaker();
+
+      var data = BogusViewModel.PokemonViewModelFaker(pokemon, stats, abilities);
 
       mapper.Setup(x => x.Map<Pokemon>(data)).Returns(pokemon);
-      pokemonRepository.Setup(x => x.ExistsById(1)).ReturnsAsync(false);
-      pokemonRepository.Setup(x => x.ExistsByName("Bulbasaur"))
+      pokemonRepository.Setup(x => x.ExistsById(pokemon.Id)).ReturnsAsync(false);
+      pokemonRepository.Setup(x => x.ExistsByName(pokemon.Name))
         .ReturnsAsync(true);
 
       // Act
@@ -284,66 +187,27 @@ namespace Tests.UnitTests {
       bool abilityPresent, bool hiddenAbilityPresent
     ) {
       // Arrange
-      var pokemon = new Pokemon() {
-        Id = 1,
-        Name = "Bulbasaur",
-        EvolutionLevel = 16,
-        LevelingRate = 3,
-        CatchRate = 11.9F,
-        HatchTime = 5268,
-        CreatedAt = DateTime.Now
-      };
+      var pokemon = BogusDomain.PokemonFaker();
 
-      var pokemonStats = new StatsViewModel() {
-        HitPoints = 45,
-        Attack = 49,
-        Defense = 49,
-        SpecialAttack = 65,
-        SpecialDefense = 65,
-        Speed = 45,
-        Total = 318,
-      };
+      var stats = BogusDomain.StatsFaker();
 
-      var stats = new Stats() {
-        HitPoints = 45,
-        Attack = 49,
-        Defense = 49,
-        SpecialAttack = 65,
-        SpecialDefense = 65,
-        Speed = 45,
-        Total = 318,
-      };
+      var abilities = BogusDomain.AbilitiesFaker();
 
-      var data = new PokemonViewModel() {
-        Id = 1,
-        Name = "Bulbasaur",
-        EvolutionLevel = 16,
-        LevelingRate = 3,
-        CatchRate = 11.9F,
-        HatchTime = 5268,
-        CreatedAt = DateTime.Now,
-        Stats = pokemonStats,
-        Abilities = new List<AbilityViewModel>() {
-          new AbilityViewModel() { Id = 1},
-          new AbilityViewModel() { Id = 2},
-        },
-      };
+      var data = BogusViewModel.PokemonViewModelFaker(pokemon, stats, abilities);
 
       mapper.Setup(x => x.Map<Pokemon>(data)).Returns(pokemon);
       mapper.Setup(x => x.Map<Stats>(data.Stats)).Returns(stats);
-      pokemonRepository.Setup(x => x.ExistsById(1)).ReturnsAsync(false);
-      pokemonRepository.Setup(x => x.ExistsByName("Bulbasaur"))
+      pokemonRepository.Setup(x => x.ExistsById(pokemon.Id)).ReturnsAsync(false);
+      pokemonRepository.Setup(x => x.ExistsByName(pokemon.Name))
         .ReturnsAsync(false);
       pokemonRepository.Setup(x => x.CreatePokemon(pokemon))
         .ReturnsAsync(pokemon);
       statsRepository.Setup(x => x.CreateStats(stats))
         .ReturnsAsync(stats);
-      abilitiesRepository.Setup(x => x.ExistsById(1)).ReturnsAsync(
-        abilityPresent
-      );
-      abilitiesRepository.Setup(x => x.ExistsById(2)).ReturnsAsync(
-        hiddenAbilityPresent
-      );
+      abilitiesRepository.Setup(x => x.ExistsById(abilities[0].Id))
+        .ReturnsAsync(abilityPresent);
+      abilitiesRepository.Setup(x => x.ExistsById(abilities[1].Id))
+        .ReturnsAsync(hiddenAbilityPresent);
 
       // Act
 

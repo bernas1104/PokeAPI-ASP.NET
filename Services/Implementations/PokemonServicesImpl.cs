@@ -31,49 +31,13 @@ namespace Services.Implementations {
     public async Task<PokemonViewModel> CreatePokemon(PokemonViewModel data) {
       var pokemon = mapper.Map<Pokemon>(data);
 
-      var pokemonNumberRegistered = await pokemonRepository.ExistsById(
-        pokemon.Id
-      );
+      await CheckUniquePokemonId(pokemon.Id);
 
-      if (pokemonNumberRegistered) {
-        throw new PokemonException(
-          "Pokemon number must be unique",
-          400
-        );
-      }
+      await CheckUniquePokemonName(pokemon.Name);
 
-      var pokemonNameRegistered = await pokemonRepository.ExistsByName(
-        pokemon.Name
-      );
+      await CheckAbilityExists(data.Abilities[0].Id);
 
-      if (pokemonNameRegistered) {
-        throw new PokemonException(
-          "Pokemon name must be unique",
-          400
-        );
-      }
-
-      var abilityExists = await abilitiesRepository.ExistsById(
-        data.Abilities[0].Id
-      );
-
-      if (!abilityExists) {
-        throw new AbilityException(
-          "Informed ability does not exist",
-          404
-        );
-      }
-
-      abilityExists = await abilitiesRepository.ExistsById(
-        data.Abilities[1].Id
-      );
-
-      if (!abilityExists) {
-        throw new AbilityException(
-          "Informed hidden ability does not exist",
-          404
-        );
-      }
+      await CheckAbilityExists(data.Abilities[1].Id);
 
       pokemon = await pokemonRepository.CreatePokemon(pokemon);
 
@@ -98,6 +62,45 @@ namespace Services.Implementations {
         .Map<List<AbilityViewModel>>(abilities);
 
       return pokemonViewModel;
+    }
+
+    private async Task CheckUniquePokemonId(int pokemonId) {
+      var pokemonNumberRegistered = await pokemonRepository.ExistsById(
+        pokemonId
+      );
+
+      if (pokemonNumberRegistered) {
+        throw new PokemonException(
+          "Pokemon number must be unique",
+          400
+        );
+      }
+    }
+
+    private async Task CheckUniquePokemonName(string pokemonName) {
+      var pokemonNameRegistered = await pokemonRepository.ExistsByName(
+        pokemonName
+      );
+
+      if (pokemonNameRegistered) {
+        throw new PokemonException(
+          "Pokemon name must be unique",
+          400
+        );
+      }
+    }
+
+    private async Task CheckAbilityExists(int abilityId) {
+      var abilityExists = await abilitiesRepository.ExistsById(
+        abilityId
+      );
+
+      if (!abilityExists) {
+        throw new AbilityException(
+          "Informed ability does not exist",
+          404
+        );
+      }
     }
   }
 }
