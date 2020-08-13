@@ -8,15 +8,13 @@ using System.Net.Http.Headers;
 using Newtonsoft.Json;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Logging;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.Extensions.DependencyInjection;
 
-using Domain;
+using Tests.Utilities;
 using Persistence.Context;
 using Services.ViewModels;
-using System.Collections.Generic;
 
 namespace Tests {
   public class CustomWebApplicationFactory<TStartup>
@@ -45,33 +43,7 @@ namespace Tests {
           db.Database.EnsureCreated();
 
           try {
-            // Seed!
-            // Export to a Utilities class!
-            var admin = new Admin() {
-              Email = "johndoe@example.com",
-              CreatedAt = DateTime.Now,
-              UpdatedAt = DateTime.Now,
-            };
-
-            IPasswordHasher<Admin> passwordHasher = new PasswordHasher<Admin>();
-            admin.Password = passwordHasher.HashPassword(admin, "123456");
-
-            db.Admins.Add(admin);
-
-            var abilities = new List<Ability>() {
-              new Ability() {
-                Name = "Lorem Ipsum",
-                Effect = "Lorem Ipsum"
-              },
-              new Ability() {
-                Name = "Lorem Ipsum",
-                Effect = "Lorem Ipsum"
-              }
-            };
-
-            db.Abilities.AddRange(abilities);
-
-            db.SaveChanges();
+            DatabaseSeeder.InitializeDatabase(db);
           } catch (Exception ex) {
             logger.LogError(ex, "An error has occurred seeding the " +
               "database with data. Error: {Message}", ex.Message

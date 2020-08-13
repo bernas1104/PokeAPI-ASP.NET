@@ -35,6 +35,8 @@ namespace Services.Implementations {
 
       await CheckUniquePokemonName(pokemon.Name);
 
+      CheckAbilitiesAreDiferent(data.Abilities[0].Id, data.Abilities[1].Id);
+
       await CheckAbilityExists(data.Abilities[0].Id);
 
       await CheckAbilityExists(data.Abilities[1].Id);
@@ -99,6 +101,18 @@ namespace Services.Implementations {
         throw new AbilityException(
           "Informed ability does not exist",
           404
+        );
+      }
+    }
+
+    private async void CheckAbilitiesAreDiferent(
+      int firstAbilityId,
+      int secondAbilityId
+    ) {
+      if (firstAbilityId == secondAbilityId) {
+        throw new AbilityException(
+          "Informed abilities must be different",
+          400
         );
       }
     }

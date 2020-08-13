@@ -98,8 +98,16 @@ namespace Tests.Bogus.ViewModel {
 
     public static IList<AbilityViewModel> AbilityViewModelFaker() {
       return new List<AbilityViewModel>() {
-        new AbilityViewModel() { Id = 1 },
-        new AbilityViewModel() { Id = 2 }
+        new AbilityViewModel() {
+          Id = 1,
+          Name = "Lorem Ipsum",
+          Effect = "Lorem Ipsum",
+        },
+        new AbilityViewModel() {
+          Id = 2,
+          Name = "Lorem Ipsum",
+          Effect = "Lorem Ipsum",
+        }
       };
     }
   }

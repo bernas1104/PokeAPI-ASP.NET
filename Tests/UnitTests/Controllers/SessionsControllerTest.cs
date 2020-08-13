@@ -9,7 +9,6 @@ using Microsoft.AspNetCore.Mvc;
 using PokeAPI.Controllers;
 using Services.ViewModels;
 using Services.Interfaces;
-using Services.Exceptions;
 
 namespace Tests.UnitTests.Controllers {
   public class SessionsControllerTest {
@@ -22,7 +21,7 @@ namespace Tests.UnitTests.Controllers {
     }
 
     [Fact]
-    public async Task Should_Return_200_Status_Code_With_Valid_DTO() {
+    public async Task Should_Return_200_Status_Code_With_Valid_ViewModel() {
       // Arrange
       var data = new LoginViewModel() {
         Email = "johndoe@example.com",
@@ -63,7 +62,7 @@ namespace Tests.UnitTests.Controllers {
     }
 
     [Fact]
-    public async Task Should_Throw_Exception_With_Invalid_DTO() {
+    public async Task Should_Throw_Exception_With_Invalid_ViewModel() {
       // Arrange
       var data = new LoginViewModel() {
         Email = null,
@@ -76,11 +75,11 @@ namespace Tests.UnitTests.Controllers {
       );
 
       // Act
+      var response = await sessionsController.Create(data);
 
       // Assert
-      await Assert.ThrowsAsync<ServiceViewModelException>(
-        () => sessionsController.Create(data)
-      );
+      Assert.NotNull(response);
+      Assert.IsType<BadRequestObjectResult>(response.Result);
     }
   }
 }

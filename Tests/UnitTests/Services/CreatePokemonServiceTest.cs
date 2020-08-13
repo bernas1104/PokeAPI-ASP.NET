@@ -180,6 +180,36 @@ namespace Tests.UnitTests {
       );
     }
 
+    [Fact]
+    public async Task Should_Not_Create_Pokemon_If_Abilities_Are_Equal() {
+      // Arrange
+      var pokemon = BogusDomain.PokemonFaker();
+
+      var stats = BogusDomain.StatsFaker();
+
+      var abilities = BogusDomain.AbilitiesFaker();
+      abilities[1].Id = abilities[0].Id;
+
+      var data = BogusViewModel.PokemonViewModelFaker(pokemon, stats, abilities);
+
+      mapper.Setup(x => x.Map<Pokemon>(data)).Returns(pokemon);
+      mapper.Setup(x => x.Map<Stats>(data.Stats)).Returns(stats);
+      pokemonRepository.Setup(x => x.ExistsById(pokemon.Id)).ReturnsAsync(false);
+      pokemonRepository.Setup(x => x.ExistsByName(pokemon.Name))
+        .ReturnsAsync(false);
+      pokemonRepository.Setup(x => x.CreatePokemon(pokemon))
+        .ReturnsAsync(pokemon);
+      statsRepository.Setup(x => x.CreateStats(stats))
+        .ReturnsAsync(stats);
+
+      // Act
+
+      // Assert
+      await Assert.ThrowsAsync<AbilityException>(
+        () => pokemonServices.CreatePokemon(data)
+      );
+    }
+
     [Theory]
     [InlineData(false, true)]
     [InlineData(true, false)]

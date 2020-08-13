@@ -32,13 +32,8 @@ namespace PokeAPI.Controllers {
     ) {
       auth.Validate();
 
-      if (auth.Invalid) {
-        throw new ServiceViewModelException(
-          "An error occurred while trying to authenticate the system admin",
-          StatusCodes.Status400BadRequest,
-          auth.Notifications
-        );
-      }
+      if (auth.Invalid)
+        return BadRequest(auth.Notifications);
 
       var session = await adminAuthentication.AuthenticateAdmin(auth);
       var sessionViewModel = mapper.Map<SessionViewModel>(session);
