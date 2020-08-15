@@ -18,7 +18,7 @@ namespace Tests.UnitTests.Controllers {
     }
 
     [Fact]
-    public async Task Should_Return_200_Status_Code_With_Valid_ViewModel() {
+    public async Task Should_Return_201_Status_Code_With_Valid_ViewModel() {
       // Arrange
       var data = BogusViewModel.PokemonViewModelFaker();
 

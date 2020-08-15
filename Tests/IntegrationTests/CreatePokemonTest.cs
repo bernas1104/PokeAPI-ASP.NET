@@ -1,4 +1,3 @@
-using System;
 using System.Net;
 using System.Text;
 using System.Net.Http;
@@ -52,7 +51,7 @@ namespace Tests.IntegrationTests {
     }
 
     [Fact]
-    public async Task Should_Return_401_If_Admin_Not_Authenticated() {
+    public async Task Should_Return_401_Status_Code_If_Admin_Not_Authenticated() {
       // Arrange
       var client = factory.CreateClient();
 

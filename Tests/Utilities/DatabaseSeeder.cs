@@ -35,12 +35,14 @@ namespace Tests.Utilities {
     private static IList<Ability> InitializeAbilities() {
       return new List<Ability>() {
         new Ability() {
-          Name = "Lorem Ipsum",
+          Id = 1,
+          Name = "Lorem Ipsum 1",
           Effect = "Lorem Ipsum"
         },
         new Ability() {
+          Id = 2,
           Name = "Lorem Ipsum",
-          Effect = "Lorem Ipsum"
+          Effect = "Lorem Ipsum 2"
         }
       };
     }
