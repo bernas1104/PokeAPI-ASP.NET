@@ -96,19 +96,22 @@ namespace Tests.Bogus.ViewModel {
       return statsViewModel.Generate();
     }
 
-    public static IList<AbilityViewModel> AbilityViewModelFaker() {
-      return new List<AbilityViewModel>() {
-        new AbilityViewModel() {
-          Id = 1,
-          Name = "Lorem Ipsum",
-          Effect = "Lorem Ipsum",
-        },
-        new AbilityViewModel() {
-          Id = 2,
-          Name = "Lorem Ipsum",
-          Effect = "Lorem Ipsum",
-        }
-      };
+    public static AbilityViewModel AbilityViewModelFaker() {
+      var abilityViewModel = new Faker<AbilityViewModel>()
+        .RuleFor(x => x.Id, (f) => f.Random.Int(1, 260))
+        .RuleFor(x => x.Name, (f) => f.Lorem.Word())
+        .RuleFor(x => x.Effect, (f) => f.Lorem.Sentences(5, " "));
+
+      return abilityViewModel.Generate();
+    }
+
+    public static IList<AbilityViewModel> AbilityViewModelFaker(int quantity) {
+      var abilityViewModel = new Faker<AbilityViewModel>()
+        .RuleFor(x => x.Id, (f) => f.Random.Int(1, 260))
+        .RuleFor(x => x.Name, (f) => f.Lorem.Word())
+        .RuleFor(x => x.Effect, (f) => f.Lorem.Sentences(5, " "));
+
+      return abilityViewModel.Generate(quantity);
     }
   }
 }

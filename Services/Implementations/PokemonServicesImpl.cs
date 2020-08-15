@@ -105,7 +105,7 @@ namespace Services.Implementations {
       }
     }
 
-    private async void CheckAbilitiesAreDiferent(
+    private void CheckAbilitiesAreDiferent(
       int firstAbilityId,
       int secondAbilityId
     ) {

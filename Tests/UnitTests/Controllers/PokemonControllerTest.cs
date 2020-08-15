@@ -25,7 +25,7 @@ namespace Tests.UnitTests.Controllers {
       var data = BogusViewModel.PokemonViewModelFaker();
 
       var responseData = data;
-      responseData.Abilities = BogusViewModel.AbilityViewModelFaker();
+      responseData.Abilities = BogusViewModel.AbilityViewModelFaker(2);
 
       pokemonServices.Setup(x => x.CreatePokemon(data)).ReturnsAsync(
         responseData

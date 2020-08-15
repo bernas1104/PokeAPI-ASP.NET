@@ -16,10 +16,22 @@ namespace Persistence.Repositories.Implementations {
       this.dbContext = dbContext;
     }
 
+    public async Task<Ability> CreateAbility(Ability ability) {
+      dbContext.Abilities.Add(ability);
+      await SaveChangesToDatabase();
+      return ability;
+    }
+
     public async Task<bool> ExistsById(int abilityId) {
       return await dbContext.Abilities
         .AsNoTracking()
         .AnyAsync(ability => ability.Id == abilityId);
+    }
+
+    public async Task<bool> ExistsByName(string abilityName) {
+      return await dbContext.Abilities
+        .AsNoTracking()
+        .AnyAsync(ability => ability.Name.Equals(abilityName));
     }
 
     public async Task<IList<Ability>> FindByPokemonId(int pokemonId) {
@@ -35,6 +47,10 @@ namespace Persistence.Repositories.Implementations {
       });
 
       return abilities;
+    }
+
+    private async Task SaveChangesToDatabase() {
+      await dbContext.SaveChangesAsync();
     }
   }
 }
