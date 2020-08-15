@@ -4,35 +4,35 @@
       "Services.ViewModels.AbilityViewModel": {
         "System.Int32 Services.ViewModels.AbilityViewModel::get_Id()": {
           "Lines": {
-            "6": 211
+            "6": 214
           },
           "Branches": []
         },
         "System.String Services.ViewModels.AbilityViewModel::get_Name()": {
           "Lines": {
-            "7": 91
+            "7": 96
           },
           "Branches": []
         },
         "System.String Services.ViewModels.AbilityViewModel::get_Effect()": {
           "Lines": {
-            "8": 85
+            "8": 90
           },
           "Branches": []
         },
         "System.Void Services.ViewModels.AbilityViewModel::Validate()": {
           "Lines": {
-            "10": 0,
-            "11": 0,
-            "12": 0,
-            "13": 0,
-            "14": 0,
-            "16": 0,
-            "17": 0,
-            "18": 0,
-            "20": 0,
-            "21": 0,
-            "22": 0
+            "10": 2,
+            "11": 2,
+            "12": 2,
+            "13": 2,
+            "14": 2,
+            "16": 2,
+            "17": 2,
+            "18": 2,
+            "20": 2,
+            "21": 2,
+            "22": 2
           },
           "Branches": []
         }
@@ -3511,9 +3511,9 @@
       "PokeAPI.Controllers.AbilitiesController": {
         "System.Void PokeAPI.Controllers.AbilitiesController::.ctor(Services.Interfaces.AbilityServices)": {
           "Lines": {
-            "19": 0,
-            "20": 0,
-            "21": 0
+            "19": 4,
+            "20": 2,
+            "21": 2
           },
           "Branches": []
         }
@@ -3521,13 +3521,13 @@
       "PokeAPI.Controllers.AbilitiesController/<Create>d__2": {
         "System.Void PokeAPI.Controllers.AbilitiesController/<Create>d__2::MoveNext()": {
           "Lines": {
-            "27": 0,
-            "28": 0,
-            "30": 0,
-            "31": 0,
-            "33": 0,
-            "35": 0,
-            "36": 0
+            "27": 2,
+            "28": 2,
+            "30": 2,
+            "31": 1,
+            "33": 1,
+            "35": 1,
+            "36": 2
           },
           "Branches": [
             {
@@ -3536,7 +3536,7 @@
               "EndOffset": 45,
               "Path": 0,
               "Ordinal": 0,
-              "Hits": 0
+              "Hits": 1
             },
             {
               "Line": 30,
@@ -3544,7 +3544,7 @@
               "EndOffset": 78,
               "Path": 1,
               "Ordinal": 1,
-              "Hits": 0
+              "Hits": 1
             }
           ]
         }
@@ -3700,8 +3700,12 @@
             "26": 2,
             "27": 2,
             "28": 2,
+            "29": 2,
             "30": 2,
-            "31": 2
+            "31": 2,
+            "32": 2,
+            "34": 2,
+            "35": 2
           },
           "Branches": []
         }

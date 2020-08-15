@@ -12,11 +12,10 @@ using Tests.Bogus.ViewModel;
 using Services.Implementations;
 using Persistence.Repositories.Interfaces;
 
-namespace Tests.UnitTests {
+namespace Tests.UnitTests.Services {
   public class CreateAbilityServiceTest {
     private readonly Mock<AbilitiesRepository> abilitiesRepository;
     private readonly Mock<IMapper> mapper;
-    private readonly AbilityServices abilityServices;
 
     public CreateAbilityServiceTest() {
       abilitiesRepository = new Mock<AbilitiesRepository>();
@@ -50,7 +49,7 @@ namespace Tests.UnitTests {
       var response = await service.CreateAbility(data);
 
       // Assert
-      Assert.NotNull(response.Id);
+      Assert.InRange(response.Id, 1, 260);
       Assert.NotNull(response.Name);
       Assert.NotNull(response.Effect);
     }

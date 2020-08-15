@@ -26,6 +26,10 @@ namespace PokeAPI.Configuration {
         PokemonServices,
         PokemonServicesImpl
       >();
+      services.AddTransient<
+        AbilityServices,
+        AbilityServicesImpl
+      >();
 
       return services;
     }
