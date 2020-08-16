@@ -49,6 +49,22 @@ namespace Persistence.Mappings {
         .IsRequired();
 
       builder
+        .Property(pkmn => pkmn.Seen)
+        .IsRequired()
+        .HasDefaultValue(false);
+
+      builder
+        .Property(pkmn => pkmn.Captured)
+        .IsRequired()
+        .HasDefaultValue(false);
+
+      builder
+        .Property(pkmn => pkmn.Photo)
+        .IsRequired()
+        .HasMaxLength(255)
+        .HasDefaultValue("default.png");
+
+      builder
         .HasOne(pkmn => pkmn.Stats)
         .WithOne(stats => stats.Pokemon)
         .HasForeignKey<Stats>(stats => stats.PokemonId)

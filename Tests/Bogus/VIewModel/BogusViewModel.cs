@@ -100,7 +100,7 @@ namespace Tests.Bogus.ViewModel {
       var abilityViewModel = new Faker<AbilityViewModel>()
         .RuleFor(x => x.Id, (f) => f.Random.Int(1, 260))
         .RuleFor(x => x.Name, (f) => f.Lorem.Word())
-        .RuleFor(x => x.Effect, (f) => f.Lorem.Sentences(5, " "));
+        .RuleFor(x => x.Effect, (f) => f.Lorem.Sentences(3, " "));
 
       return abilityViewModel.Generate();
     }
@@ -109,7 +109,7 @@ namespace Tests.Bogus.ViewModel {
       var abilityViewModel = new Faker<AbilityViewModel>()
         .RuleFor(x => x.Id, (f) => f.Random.Int(1, 260))
         .RuleFor(x => x.Name, (f) => f.Lorem.Word())
-        .RuleFor(x => x.Effect, (f) => f.Lorem.Sentences(5, " "));
+        .RuleFor(x => x.Effect, (f) => f.Lorem.Sentences(3, " "));
 
       return abilityViewModel.Generate(quantity);
     }
