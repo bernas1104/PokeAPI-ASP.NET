@@ -25,7 +25,16 @@ namespace PokeAPI {
 
         services.AddCors();
 
-        services.AddControllers();
+        services.AddControllers().AddNewtonsoftJson(
+          options => {
+            options.SerializerSettings.ReferenceLoopHandling =
+              Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+            // options.SerializerSettings.ReferenceLoopHandling =
+            //   Newtonsoft.Json.ReferenceLoopHandling.Serialize;
+            // options.SerializerSettings.PreserveReferencesHandling =
+            //   Newtonsoft.Json.PreserveReferencesHandling.Objects;
+          }
+        );
         services.AddScoped<PokemonDbContext>();
 
         services.AddAuthenticationConfiguration(Configuration);

@@ -1,8 +1,8 @@
+using System.IO;
 using System.Net;
 using System.Text;
 using System.Net.Http;
 using System.Threading.Tasks;
-using System.Net.Http.Headers;
 using System.Collections.Generic;
 
 using Xunit;
@@ -23,16 +23,24 @@ namespace Tests.IntegrationTests {
 
     private async Task<HttpResponseMessage> PerformRequest(
       HttpClient client,
-      PokemonViewModel data
+      PokemonViewModel data,
+      bool uploadPhoto = true
     ) {
-      return await client.PostAsync("/v1/pokemon", new StringContent(
-        JsonConvert.SerializeObject(data),
-        Encoding.UTF8
-      ) {
-        Headers = {
-          ContentType = new MediaTypeHeaderValue("application/json")
-        }
-      });
+      var formData = new MultipartFormDataContent();
+
+      formData.Add(new StringContent(
+        JsonConvert.SerializeObject(data), Encoding.UTF8
+      ));
+
+      if (uploadPhoto) {
+        var file = File.OpenRead(
+          Path.Combine(Directory.GetCurrentDirectory(), "Utilities", "Bulbasaur.png")
+        );
+
+        formData.Add(new StreamContent(file), "photo", Path.GetFileName(file.Name));
+      }
+
+      return await client.PostAsync("/v1/pokemon", formData);
     }
 
     [Fact]

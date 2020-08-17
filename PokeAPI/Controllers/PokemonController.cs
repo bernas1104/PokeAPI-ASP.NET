@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Authorization;
 
+using PokeAPI.Utilities;
 using Services.ViewModels;
 using Services.Interfaces;
 
@@ -23,12 +24,18 @@ namespace PokeAPI.Controllers {
     [HttpPost]
     [Authorize]
     public async Task<ActionResult<PokemonViewModel>> Create(
-      [FromBody] PokemonViewModel data
+      [ModelBinder(BinderType = typeof(JsonModelBinder))] PokemonViewModel data,
+      IFormFile photo
     ) {
       data.Validate();
 
       if (data.Invalid)
         return BadRequest(data.Notifications);
+
+      if (photo == null)
+        return BadRequest("Pokemon must have a photo");
+
+      data.PokemonPhoto = photo;
 
       var response = await pokemonServices.CreatePokemon(data);
 

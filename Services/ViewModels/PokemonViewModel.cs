@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
 
+using Newtonsoft.Json;
 using Flunt.Validations;
 using Flunt.Notifications;
+using Microsoft.AspNetCore.Http;
 
 namespace Services.ViewModels {
   public class PokemonViewModel : Notifiable, IValidatable {
@@ -12,9 +14,13 @@ namespace Services.ViewModels {
     public int LevelingRate { get; set; }
     public float CatchRate { get; set; }
     public int HatchTime { get; set; }
+    public string PhotoUrl { get; set; }
     public DateTime CreatedAt { get; set; }
     public IList<AbilityViewModel> Abilities { get; set; }
     public StatsViewModel Stats { get; set; }
+
+    [JsonIgnore]
+    public IFormFile PokemonPhoto { get; set; }
 
     public void Validate() {
       var pokemonContract = new Contract()
