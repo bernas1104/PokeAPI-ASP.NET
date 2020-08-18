@@ -7,6 +7,7 @@ using Domain;
 using Services.Interfaces;
 using Services.ViewModels;
 using Services.Exceptions;
+using Services.Providers.StorageProvider;
 using Persistence.Repositories.Interfaces;
 
 namespace Services.Implementations {
@@ -14,17 +15,20 @@ namespace Services.Implementations {
     private readonly PokemonRepository pokemonRepository;
     private readonly StatsRepository statsRepository;
     private readonly AbilitiesRepository abilitiesRepository;
+    private readonly StorageProvider storageProvider;
     private readonly IMapper mapper;
 
     public PokemonServicesImpl(
       PokemonRepository pokemonRepository,
       StatsRepository statsRepository,
       AbilitiesRepository abilitiesRepository,
+      StorageProvider storageProvider,
       IMapper mapper
     ) {
       this.pokemonRepository = pokemonRepository;
       this.statsRepository = statsRepository;
       this.abilitiesRepository = abilitiesRepository;
+      this.storageProvider = storageProvider;
       this.mapper = mapper;
     }
 
@@ -40,6 +44,9 @@ namespace Services.Implementations {
       await CheckAbilityExists(data.Abilities[0].Id);
 
       await CheckAbilityExists(data.Abilities[1].Id);
+
+      var photoFileName = storageProvider.SaveFile(data.PokemonPhoto);
+      pokemon.Photo = photoFileName;
 
       pokemon = await pokemonRepository.CreatePokemon(pokemon);
 

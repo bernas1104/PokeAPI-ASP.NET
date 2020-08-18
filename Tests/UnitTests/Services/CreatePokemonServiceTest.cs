@@ -1,11 +1,12 @@
 using System;
+using System.IO;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 
 using Moq;
 using Xunit;
-
 using AutoMapper;
+using Microsoft.AspNetCore.Http;
 
 using Domain;
 using Tests.Bogus.Domain;
@@ -14,6 +15,7 @@ using Services.Interfaces;
 using Services.Exceptions;
 using Tests.Bogus.ViewModel;
 using Services.Implementations;
+using Services.Providers.StorageProvider;
 using Persistence.Repositories.Interfaces;
 
 namespace Tests.UnitTests {
@@ -21,6 +23,7 @@ namespace Tests.UnitTests {
     private readonly Mock<PokemonRepository> pokemonRepository;
     private readonly Mock<StatsRepository> statsRepository;
     private readonly Mock<AbilitiesRepository> abilitiesRepository;
+    private readonly Mock<StorageProvider> storageProvider;
     private readonly Mock<IMapper> mapper;
     private readonly PokemonServices pokemonServices;
 
@@ -28,14 +31,28 @@ namespace Tests.UnitTests {
       pokemonRepository = new Mock<PokemonRepository>();
       statsRepository = new Mock<StatsRepository>();
       abilitiesRepository = new Mock<AbilitiesRepository>();
+      storageProvider = new Mock<StorageProvider>();
       mapper = new Mock<IMapper>();
 
       pokemonServices = new PokemonServicesImpl(
         pokemonRepository.Object,
         statsRepository.Object,
         abilitiesRepository.Object,
+        storageProvider.Object,
         mapper.Object
       );
+    }
+
+    private IFormFile LoadPokemonPhoto() {
+      var file = File.OpenRead(
+        Path.Combine(
+          Directory.GetCurrentDirectory(),
+          "Utilities",
+          "Bulbasaur.png"
+        )
+      );
+
+      return new FormFile(file, 0, file.Length, null, Path.GetFileName(file.Name));
     }
 
     [Fact]
@@ -48,6 +65,8 @@ namespace Tests.UnitTests {
       var abilities = BogusDomain.AbilitiesFaker();
 
       var data = BogusViewModel.PokemonViewModelFaker(pokemon, stats, abilities);
+      var photo = LoadPokemonPhoto();
+      data.PokemonPhoto = photo;
 
       var response = new PokemonViewModel() {
         Id = pokemon.Id,
@@ -78,16 +97,17 @@ namespace Tests.UnitTests {
       pokemonRepository.Setup(x => x.ExistsById(pokemon.Id)).ReturnsAsync(false);
       pokemonRepository.Setup(x => x.ExistsByName(pokemon.Name))
         .ReturnsAsync(false);
-      pokemonRepository.Setup(x => x.CreatePokemon(pokemon))
-        .ReturnsAsync(pokemon);
-      statsRepository.Setup(x => x.CreateStats(stats))
-        .ReturnsAsync(stats);
       abilitiesRepository.Setup(x => x.ExistsById(
         abilities[0].Id
       )).ReturnsAsync(true);
       abilitiesRepository.Setup(x => x.ExistsById(
         abilities[1].Id
       )).ReturnsAsync(true);
+      storageProvider.Setup(x => x.SaveFile(photo)).Returns(Guid.NewGuid().ToString());
+      pokemonRepository.Setup(x => x.CreatePokemon(pokemon))
+        .ReturnsAsync(pokemon);
+      statsRepository.Setup(x => x.CreateStats(stats))
+        .ReturnsAsync(stats);
       pokemonRepository.Setup(x => x.CreatePokemonAbility(
         data.Id, data.Abilities[0].Id
       )).ReturnsAsync(new PokemonAbility() {

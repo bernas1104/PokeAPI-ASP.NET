@@ -3,8 +3,10 @@ using Microsoft.Extensions.DependencyInjection;
 using Persistence.Context;
 using Services.Interfaces;
 using Services.Implementations;
+using Services.Providers.StorageProvider;
 using Persistence.Repositories.Interfaces;
 using Persistence.Repositories.Implementations;
+using Services.Providers.StorageProvider.Implementations;
 
 namespace PokeAPI.Configuration {
   public static class DependencyInjectionConfiguration {
@@ -17,6 +19,7 @@ namespace PokeAPI.Configuration {
       services.AddScoped<AbilitiesRepository, AbilitiesRepositoryImpl>();
       services.AddScoped<PokemonRepository, PokemonRepositoryImpl>();
       services.AddScoped<StatsRepository, StatsRepositoryImpl>();
+      services.AddScoped<StorageProvider, DiskStorageProvider>();
 
       services.AddTransient<
         AdminAuthenticationService,
