@@ -29,10 +29,6 @@ namespace PokeAPI {
           options => {
             options.SerializerSettings.ReferenceLoopHandling =
               Newtonsoft.Json.ReferenceLoopHandling.Ignore;
-            // options.SerializerSettings.ReferenceLoopHandling =
-            //   Newtonsoft.Json.ReferenceLoopHandling.Serialize;
-            // options.SerializerSettings.PreserveReferencesHandling =
-            //   Newtonsoft.Json.PreserveReferencesHandling.Objects;
           }
         );
         services.AddScoped<PokemonDbContext>();
@@ -51,6 +47,8 @@ namespace PokeAPI {
         }
 
         app.UseHttpsRedirection();
+
+        app.UseStaticFiles();
 
         app.UseCors(x => x
           .AllowAnyOrigin()

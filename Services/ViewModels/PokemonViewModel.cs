@@ -14,6 +14,8 @@ namespace Services.ViewModels {
     public int LevelingRate { get; set; }
     public float CatchRate { get; set; }
     public int HatchTime { get; set; }
+    public bool Seen { get; set; }
+    public bool Captured { get; set; }
     public string PhotoUrl { get; set; }
     public DateTime CreatedAt { get; set; }
     public IList<AbilityViewModel> Abilities { get; set; }
@@ -26,6 +28,7 @@ namespace Services.ViewModels {
       var pokemonContract = new Contract()
         .IsNotNull(Id, "Id", "Pokemon number is required")
         .IsGreaterThan(Id, 0, "Id", "Pokemon number must be greater than 0")
+        .IsLowerThan(Id, 152, "Id", "Pokemon number must be lower than 152")
         .IsNotNullOrEmpty(Name, "Name", "Pokemon name is required")
         .HasMaxLen(Name, 20, "Name", "Pokemon name must have at most 20 characters")
         .IsNotNull(LevelingRate, "Leveling Rate", "Pokemon leveling rate is required")

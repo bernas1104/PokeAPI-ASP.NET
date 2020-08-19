@@ -19,6 +19,8 @@ namespace Tests.Bogus.Domain {
         .RuleFor(x => x.LevelingRate, (f) => f.Random.Int(0, 5))
         .RuleFor(x => x.CatchRate, (f) => f.Random.Float(0.0F, 100.0F))
         .RuleFor(x => x.HatchTime, (f) => f.Random.Int(1280, 30720))
+        .RuleFor(x => x.Seen, () => false)
+        .RuleFor(x => x.Captured, () => false)
         .RuleFor(x => x.CreatedAt, (_) => DateTime.Now)
         .RuleFor(x => x.UpdatedAt, (_) => DateTime.Now)
         .RuleFor(x => x.DeletedAt, (f) => null);

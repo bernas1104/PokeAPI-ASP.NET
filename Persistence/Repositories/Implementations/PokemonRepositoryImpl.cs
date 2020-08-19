@@ -14,6 +14,11 @@ namespace Persistence.Repositories.Implementations {
       this.dbContext = dbContext;
     }
 
+    public async Task<Pokemon> FindById(int id) {
+      return await dbContext.Pokemons
+        .FirstOrDefaultAsync(pkmn => pkmn.Id == id);
+    }
+
     public async Task<bool> ExistsById(int id) {
       return await dbContext.Pokemons
         .AsNoTracking()
@@ -48,7 +53,7 @@ namespace Persistence.Repositories.Implementations {
       return pokemonAbility;
     }
 
-    private async Task SaveChangesToDatabase() {
+    public async Task SaveChangesToDatabase() {
       await dbContext.SaveChangesAsync();
     }
   }

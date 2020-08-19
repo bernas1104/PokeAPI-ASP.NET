@@ -42,5 +42,16 @@ namespace PokeAPI.Controllers {
 
       return Created(nameof(Create), response);
     }
+
+    [HttpPatch]
+    [Route("mark-seen/{id:int}")]
+    public async Task<ActionResult<PokemonViewModel>> Mark(int id) {
+      if (id <= 0 || id >= 152)
+        return BadRequest("Pokemom must be between 1 and 151");
+
+      var response = await pokemonServices.MarkPokemonAsSeen(id);
+
+      return Ok(response);
+    }
   }
 }

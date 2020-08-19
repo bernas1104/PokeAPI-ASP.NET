@@ -13,8 +13,11 @@ namespace Tests.Utilities {
 
       var abilities = InitializeAbilities();
 
+      var pokemon = InitializePokemon();
+
       db.Admins.Add(admin);
       db.Abilities.AddRange(abilities);
+      db.Pokemons.AddRange(pokemon);
 
       db.SaveChanges();
     }
@@ -44,6 +47,31 @@ namespace Tests.Utilities {
           Name = "Lorem Ipsum",
           Effect = "Lorem Ipsum 2"
         }
+      };
+    }
+
+    private static IList<Pokemon> InitializePokemon() {
+      return new List<Pokemon>() {
+        new Pokemon() {
+          Id = 1,
+          Name = "Bulbasaur",
+          EvolutionLevel = 16,
+          LevelingRate = 2,
+          CatchRate = 11.90F,
+          HatchTime = 3170,
+          Seen = false,
+          Captured = false,
+        },
+        new Pokemon() {
+          Id = 2,
+          Name = "Ivysaur",
+          EvolutionLevel = 32,
+          LevelingRate = 2,
+          CatchRate = 11.90F,
+          HatchTime = 3170,
+          Seen = true,
+          Captured = false,
+        },
       };
     }
   }

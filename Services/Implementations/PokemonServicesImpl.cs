@@ -73,6 +73,25 @@ namespace Services.Implementations {
       return pokemonViewModel;
     }
 
+    public async Task<PokemonViewModel> MarkPokemonAsSeen(int id) {
+      await CheckPokemonExists(id);
+
+      var pokemon = await pokemonRepository.FindById(id);
+
+      if (pokemon.Seen) {
+        throw new PokemonException(
+          "Pokemon is already marked as 'seen'",
+          400
+        );
+      }
+
+      pokemon.Seen = true;
+
+      await pokemonRepository.SaveChangesToDatabase();
+
+      return mapper.Map<PokemonViewModel>(pokemon);
+    }
+
     private async Task CheckUniquePokemonId(int pokemonId) {
       var pokemonNumberRegistered = await pokemonRepository.ExistsById(
         pokemonId
@@ -82,6 +101,17 @@ namespace Services.Implementations {
         throw new PokemonException(
           "Pokemon number must be unique",
           400
+        );
+      }
+    }
+
+    private async Task CheckPokemonExists(int pokemonId) {
+      var pokemonExists = await pokemonRepository.ExistsById(pokemonId);
+
+      if (!pokemonExists) {
+        throw new PokemonException(
+          "Pokemon not found",
+          404
         );
       }
     }

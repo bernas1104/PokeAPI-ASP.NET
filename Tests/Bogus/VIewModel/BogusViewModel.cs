@@ -11,7 +11,7 @@ namespace Tests.Bogus.ViewModel {
   public static class BogusViewModel {
     public static PokemonViewModel PokemonViewModelFaker() {
       var pokemonViewModel = new Faker<PokemonViewModel>()
-        .RuleFor(x => x.Id, (f) => f.Random.Int(1, 150))
+        .RuleFor(x => x.Id, (f) => f.Random.Int(4, 151))
         .RuleFor(x => x.Name, (f) => f.Name.FirstName())
         .RuleFor(
           x => x.EvolutionLevel,
@@ -20,6 +20,8 @@ namespace Tests.Bogus.ViewModel {
         .RuleFor(x => x.LevelingRate, (f) => f.Random.Int(0, 5))
         .RuleFor(x => x.CatchRate, (f) => f.Random.Float(0.0F, 100.0F))
         .RuleFor(x => x.HatchTime, (f) => f.Random.Int(1280, 30720))
+        .RuleFor(x => x.Seen, () => false)
+        .RuleFor(x => x.Captured, () => false)
         .RuleFor(x => x.Stats, (_, u) => {
           var statsViewModel = new Faker<StatsViewModel>()
             .RuleFor(x => x.HitPoints, (f) => f.Random.Int(1, 200))

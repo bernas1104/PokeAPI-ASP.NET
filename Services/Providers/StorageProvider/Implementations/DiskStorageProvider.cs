@@ -14,7 +14,8 @@ namespace Services.Providers.StorageProvider.Implementations {
 
       PokemonPhotosFolder = Path.Combine(
         this.hostEnvironment.ContentRootPath,
-        "Photos"
+        "wwwroot",
+        "images"
       );
     }
 

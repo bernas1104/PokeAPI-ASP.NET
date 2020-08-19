@@ -1,3 +1,4 @@
+using System;
 using System.IO;
 using System.Threading.Tasks;
 
@@ -50,6 +51,26 @@ namespace Tests.UnitTests.Controllers {
     }
 
     [Fact]
+    public async Task Should_Return_200_Status_Code_With_Valid_Pokemon_Number() {
+      // Arrange
+      var data = BogusViewModel.PokemonViewModelFaker();
+
+      var rnd = new Random();
+      var id = rnd.Next(1, 152);
+
+      pokemonServices.Setup(x => x.MarkPokemonAsSeen(id)).ReturnsAsync(data);
+
+      var pokemonController = new PokemonController(pokemonServices.Object);
+
+      // Act
+      var response = await pokemonController.Mark(id);
+
+      // Assert
+      Assert.NotNull(response);
+      Assert.IsType<OkObjectResult>(response.Result);
+    }
+
+    [Fact]
     public async Task Should_Return_400_Status_Code_With_Invalid_ViewModel() {
       // Arrange
       var data = new PokemonViewModel();
@@ -73,6 +94,21 @@ namespace Tests.UnitTests.Controllers {
 
       // Act
       var response = await pokemonController.Create(data, null);
+
+      // Assert
+      Assert.NotNull(response);
+      Assert.IsType<BadRequestObjectResult>(response.Result);
+    }
+
+    [Theory]
+    [InlineData(0)]
+    [InlineData(152)]
+    public async Task Should_Return_400_Status_Code_If_Pokemon_Number_Invalid(int id) {
+      // Arrange
+      var pokemonController = new PokemonController(pokemonServices.Object);
+
+      // Act
+      var response = await pokemonController.Mark(id);
 
       // Assert
       Assert.NotNull(response);

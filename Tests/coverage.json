@@ -4,7 +4,7 @@
       "Services.ViewModels.AbilityViewModel": {
         "System.Int32 Services.ViewModels.AbilityViewModel::get_Id()": {
           "Lines": {
-            "6": 245
+            "6": 247
           },
           "Branches": []
         },
@@ -93,74 +93,84 @@
       "Services.ViewModels.PokemonViewModel": {
         "System.Int32 Services.ViewModels.PokemonViewModel::get_Id()": {
           "Lines": {
-            "11": 115
+            "11": 139
           },
           "Branches": []
         },
         "System.String Services.ViewModels.PokemonViewModel::get_Name()": {
           "Lines": {
-            "12": 108
+            "12": 112
           },
           "Branches": []
         },
         "System.Nullable`1<System.Int32> Services.ViewModels.PokemonViewModel::get_EvolutionLevel()": {
           "Lines": {
-            "13": 65
+            "13": 69
           },
           "Branches": []
         },
         "System.Int32 Services.ViewModels.PokemonViewModel::get_LevelingRate()": {
           "Lines": {
-            "14": 107
+            "14": 111
           },
           "Branches": []
         },
         "System.Single Services.ViewModels.PokemonViewModel::get_CatchRate()": {
           "Lines": {
-            "15": 107
+            "15": 111
           },
           "Branches": []
         },
         "System.Int32 Services.ViewModels.PokemonViewModel::get_HatchTime()": {
           "Lines": {
-            "16": 107
+            "16": 111
+          },
+          "Branches": []
+        },
+        "System.Boolean Services.ViewModels.PokemonViewModel::get_Seen()": {
+          "Lines": {
+            "17": 63
+          },
+          "Branches": []
+        },
+        "System.Boolean Services.ViewModels.PokemonViewModel::get_Captured()": {
+          "Lines": {
+            "18": 62
           },
           "Branches": []
         },
         "System.String Services.ViewModels.PokemonViewModel::get_PhotoUrl()": {
           "Lines": {
-            "17": 38
+            "19": 40
           },
           "Branches": []
         },
         "System.DateTime Services.ViewModels.PokemonViewModel::get_CreatedAt()": {
           "Lines": {
-            "18": 46
+            "20": 48
           },
           "Branches": []
         },
         "System.Collections.Generic.IList`1<Services.ViewModels.AbilityViewModel> Services.ViewModels.PokemonViewModel::get_Abilities()": {
           "Lines": {
-            "19": 193
+            "21": 195
           },
           "Branches": []
         },
         "Services.ViewModels.StatsViewModel Services.ViewModels.PokemonViewModel::get_Stats()": {
           "Lines": {
-            "20": 283
+            "22": 286
           },
           "Branches": []
         },
         "Microsoft.AspNetCore.Http.IFormFile Services.ViewModels.PokemonViewModel::get_PokemonPhoto()": {
           "Lines": {
-            "23": 5
+            "25": 5
           },
           "Branches": []
         },
         "System.Void Services.ViewModels.PokemonViewModel::Validate()": {
           "Lines": {
-            "25": 20,
-            "26": 20,
             "27": 20,
             "28": 20,
             "29": 20,
@@ -171,16 +181,16 @@
             "34": 20,
             "35": 20,
             "36": 20,
+            "37": 20,
             "38": 20,
             "39": 20,
-            "40": 20,
             "41": 20,
             "42": 20,
             "43": 20,
             "44": 20,
+            "45": 20,
             "46": 20,
             "47": 20,
-            "48": 20,
             "49": 20,
             "50": 20,
             "51": 20,
@@ -190,10 +200,13 @@
             "55": 20,
             "56": 20,
             "57": 20,
+            "58": 20,
             "59": 20,
             "60": 20,
-            "61": 20,
-            "62": 20
+            "62": 20,
+            "63": 20,
+            "64": 20,
+            "65": 20
           },
           "Branches": []
         }
@@ -237,43 +250,43 @@
       "Services.ViewModels.StatsViewModel": {
         "System.Int32 Services.ViewModels.StatsViewModel::get_HitPoints()": {
           "Lines": {
-            "3": 107
+            "3": 109
           },
           "Branches": []
         },
         "System.Int32 Services.ViewModels.StatsViewModel::get_Attack()": {
           "Lines": {
-            "4": 107
+            "4": 109
           },
           "Branches": []
         },
         "System.Int32 Services.ViewModels.StatsViewModel::get_Defense()": {
           "Lines": {
-            "5": 107
+            "5": 109
           },
           "Branches": []
         },
         "System.Int32 Services.ViewModels.StatsViewModel::get_SpecialAttack()": {
           "Lines": {
-            "6": 107
+            "6": 109
           },
           "Branches": []
         },
         "System.Int32 Services.ViewModels.StatsViewModel::get_SpecialDefense()": {
           "Lines": {
-            "7": 107
+            "7": 109
           },
           "Branches": []
         },
         "System.Int32 Services.ViewModels.StatsViewModel::get_Speed()": {
           "Lines": {
-            "8": 107
+            "8": 109
           },
           "Branches": []
         },
         "System.Int32 Services.ViewModels.StatsViewModel::get_Total()": {
           "Lines": {
-            "9": 88
+            "9": 89
           },
           "Branches": []
         }
@@ -283,10 +296,9 @@
       "Services.Providers.StorageProvider.Implementations.DiskStorageProvider": {
         "System.String Services.Providers.StorageProvider.Implementations.DiskStorageProvider::SaveFile(Microsoft.AspNetCore.Http.IFormFile)": {
           "Lines": {
-            "21": 1,
             "22": 1,
-            "23": 0,
-            "25": 1,
+            "23": 1,
+            "24": 0,
             "26": 1,
             "27": 1,
             "28": 1,
@@ -295,12 +307,13 @@
             "31": 1,
             "32": 1,
             "33": 1,
-            "35": 1,
-            "36": 1
+            "34": 1,
+            "36": 1,
+            "37": 1
           },
           "Branches": [
             {
-              "Line": 22,
+              "Line": 23,
               "Offset": 17,
               "EndOffset": 19,
               "Path": 0,
@@ -308,7 +321,7 @@
               "Hits": 0
             },
             {
-              "Line": 22,
+              "Line": 23,
               "Offset": 17,
               "EndOffset": 31,
               "Path": 1,
@@ -319,26 +332,27 @@
         },
         "System.Void Services.Providers.StorageProvider.Implementations.DiskStorageProvider::DeleteFile(System.String)": {
           "Lines": {
-            "38": 0,
             "39": 0,
             "40": 0,
             "41": 0,
             "42": 0,
             "43": 0,
             "44": 0,
-            "45": 0
+            "45": 0,
+            "46": 0
           },
           "Branches": []
         },
         "System.Void Services.Providers.StorageProvider.Implementations.DiskStorageProvider::.ctor(Microsoft.Extensions.Hosting.IHostEnvironment)": {
           "Lines": {
-            "12": 34,
-            "13": 17,
-            "15": 17,
-            "16": 17,
-            "17": 17,
-            "18": 17,
-            "19": 17
+            "12": 40,
+            "13": 20,
+            "15": 20,
+            "16": 20,
+            "17": 20,
+            "18": 20,
+            "19": 20,
+            "20": 20
           },
           "Branches": []
         }
@@ -500,17 +514,17 @@
       "Services.Implementations.PokemonServicesImpl": {
         "System.Void Services.Implementations.PokemonServicesImpl::CheckAbilitiesAreDiferent(System.Int32,System.Int32)": {
           "Lines": {
-            "118": 5,
-            "119": 6,
-            "120": 1,
-            "121": 1,
-            "122": 1,
-            "123": 1,
-            "125": 4
+            "148": 5,
+            "149": 6,
+            "150": 1,
+            "151": 1,
+            "152": 1,
+            "153": 1,
+            "155": 4
           },
           "Branches": [
             {
-              "Line": 119,
+              "Line": 149,
               "Offset": 7,
               "EndOffset": 9,
               "Path": 0,
@@ -518,7 +532,7 @@
               "Hits": 1
             },
             {
-              "Line": 119,
+              "Line": 149,
               "Offset": 7,
               "EndOffset": 26,
               "Path": 1,
@@ -529,19 +543,19 @@
         },
         "System.Void Services.Implementations.PokemonServicesImpl::.ctor(Persistence.Repositories.Interfaces.PokemonRepository,Persistence.Repositories.Interfaces.StatsRepository,Persistence.Repositories.Interfaces.AbilitiesRepository,Services.Providers.StorageProvider.StorageProvider,AutoMapper.IMapper)": {
           "Lines": {
-            "21": 23,
-            "22": 23,
-            "23": 23,
-            "24": 23,
-            "25": 23,
-            "26": 23,
-            "27": 46,
-            "28": 23,
-            "29": 23,
-            "30": 23,
-            "31": 23,
-            "32": 23,
-            "33": 23
+            "21": 29,
+            "22": 29,
+            "23": 29,
+            "24": 29,
+            "25": 29,
+            "26": 29,
+            "27": 58,
+            "28": 29,
+            "29": 29,
+            "30": 29,
+            "31": 29,
+            "32": 29,
+            "33": 29
           },
           "Branches": []
         }
@@ -581,23 +595,59 @@
           "Branches": []
         }
       },
-      "Services.Implementations.PokemonServicesImpl/<CheckUniquePokemonId>d__7": {
-        "System.Void Services.Implementations.PokemonServicesImpl/<CheckUniquePokemonId>d__7::MoveNext()": {
+      "Services.Implementations.PokemonServicesImpl/<MarkPokemonAsSeen>d__7": {
+        "System.Void Services.Implementations.PokemonServicesImpl/<MarkPokemonAsSeen>d__7::MoveNext()": {
           "Lines": {
-            "76": 7,
-            "77": 7,
-            "78": 7,
-            "79": 7,
-            "81": 8,
+            "76": 6,
+            "77": 6,
+            "79": 3,
+            "81": 4,
             "82": 1,
             "83": 1,
             "84": 1,
             "85": 1,
-            "87": 6
+            "88": 2,
+            "90": 2,
+            "92": 2,
+            "93": 2
           },
           "Branches": [
             {
               "Line": 81,
+              "Offset": 301,
+              "EndOffset": 303,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 1
+            },
+            {
+              "Line": 81,
+              "Offset": 301,
+              "EndOffset": 320,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 2
+            }
+          ]
+        }
+      },
+      "Services.Implementations.PokemonServicesImpl/<CheckUniquePokemonId>d__8": {
+        "System.Void Services.Implementations.PokemonServicesImpl/<CheckUniquePokemonId>d__8::MoveNext()": {
+          "Lines": {
+            "95": 7,
+            "96": 7,
+            "97": 7,
+            "98": 7,
+            "100": 8,
+            "101": 1,
+            "102": 1,
+            "103": 1,
+            "104": 1,
+            "106": 6
+          },
+          "Branches": [
+            {
+              "Line": 100,
               "Offset": 152,
               "EndOffset": 154,
               "Path": 0,
@@ -605,7 +655,7 @@
               "Hits": 1
             },
             {
-              "Line": 81,
+              "Line": 100,
               "Offset": 152,
               "EndOffset": 171,
               "Path": 1,
@@ -615,23 +665,55 @@
           ]
         }
       },
-      "Services.Implementations.PokemonServicesImpl/<CheckUniquePokemonName>d__8": {
-        "System.Void Services.Implementations.PokemonServicesImpl/<CheckUniquePokemonName>d__8::MoveNext()": {
+      "Services.Implementations.PokemonServicesImpl/<CheckPokemonExists>d__9": {
+        "System.Void Services.Implementations.PokemonServicesImpl/<CheckPokemonExists>d__9::MoveNext()": {
           "Lines": {
-            "89": 6,
-            "90": 6,
-            "91": 6,
-            "92": 6,
-            "94": 7,
-            "95": 1,
-            "96": 1,
-            "97": 1,
-            "98": 1,
-            "100": 5
+            "108": 6,
+            "109": 6,
+            "111": 9,
+            "112": 3,
+            "113": 3,
+            "114": 3,
+            "115": 3,
+            "117": 3
           },
           "Branches": [
             {
-              "Line": 94,
+              "Line": 111,
+              "Offset": 155,
+              "EndOffset": 157,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 3
+            },
+            {
+              "Line": 111,
+              "Offset": 155,
+              "EndOffset": 174,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 3
+            }
+          ]
+        }
+      },
+      "Services.Implementations.PokemonServicesImpl/<CheckUniquePokemonName>d__10": {
+        "System.Void Services.Implementations.PokemonServicesImpl/<CheckUniquePokemonName>d__10::MoveNext()": {
+          "Lines": {
+            "119": 6,
+            "120": 6,
+            "121": 6,
+            "122": 6,
+            "124": 7,
+            "125": 1,
+            "126": 1,
+            "127": 1,
+            "128": 1,
+            "130": 5
+          },
+          "Branches": [
+            {
+              "Line": 124,
               "Offset": 152,
               "EndOffset": 154,
               "Path": 0,
@@ -639,7 +721,7 @@
               "Hits": 1
             },
             {
-              "Line": 94,
+              "Line": 124,
               "Offset": 152,
               "EndOffset": 171,
               "Path": 1,
@@ -649,23 +731,23 @@
           ]
         }
       },
-      "Services.Implementations.PokemonServicesImpl/<CheckAbilityExists>d__9": {
-        "System.Void Services.Implementations.PokemonServicesImpl/<CheckAbilityExists>d__9::MoveNext()": {
+      "Services.Implementations.PokemonServicesImpl/<CheckAbilityExists>d__11": {
+        "System.Void Services.Implementations.PokemonServicesImpl/<CheckAbilityExists>d__11::MoveNext()": {
           "Lines": {
-            "102": 7,
-            "103": 7,
-            "104": 7,
-            "105": 7,
-            "107": 9,
-            "108": 2,
-            "109": 2,
-            "110": 2,
-            "111": 2,
-            "113": 5
+            "132": 7,
+            "133": 7,
+            "134": 7,
+            "135": 7,
+            "137": 9,
+            "138": 2,
+            "139": 2,
+            "140": 2,
+            "141": 2,
+            "143": 5
           },
           "Branches": [
             {
-              "Line": 107,
+              "Line": 137,
               "Offset": 155,
               "EndOffset": 157,
               "Path": 0,
@@ -673,7 +755,7 @@
               "Hits": 2
             },
             {
-              "Line": 107,
+              "Line": 137,
               "Offset": 155,
               "EndOffset": 174,
               "Path": 1,
@@ -739,7 +821,7 @@
       "Services.Exceptions.PokemonException": {
         "System.Void Services.Exceptions.PokemonException::.ctor(System.String,System.Int32)": {
           "Lines": {
-            "4": 6
+            "4": 18
           },
           "Branches": []
         }
@@ -749,15 +831,15 @@
       "Services.Exceptions.ServiceException": {
         "System.Int32 Services.Exceptions.ServiceException::get_StatusCode()": {
           "Lines": {
-            "5": 21
+            "5": 29
           },
           "Branches": []
         },
         "System.Void Services.Exceptions.ServiceException::.ctor(System.String,System.Int32)": {
           "Lines": {
-            "7": 26,
-            "8": 13,
-            "9": 13
+            "7": 34,
+            "8": 17,
+            "9": 17
           },
           "Branches": []
         }
@@ -822,19 +904,19 @@
       "Domain.Ability": {
         "System.Int32 Domain.Ability::get_Id()": {
           "Lines": {
-            "6": 55
+            "6": 57
           },
           "Branches": []
         },
         "System.String Domain.Ability::get_Effect()": {
           "Lines": {
-            "7": 29
+            "7": 31
           },
           "Branches": []
         },
         "System.String Domain.Ability::get_Name()": {
           "Lines": {
-            "8": 29
+            "8": 31
           },
           "Branches": []
         },
@@ -874,25 +956,25 @@
         },
         "System.String Domain.Admin::get_Email()": {
           "Lines": {
-            "6": 56
+            "6": 57
           },
           "Branches": []
         },
         "System.String Domain.Admin::get_Password()": {
           "Lines": {
-            "7": 34
+            "7": 35
           },
           "Branches": []
         },
         "System.DateTime Domain.Admin::get_CreatedAt()": {
           "Lines": {
-            "8": 9
+            "8": 10
           },
           "Branches": []
         },
         "System.DateTime Domain.Admin::get_UpdatedAt()": {
           "Lines": {
-            "9": 9
+            "9": 10
           },
           "Branches": []
         }
@@ -902,13 +984,13 @@
       "Domain.Pokemon": {
         "System.Int32 Domain.Pokemon::get_Id()": {
           "Lines": {
-            "6": 43
+            "6": 55
           },
           "Branches": []
         },
         "System.String Domain.Pokemon::get_Name()": {
           "Lines": {
-            "7": 31
+            "7": 43
           },
           "Branches": []
         },
@@ -926,49 +1008,49 @@
         },
         "System.Nullable`1<System.Int32> Domain.Pokemon::get_EvolutionLevel()": {
           "Lines": {
-            "10": 15
+            "10": 27
           },
           "Branches": []
         },
         "System.Int32 Domain.Pokemon::get_LevelingRate()": {
           "Lines": {
-            "11": 15
+            "11": 27
           },
           "Branches": []
         },
         "System.Single Domain.Pokemon::get_CatchRate()": {
           "Lines": {
-            "12": 15
+            "12": 27
           },
           "Branches": []
         },
         "System.Int32 Domain.Pokemon::get_HatchTime()": {
           "Lines": {
-            "13": 15
+            "13": 27
           },
           "Branches": []
         },
         "System.Boolean Domain.Pokemon::get_Seen()": {
           "Lines": {
-            "14": 0
+            "14": 26
           },
           "Branches": []
         },
         "System.Boolean Domain.Pokemon::get_Captured()": {
           "Lines": {
-            "15": 0
+            "15": 20
           },
           "Branches": []
         },
         "System.String Domain.Pokemon::get_Photo()": {
           "Lines": {
-            "16": 4
+            "16": 5
           },
           "Branches": []
         },
         "System.DateTime Domain.Pokemon::get_CreatedAt()": {
           "Lines": {
-            "17": 15
+            "17": 18
           },
           "Branches": []
         },
@@ -1004,7 +1086,7 @@
         },
         "Domain.Stats Domain.Pokemon::get_Stats()": {
           "Lines": {
-            "24": 2
+            "24": 3
           },
           "Branches": []
         }
@@ -1132,9 +1214,9 @@
       "Persistence.Repositories.Implementations.AbilitiesRepositoryImpl": {
         "System.Void Persistence.Repositories.Implementations.AbilitiesRepositoryImpl::.ctor(Persistence.Context.PokemonDbContext)": {
           "Lines": {
-            "15": 42,
-            "16": 21,
-            "17": 21
+            "15": 48,
+            "16": 24,
+            "17": 24
           },
           "Branches": []
         }
@@ -1241,71 +1323,82 @@
       "Persistence.Repositories.Implementations.PokemonRepositoryImpl": {
         "System.Void Persistence.Repositories.Implementations.PokemonRepositoryImpl::.ctor(Persistence.Context.PokemonDbContext)": {
           "Lines": {
-            "13": 34,
-            "14": 17,
-            "15": 17
+            "13": 40,
+            "14": 20,
+            "15": 20
           },
           "Branches": []
         }
       },
-      "Persistence.Repositories.Implementations.PokemonRepositoryImpl/<ExistsById>d__2": {
-        "System.Void Persistence.Repositories.Implementations.PokemonRepositoryImpl/<ExistsById>d__2::MoveNext()": {
+      "Persistence.Repositories.Implementations.PokemonRepositoryImpl/<FindById>d__2": {
+        "System.Void Persistence.Repositories.Implementations.PokemonRepositoryImpl/<FindById>d__2::MoveNext()": {
           "Lines": {
-            "17": 1,
-            "18": 1,
-            "19": 1,
-            "20": 1,
-            "21": 1
+            "17": 2,
+            "18": 2,
+            "19": 2,
+            "20": 2
           },
           "Branches": []
         }
       },
-      "Persistence.Repositories.Implementations.PokemonRepositoryImpl/<ExistsByName>d__3": {
-        "System.Void Persistence.Repositories.Implementations.PokemonRepositoryImpl/<ExistsByName>d__3::MoveNext()": {
+      "Persistence.Repositories.Implementations.PokemonRepositoryImpl/<ExistsById>d__3": {
+        "System.Void Persistence.Repositories.Implementations.PokemonRepositoryImpl/<ExistsById>d__3::MoveNext()": {
           "Lines": {
-            "23": 1,
-            "24": 1,
-            "25": 1,
-            "26": 1,
-            "27": 1
+            "22": 4,
+            "23": 4,
+            "24": 4,
+            "25": 4,
+            "26": 4
           },
           "Branches": []
         }
       },
-      "Persistence.Repositories.Implementations.PokemonRepositoryImpl/<CreatePokemon>d__4": {
-        "System.Void Persistence.Repositories.Implementations.PokemonRepositoryImpl/<CreatePokemon>d__4::MoveNext()": {
+      "Persistence.Repositories.Implementations.PokemonRepositoryImpl/<ExistsByName>d__4": {
+        "System.Void Persistence.Repositories.Implementations.PokemonRepositoryImpl/<ExistsByName>d__4::MoveNext()": {
           "Lines": {
+            "28": 1,
             "29": 1,
             "30": 1,
             "31": 1,
-            "32": 1,
-            "33": 1
+            "32": 1
           },
           "Branches": []
         }
       },
-      "Persistence.Repositories.Implementations.PokemonRepositoryImpl/<CreatePokemonAbility>d__5": {
-        "System.Void Persistence.Repositories.Implementations.PokemonRepositoryImpl/<CreatePokemonAbility>d__5::MoveNext()": {
+      "Persistence.Repositories.Implementations.PokemonRepositoryImpl/<CreatePokemon>d__5": {
+        "System.Void Persistence.Repositories.Implementations.PokemonRepositoryImpl/<CreatePokemon>d__5::MoveNext()": {
           "Lines": {
-            "38": 2,
-            "39": 2,
-            "40": 2,
-            "41": 2,
-            "42": 2,
+            "34": 1,
+            "35": 1,
+            "36": 1,
+            "37": 1,
+            "38": 1
+          },
+          "Branches": []
+        }
+      },
+      "Persistence.Repositories.Implementations.PokemonRepositoryImpl/<CreatePokemonAbility>d__6": {
+        "System.Void Persistence.Repositories.Implementations.PokemonRepositoryImpl/<CreatePokemonAbility>d__6::MoveNext()": {
+          "Lines": {
+            "43": 2,
             "44": 2,
+            "45": 2,
             "46": 2,
-            "48": 2,
-            "49": 2
+            "47": 2,
+            "49": 2,
+            "51": 2,
+            "53": 2,
+            "54": 2
           },
           "Branches": []
         }
       },
-      "Persistence.Repositories.Implementations.PokemonRepositoryImpl/<SaveChangesToDatabase>d__6": {
-        "System.Void Persistence.Repositories.Implementations.PokemonRepositoryImpl/<SaveChangesToDatabase>d__6::MoveNext()": {
+      "Persistence.Repositories.Implementations.PokemonRepositoryImpl/<SaveChangesToDatabase>d__7": {
+        "System.Void Persistence.Repositories.Implementations.PokemonRepositoryImpl/<SaveChangesToDatabase>d__7::MoveNext()": {
           "Lines": {
-            "51": 3,
-            "52": 3,
-            "53": 3
+            "56": 4,
+            "57": 4,
+            "58": 4
           },
           "Branches": []
         }
@@ -1315,9 +1408,9 @@
       "Persistence.Repositories.Implementations.StatsRepositoryImpl": {
         "System.Void Persistence.Repositories.Implementations.StatsRepositoryImpl::.ctor(Persistence.Context.PokemonDbContext)": {
           "Lines": {
-            "11": 34,
-            "12": 17,
-            "13": 17
+            "11": 40,
+            "12": 20,
+            "13": 20
           },
           "Branches": []
         }
@@ -3729,31 +3822,31 @@
       "Persistence.Context.PokemonDbContext": {
         "Microsoft.EntityFrameworkCore.DbSet`1<Domain.Pokemon> Persistence.Context.PokemonDbContext::get_Pokemons()": {
           "Lines": {
-            "10": 59
+            "10": 72
           },
           "Branches": []
         },
         "Microsoft.EntityFrameworkCore.DbSet`1<Domain.Ability> Persistence.Context.PokemonDbContext::get_Abilities()": {
           "Lines": {
-            "11": 67
+            "11": 72
           },
           "Branches": []
         },
         "Microsoft.EntityFrameworkCore.DbSet`1<Domain.Stats> Persistence.Context.PokemonDbContext::get_Stats()": {
           "Lines": {
-            "12": 57
+            "12": 61
           },
           "Branches": []
         },
         "Microsoft.EntityFrameworkCore.DbSet`1<Domain.Admin> Persistence.Context.PokemonDbContext::get_Admins()": {
           "Lines": {
-            "13": 83
+            "13": 88
           },
           "Branches": []
         },
         "Microsoft.EntityFrameworkCore.DbSet`1<Domain.PokemonAbility> Persistence.Context.PokemonDbContext::get_PokemonAbilities()": {
           "Lines": {
-            "14": 59
+            "14": 63
           },
           "Branches": []
         },
@@ -3778,7 +3871,7 @@
         },
         "System.Void Persistence.Context.PokemonDbContext::.ctor(Microsoft.EntityFrameworkCore.DbContextOptions`1<Persistence.Context.PokemonDbContext>)": {
           "Lines": {
-            "17": 168
+            "17": 180
           },
           "Branches": []
         }
@@ -3798,11 +3891,11 @@
         },
         "Microsoft.Extensions.Hosting.IHostBuilder PokeAPI.Program::CreateHostBuilder(System.String[])": {
           "Lines": {
-            "20": 3,
-            "21": 3,
-            "22": 6,
-            "23": 6,
-            "24": 6
+            "20": 4,
+            "21": 4,
+            "22": 8,
+            "23": 8,
+            "24": 8
           },
           "Branches": []
         }
@@ -3812,83 +3905,80 @@
       "PokeAPI.Startup": {
         "Microsoft.Extensions.Configuration.IConfiguration PokeAPI.Startup::get_Configuration()": {
           "Lines": {
-            "18": 3
+            "18": 4
           },
           "Branches": []
         },
         "System.Void PokeAPI.Startup::ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)": {
           "Lines": {
-            "21": 3,
+            "21": 4,
             "22": 0,
             "23": 0,
             "24": 0,
-            "26": 3,
-            "28": 3,
-            "29": 6,
-            "30": 6,
-            "31": 6,
-            "32": 3,
-            "33": 3,
-            "34": 3,
-            "35": 3,
-            "36": 6,
-            "37": 3,
-            "38": 3,
-            "40": 3,
-            "41": 3,
-            "42": 3,
-            "43": 3,
-            "44": 3
+            "26": 4,
+            "28": 4,
+            "29": 8,
+            "30": 8,
+            "31": 8,
+            "32": 8,
+            "33": 4,
+            "34": 4,
+            "36": 4,
+            "37": 4,
+            "38": 4,
+            "39": 4,
+            "40": 4
           },
           "Branches": []
         },
         "System.Void PokeAPI.Startup::Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)": {
           "Lines": {
-            "47": 3,
-            "48": 3,
-            "49": 3,
-            "50": 3,
-            "51": 3,
-            "53": 3,
-            "55": 6,
-            "56": 6,
-            "57": 6,
-            "58": 6,
-            "59": 3,
-            "61": 3,
-            "63": 3,
-            "64": 3,
-            "66": 3,
-            "68": 3,
-            "69": 6,
-            "70": 6,
-            "71": 6,
-            "72": 3
+            "43": 4,
+            "44": 4,
+            "45": 4,
+            "46": 4,
+            "47": 4,
+            "49": 4,
+            "51": 4,
+            "53": 8,
+            "54": 8,
+            "55": 8,
+            "56": 8,
+            "57": 4,
+            "59": 4,
+            "61": 4,
+            "62": 4,
+            "64": 4,
+            "66": 4,
+            "67": 8,
+            "68": 8,
+            "69": 8,
+            "70": 4
           },
           "Branches": [
             {
-              "Line": 48,
+              "Line": 44,
               "Offset": 9,
               "EndOffset": 11,
               "Path": 0,
               "Ordinal": 0,
-              "Hits": 3
+              "Hits": 4
             },
             {
-              "Line": 48,
+              "Line": 44,
               "Offset": 9,
               "EndOffset": 20,
               "Path": 1,
               "Ordinal": 1,
-              "Hits": 3
+              "Hits": 4
             }
           ]
         },
         "System.Void PokeAPI.Startup::.ctor(Microsoft.Extensions.Configuration.IConfiguration)": {
           "Lines": {
-            "14": 6,
-            "15": 3,
-            "16": 3
+            "14": 8,
+            "15": 4,
+            "16": 4
           },
           "Branches": []
         }
@@ -3987,15 +4077,15 @@
         },
         "System.Threading.Tasks.Task PokeAPI.Middlewares.ExceptionsHandlerMiddleware::HandleServiceException(Microsoft.AspNetCore.Http.HttpContext,Services.Exceptions.ServiceException)": {
           "Lines": {
-            "51": 4,
-            "52": 4,
-            "53": 4,
-            "54": 4,
-            "55": 4,
-            "57": 4,
-            "58": 4,
-            "60": 4,
-            "61": 4
+            "51": 6,
+            "52": 6,
+            "53": 6,
+            "54": 6,
+            "55": 6,
+            "57": 6,
+            "58": 6,
+            "60": 6,
+            "61": 6
           },
           "Branches": []
         },
@@ -4037,10 +4127,10 @@
         },
         "System.Void PokeAPI.Middlewares.ExceptionsHandlerMiddleware::.ctor(Microsoft.AspNetCore.Hosting.IWebHostEnvironment)": {
           "Lines": {
-            "14": 53,
-            "16": 106,
-            "17": 53,
-            "18": 53
+            "14": 56,
+            "16": 112,
+            "17": 56,
+            "18": 56
           },
           "Branches": []
         }
@@ -4048,17 +4138,17 @@
       "PokeAPI.Middlewares.ExceptionsHandlerMiddleware/<InvokeAsync>d__3": {
         "System.Void PokeAPI.Middlewares.ExceptionsHandlerMiddleware/<InvokeAsync>d__3::MoveNext()": {
           "Lines": {
-            "20": 53,
-            "21": 53,
-            "22": 53,
+            "20": 56,
+            "21": 56,
+            "22": 56,
             "23": 0,
             "24": 0,
             "25": 0,
-            "26": 4,
+            "26": 6,
             "27": 0,
             "28": 0,
             "29": 0,
-            "30": 53
+            "30": 56
           },
           "Branches": [
             {
@@ -4075,7 +4165,7 @@
               "EndOffset": 411,
               "Path": 2,
               "Ordinal": 2,
-              "Hits": 4
+              "Hits": 6
             },
             {
               "Line": 27,
@@ -4091,7 +4181,7 @@
               "EndOffset": 699,
               "Path": 0,
               "Ordinal": 0,
-              "Hits": 53
+              "Hits": 56
             }
           ]
         }
@@ -4144,9 +4234,9 @@
       "PokeAPI.Controllers.PokemonController": {
         "System.Void PokeAPI.Controllers.PokemonController::.ctor(Services.Interfaces.PokemonServices)": {
           "Lines": {
-            "21": 40,
-            "22": 20,
-            "23": 20
+            "21": 52,
+            "22": 26,
+            "23": 26
           },
           "Branches": []
         }
@@ -4197,6 +4287,52 @@
               "Path": 1,
               "Ordinal": 3,
               "Hits": 2
+            }
+          ]
+        }
+      },
+      "PokeAPI.Controllers.PokemonController/<Mark>d__3": {
+        "System.Void PokeAPI.Controllers.PokemonController/<Mark>d__3::MoveNext()": {
+          "Lines": {
+            "48": 6,
+            "49": 6,
+            "50": 2,
+            "52": 4,
+            "54": 2,
+            "55": 4
+          },
+          "Branches": [
+            {
+              "Line": 49,
+              "Offset": 25,
+              "EndOffset": 27,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 5
+            },
+            {
+              "Line": 49,
+              "Offset": 25,
+              "EndOffset": 45,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 1
+            },
+            {
+              "Line": 49,
+              "Offset": 48,
+              "EndOffset": 50,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 2
+            },
+            {
+              "Line": 49,
+              "Offset": 48,
+              "EndOffset": 77,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 4
             }
           ]
         }
@@ -4254,24 +4390,24 @@
       "PokeAPI.Configuration.AuthConfiguration": {
         "Microsoft.Extensions.DependencyInjection.IServiceCollection PokeAPI.Configuration.AuthConfiguration::AddAuthenticationConfiguration(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)": {
           "Lines": {
-            "16": 3,
-            "17": 3,
-            "19": 3,
-            "20": 6,
-            "21": 6,
-            "22": 6,
-            "23": 9,
-            "24": 6,
-            "25": 6,
-            "26": 6,
-            "27": 6,
-            "28": 6,
-            "29": 6,
-            "30": 6,
-            "31": 6,
-            "32": 6,
-            "34": 3,
-            "35": 3
+            "16": 4,
+            "17": 4,
+            "19": 4,
+            "20": 8,
+            "21": 8,
+            "22": 8,
+            "23": 12,
+            "24": 8,
+            "25": 8,
+            "26": 8,
+            "27": 8,
+            "28": 8,
+            "29": 8,
+            "30": 8,
+            "31": 8,
+            "32": 8,
+            "34": 4,
+            "35": 4
           },
           "Branches": []
         }
@@ -4281,13 +4417,13 @@
       "PokeAPI.Configuration.AutoMapperConfiguration": {
         "System.Void PokeAPI.Configuration.AutoMapperConfiguration::.ctor()": {
           "Lines": {
-            "8": 6,
-            "9": 3,
-            "10": 6,
-            "11": 3,
-            "12": 3,
-            "13": 3,
-            "14": 3
+            "8": 8,
+            "9": 4,
+            "10": 8,
+            "11": 4,
+            "12": 4,
+            "13": 4,
+            "14": 4
           },
           "Branches": []
         }
@@ -4297,27 +4433,27 @@
       "PokeAPI.Configuration.DependencyInjectionConfiguration": {
         "Microsoft.Extensions.DependencyInjection.IServiceCollection PokeAPI.Configuration.DependencyInjectionConfiguration::ResolveDependencies(Microsoft.Extensions.DependencyInjection.IServiceCollection)": {
           "Lines": {
-            "15": 3,
-            "16": 3,
-            "18": 3,
-            "19": 3,
-            "20": 3,
-            "21": 3,
-            "22": 3,
-            "24": 3,
-            "25": 3,
-            "26": 3,
-            "27": 3,
-            "28": 3,
-            "29": 3,
-            "30": 3,
-            "31": 3,
-            "32": 3,
-            "33": 3,
-            "34": 3,
-            "35": 3,
-            "37": 3,
-            "38": 3
+            "15": 4,
+            "16": 4,
+            "18": 4,
+            "19": 4,
+            "20": 4,
+            "21": 4,
+            "22": 4,
+            "24": 4,
+            "25": 4,
+            "26": 4,
+            "27": 4,
+            "28": 4,
+            "29": 4,
+            "30": 4,
+            "31": 4,
+            "32": 4,
+            "33": 4,
+            "34": 4,
+            "35": 4,
+            "37": 4,
+            "38": 4
           },
           "Branches": []
         }
@@ -4327,17 +4463,17 @@
       "PokeAPI.Configuration.ExceptionsMiddlewareConfiguration": {
         "Microsoft.Extensions.DependencyInjection.IServiceCollection PokeAPI.Configuration.ExceptionsMiddlewareConfiguration::AddExceptionsMiddleware(Microsoft.Extensions.DependencyInjection.IServiceCollection)": {
           "Lines": {
-            "10": 3,
-            "11": 3,
-            "12": 3
+            "10": 4,
+            "11": 4,
+            "12": 4
           },
           "Branches": []
         },
         "System.Void PokeAPI.Configuration.ExceptionsMiddlewareConfiguration::UseExceptionsMiddlewareHandler(Microsoft.AspNetCore.Builder.IApplicationBuilder)": {
           "Lines": {
-            "16": 3,
-            "17": 3,
-            "18": 3
+            "16": 4,
+            "17": 4,
+            "18": 4
           },
           "Branches": []
         }

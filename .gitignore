@@ -433,5 +433,5 @@ $RECYCLE.BIN/
 !.vscode/extensions.json
 
 # Custom
-PokeAPI/Photos/*.*
-!PokeAPI/Photos/.gitkeep
+PokeAPI/wwwroot/images/*.*
+!PokeAPI/wwwroot/images/.gitkeep
