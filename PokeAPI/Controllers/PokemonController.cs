@@ -7,7 +7,6 @@ using Microsoft.AspNetCore.Authorization;
 using PokeAPI.Utilities;
 using Services.ViewModels;
 using Services.Interfaces;
-using System;
 
 namespace PokeAPI.Controllers {
   [ApiController]

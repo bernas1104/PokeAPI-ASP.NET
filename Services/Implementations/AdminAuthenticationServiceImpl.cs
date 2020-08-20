@@ -1,17 +1,14 @@
 using System.Threading.Tasks;
-using System.IdentityModel.Tokens.Jwt;
 
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 
 using Domain;
-using Services.DTOs;
 using Services.ViewModels;
 using Services.Exceptions;
 using Services.Interfaces;
 using Persistence.Repositories.Interfaces;
-using System;
 
 namespace Services.Implementations {
   public class AdminAuthenticationServiceImpl : AdminAuthenticationService {

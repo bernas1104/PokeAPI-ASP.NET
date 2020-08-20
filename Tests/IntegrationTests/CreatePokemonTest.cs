@@ -11,7 +11,6 @@ using Newtonsoft.Json;
 using PokeAPI;
 using Services.ViewModels;
 using Tests.Bogus.ViewModel;
-using System;
 
 namespace Tests.IntegrationTests {
   public class CreatePokemonTest :

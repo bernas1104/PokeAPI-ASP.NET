@@ -2,12 +2,10 @@
 
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Authorization;
 
 using Services.ViewModels;
 using Services.Interfaces;
-using Services.Exceptions;
 
 namespace PokeAPI.Controllers {
   [ApiController]
