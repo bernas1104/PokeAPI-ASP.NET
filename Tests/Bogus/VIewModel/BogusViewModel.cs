@@ -11,7 +11,7 @@ namespace Tests.Bogus.ViewModel {
   public static class BogusViewModel {
     public static PokemonViewModel PokemonViewModelFaker() {
       var pokemonViewModel = new Faker<PokemonViewModel>()
-        .RuleFor(x => x.Id, (f) => f.Random.Int(4, 151))
+        .RuleFor(x => x.Id, (f) => f.Random.Int(5, 151))
         .RuleFor(x => x.Name, (f) => f.Name.FirstName())
         .RuleFor(
           x => x.EvolutionLevel,

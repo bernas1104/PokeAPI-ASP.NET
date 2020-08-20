@@ -11,6 +11,7 @@ using Newtonsoft.Json;
 using PokeAPI;
 using Services.ViewModels;
 using Tests.Bogus.ViewModel;
+using System;
 
 namespace Tests.IntegrationTests {
   public class CreatePokemonTest :
@@ -53,9 +54,26 @@ namespace Tests.IntegrationTests {
 
       // Act
       var response = await PerformRequest(client, data);
+      var pokemonViewModel = JsonConvert.DeserializeObject<PokemonViewModel>(
+        await response.Content.ReadAsStringAsync()
+      );
 
       // Assert
       Assert.Equal(HttpStatusCode.Created, response.StatusCode);
+
+      File.Delete(
+        Path.Combine(
+          Directory.GetCurrentDirectory(),
+          "..",
+          "..",
+          "..",
+          "..",
+          "PokeAPI",
+          "wwwroot",
+          "images",
+          pokemonViewModel.PhotoUrl
+        )
+      );
     }
 
     [Fact]

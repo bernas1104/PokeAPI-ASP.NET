@@ -14,7 +14,7 @@ using Services.Providers.StorageProvider;
 using Persistence.Repositories.Interfaces;
 
 namespace Tests.UnitTests.Services {
-  public class MarkPokemonAsSeenServiceTest {
+  public class MarkPokemonAsCaptured {
     private readonly Mock<PokemonRepository> pokemonRepository;
     private readonly Mock<StatsRepository> statsRepository;
     private readonly Mock<AbilitiesRepository> abilitiesRepository;
@@ -22,7 +22,7 @@ namespace Tests.UnitTests.Services {
     private readonly Mock<IMapper> mapper;
     private readonly PokemonServices pokemonServices;
 
-    public MarkPokemonAsSeenServiceTest() {
+    public MarkPokemonAsCaptured() {
       pokemonRepository = new Mock<PokemonRepository>();
       statsRepository = new Mock<StatsRepository>();
       abilitiesRepository = new Mock<AbilitiesRepository>();
@@ -39,7 +39,7 @@ namespace Tests.UnitTests.Services {
     }
 
     [Fact]
-    public async Task Should_Be_Able_To_Mark_Pokemon_As_Seen() {
+    public async Task Should_Be_Able_To_Mark_Pokemon_As_Captured() {
       // Arrange
       var rnd = new Random();
       var id = rnd.Next(1, 152);
@@ -62,15 +62,15 @@ namespace Tests.UnitTests.Services {
         });
 
       // Act
-      var response = await pokemonServices.MarkPokemonAsSeen(id);
+      var response = await pokemonServices.MarkPokemonAsCaptured(id);
 
       // Assert
       Assert.NotNull(response);
-      Assert.Equal(true, response.Seen);
+      Assert.Equal(true, response.Captured);
     }
 
     [Fact]
-    public async Task Should_Not_Be_Able_To_Mark_Pokemon_As_Seen_If_It_Not_Exists() {
+    public async Task Should_Not_Be_Able_To_Mark_Pokemon_As_Captured_If_It_Not_Exists() {
       // Arrange
       var rnd = new Random();
       var id = rnd.Next(1, 152);
@@ -81,12 +81,12 @@ namespace Tests.UnitTests.Services {
 
       // Assert
       await Assert.ThrowsAsync<PokemonException>(
-        () => pokemonServices.MarkPokemonAsSeen(id)
+        () => pokemonServices.MarkPokemonAsCaptured(id)
       );
     }
 
     [Fact]
-    public async Task Should_Not_Be_Able_To_Mark_Pokemon_As_Seen_If_Already_Marked() {
+    public async Task Should_Not_Be_Able_To_Mark_Pokemon_As_Captured_If_Already_Captured() {
       // Arrange
       var rnd = new Random();
       var id = rnd.Next(1, 152);
@@ -101,7 +101,7 @@ namespace Tests.UnitTests.Services {
 
       // Assert
       await Assert.ThrowsAsync<PokemonException>(
-        () => pokemonServices.MarkPokemonAsSeen(id)
+        () => pokemonServices.MarkPokemonAsCaptured(id)
       );
     }
   }

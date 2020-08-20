@@ -45,13 +45,28 @@ namespace PokeAPI.Controllers {
 
     [HttpPatch]
     [Route("mark-seen/{id:int}")]
-    public async Task<ActionResult<PokemonViewModel>> Mark(int id) {
-      if (id <= 0 || id >= 152)
+    public async Task<ActionResult<bool>> Mark(int id) {
+      if (ValidatePokemonNumber(id))
         return BadRequest("Pokemom must be between 1 and 151");
 
-      var response = await pokemonServices.MarkPokemonAsSeen(id);
+      await pokemonServices.MarkPokemonAsSeen(id);
 
-      return Ok(response);
+      return NoContent();
+    }
+
+    [HttpPatch]
+    [Route("mark-captured/{id:int}")]
+    public async Task<ActionResult<bool>> Capture(int id) {
+      if (ValidatePokemonNumber(id))
+        return BadRequest("Pokemon must be between 1 and 151");
+
+      await pokemonServices.MarkPokemonAsCaptured(id);
+
+      return NoContent();
+    }
+
+    private bool ValidatePokemonNumber(int id) {
+      return (id <= 0 || id >= 152);
     }
   }
 }

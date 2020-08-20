@@ -51,14 +51,12 @@ namespace Tests.UnitTests.Controllers {
     }
 
     [Fact]
-    public async Task Should_Return_200_Status_Code_With_Valid_Pokemon_Number() {
+    public async Task Mark_Should_Return_204_Status_Code_With_Valid_Pokemon_Number() {
       // Arrange
-      var data = BogusViewModel.PokemonViewModelFaker();
-
       var rnd = new Random();
       var id = rnd.Next(1, 152);
 
-      pokemonServices.Setup(x => x.MarkPokemonAsSeen(id)).ReturnsAsync(data);
+      pokemonServices.Setup(x => x.MarkPokemonAsSeen(id));
 
       var pokemonController = new PokemonController(pokemonServices.Object);
 
@@ -67,7 +65,25 @@ namespace Tests.UnitTests.Controllers {
 
       // Assert
       Assert.NotNull(response);
-      Assert.IsType<OkObjectResult>(response.Result);
+      Assert.IsType<NoContentResult>(response.Result);
+    }
+
+    [Fact]
+    public async Task Capture_Should_Return_204_Status_Code_With_Valid_Pokemon_Number() {
+      // Arrange
+      var rnd = new Random();
+      var id = rnd.Next(1, 152);
+
+      pokemonServices.Setup(x => x.MarkPokemonAsCaptured(id));
+
+      var pokemonController = new PokemonController(pokemonServices.Object);
+
+      // Act
+      var response = await pokemonController.Capture(id);
+
+      // Assert
+      Assert.NotNull(response);
+      Assert.IsType<NoContentResult>(response.Result);
     }
 
     [Fact]
@@ -109,6 +125,21 @@ namespace Tests.UnitTests.Controllers {
 
       // Act
       var response = await pokemonController.Mark(id);
+
+      // Assert
+      Assert.NotNull(response);
+      Assert.IsType<BadRequestObjectResult>(response.Result);
+    }
+
+    [Theory]
+    [InlineData(0)]
+    [InlineData(152)]
+    public async Task Capture_Should_Return_400_Status_Code_If_Pokemon_Number_Invalid(int id) {
+      // Arrange
+      var pokemonController = new PokemonController(pokemonServices.Object);
+
+      // Act
+      var response = await pokemonController.Capture(id);
 
       // Assert
       Assert.NotNull(response);

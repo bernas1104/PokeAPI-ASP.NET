@@ -72,6 +72,16 @@ namespace Tests.Utilities {
           Seen = true,
           Captured = false,
         },
+        new Pokemon() {
+          Id = 3,
+          Name = "Venosaur",
+          EvolutionLevel = null,
+          LevelingRate = 2,
+          CatchRate = 11.90F,
+          HatchTime = 3170,
+          Seen = true,
+          Captured = true,
+        },
       };
     }
   }

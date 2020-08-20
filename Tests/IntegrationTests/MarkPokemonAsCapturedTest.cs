@@ -7,11 +7,11 @@ using Xunit;
 using PokeAPI;
 
 namespace Tests.IntegrationTests {
-  public class MarkPokemonAsSeenTest :
+  public class MarkPokemonAsCapturedTest :
     IClassFixture<CustomWebApplicationFactory<Startup>> {
     private readonly CustomWebApplicationFactory<Startup> factory;
 
-    public MarkPokemonAsSeenTest(CustomWebApplicationFactory<Startup> factory) {
+    public MarkPokemonAsCapturedTest(CustomWebApplicationFactory<Startup> factory) {
       this.factory = factory;
     }
 
@@ -19,16 +19,16 @@ namespace Tests.IntegrationTests {
       HttpClient client,
       int pokemonId
     ) {
-      return await client.PatchAsync("/v1/pokemon/mark-seen/" + pokemonId, null);
+      return await client.PatchAsync("/v1/pokemon/mark-captured/" + pokemonId, null);
     }
 
     [Fact]
-    public async Task Should_Be_Able_To_Mark_Pokemon_As_Seen() {
+    public async Task Should_Be_Able_To_Mark_Pokemon_As_Captured() {
       // Arrange
       var client = factory.CreateClient();
 
       // Act
-      var response = await PerformRequest(client, 1);
+      var response = await PerformRequest(client, 2);
 
       // Assert
       Assert.Equal(HttpStatusCode.NoContent, response.StatusCode);
@@ -47,12 +47,12 @@ namespace Tests.IntegrationTests {
     }
 
     [Fact]
-    public async Task Should_Return_A_Bad_Request_Status_Code_If_Pokemon_Already_Seen() {
+    public async Task Should_Return_A_Bad_Request_Status_Code_If_Pokemon_Already_Captured() {
       // Arrange
       var client = factory.CreateClient();
 
       // Act
-      var response = await PerformRequest(client, 2);
+      var response = await PerformRequest(client, 3);
 
       // Assert
       Assert.Equal(HttpStatusCode.BadRequest, response.StatusCode);

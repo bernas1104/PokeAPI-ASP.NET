@@ -92,6 +92,26 @@ namespace Services.Implementations {
       return mapper.Map<PokemonViewModel>(pokemon);
     }
 
+    public async Task<PokemonViewModel> MarkPokemonAsCaptured(int id) {
+      await CheckPokemonExists(id);
+
+      var pokemon = await pokemonRepository.FindById(id);
+
+      if (pokemon.Captured) {
+        throw new PokemonException(
+          "Pokemon is already marked as 'captured'",
+          400
+        );
+      }
+
+      pokemon.Seen = true;
+      pokemon.Captured = true;
+
+      await pokemonRepository.SaveChangesToDatabase();
+
+      return mapper.Map<PokemonViewModel>(pokemon);
+    }
+
     private async Task CheckUniquePokemonId(int pokemonId) {
       var pokemonNumberRegistered = await pokemonRepository.ExistsById(
         pokemonId
