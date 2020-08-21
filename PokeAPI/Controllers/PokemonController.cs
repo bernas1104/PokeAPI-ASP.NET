@@ -46,7 +46,7 @@ namespace PokeAPI.Controllers {
     [Route("mark-seen/{id:int}")]
     public async Task<ActionResult<bool>> Mark(int id) {
       if (ValidatePokemonNumber(id))
-        return BadRequest("Pokemom must be between 1 and 151");
+        return BadRequest("Pokemon number must be between 1 and 151");
 
       await pokemonServices.MarkPokemonAsSeen(id);
 
@@ -57,11 +57,41 @@ namespace PokeAPI.Controllers {
     [Route("mark-captured/{id:int}")]
     public async Task<ActionResult<bool>> Capture(int id) {
       if (ValidatePokemonNumber(id))
-        return BadRequest("Pokemon must be between 1 and 151");
+        return BadRequest("Pokemon number must be between 1 and 151");
 
       await pokemonServices.MarkPokemonAsCaptured(id);
 
       return NoContent();
+    }
+
+    [HttpPatch]
+    [Route("add-evolution")]
+    public async Task<ActionResult<PokemonViewModel>> AddEvolution(
+      [FromBody] EvolutionViewModel data
+    ) {
+      data.Validate();
+
+      if (data.Invalid)
+        return BadRequest(data.Notifications);
+
+      var response = await pokemonServices.AddPokemonEvolution(data);
+
+      return Ok(response);
+    }
+
+    [HttpPatch]
+    [Route("add-pre-evolution")]
+    public async Task<ActionResult<PokemonViewModel>> AddPreEvolution(
+      [FromBody] EvolutionViewModel data
+    ) {
+      data.Validate();
+
+      if (data.Invalid)
+        return BadRequest(data.Notifications);
+
+      var response = await pokemonServices.AddPokemonPreEvolution(data);
+
+      return Ok(response);
     }
 
     private bool ValidatePokemonNumber(int id) {

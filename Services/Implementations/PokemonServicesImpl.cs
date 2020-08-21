@@ -112,6 +112,14 @@ namespace Services.Implementations {
       return mapper.Map<PokemonViewModel>(pokemon);
     }
 
+    public async Task<PokemonViewModel> AddPokemonEvolution(EvolutionViewModel data) {
+      return new PokemonViewModel();
+    }
+
+    public async Task<PokemonViewModel> AddPokemonPreEvolution(EvolutionViewModel data) {
+      return new PokemonViewModel();
+    }
+
     private async Task CheckUniquePokemonId(int pokemonId) {
       var pokemonNumberRegistered = await pokemonRepository.ExistsById(
         pokemonId

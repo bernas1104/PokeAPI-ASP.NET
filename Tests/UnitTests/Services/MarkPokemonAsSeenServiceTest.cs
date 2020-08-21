@@ -66,7 +66,7 @@ namespace Tests.UnitTests.Services {
 
       // Assert
       Assert.NotNull(response);
-      Assert.Equal(true, response.Seen);
+      Assert.True(response.Seen);
     }
 
     [Fact]
