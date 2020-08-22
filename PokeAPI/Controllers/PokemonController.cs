@@ -65,6 +65,7 @@ namespace PokeAPI.Controllers {
     }
 
     [HttpPatch]
+    [Authorize]
     [Route("add-evolution")]
     public async Task<ActionResult<PokemonViewModel>> AddEvolution(
       [FromBody] EvolutionViewModel data
@@ -80,6 +81,7 @@ namespace PokeAPI.Controllers {
     }
 
     [HttpPatch]
+    [Authorize]
     [Route("add-pre-evolution")]
     public async Task<ActionResult<PokemonViewModel>> AddPreEvolution(
       [FromBody] EvolutionViewModel data

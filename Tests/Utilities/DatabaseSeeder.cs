@@ -76,6 +76,7 @@ namespace Tests.Utilities {
           Id = 3,
           Name = "Venosaur",
           EvolutionLevel = null,
+          PreEvolutionId = 2,
           LevelingRate = 2,
           CatchRate = 11.90F,
           HatchTime = 3170,
