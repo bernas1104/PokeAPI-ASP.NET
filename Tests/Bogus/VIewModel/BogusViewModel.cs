@@ -114,5 +114,13 @@ namespace Tests.Bogus.ViewModel {
 
       return abilityViewModel.Generate(quantity);
     }
+
+    public static EvolutionViewModel EvolutionViewModelFaker() {
+      var evolutionViewModel = new Faker<EvolutionViewModel>()
+        .RuleFor(x => x.pokemonId, (f) => f.Random.Int(1, 150))
+        .RuleFor(x => x.pokemonEvolutionId, (_, u) => u.pokemonId + 1);
+
+      return evolutionViewModel.Generate();
+    }
   }
 }

@@ -11,6 +11,8 @@ namespace Services.ViewModels {
     public int Id { get; set; }
     public string Name { get; set; }
     public int? EvolutionLevel { get; set; }
+    public int? PreEvolutionId { get; set; }
+    public int? EvolutionId { get; set; }
     public int LevelingRate { get; set; }
     public float CatchRate { get; set; }
     public int HatchTime { get; set; }

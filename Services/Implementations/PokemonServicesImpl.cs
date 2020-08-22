@@ -117,7 +117,22 @@ namespace Services.Implementations {
     }
 
     public async Task<PokemonViewModel> AddPokemonPreEvolution(EvolutionViewModel data) {
-      return new PokemonViewModel();
+      await CheckPokemonExists(data.pokemonId);
+      await CheckPokemonExists(data.pokemonEvolutionId);
+
+      var pokemon = await pokemonRepository.FindById(data.pokemonId);
+
+      if (pokemon.PreEvolutionId != null)
+        throw new PokemonException("Pokemon can have only one pre-evolution", 400);
+
+      var preEvolutionPokemon = await pokemonRepository.FindById(data.pokemonEvolutionId);
+
+      pokemon.PreEvolutionId = preEvolutionPokemon.Id;
+      pokemon.PreEvolution = preEvolutionPokemon;
+
+      await pokemonRepository.SaveChangesToDatabase();
+
+      return mapper.Map<PokemonViewModel>(pokemon);
     }
 
     private async Task CheckUniquePokemonId(int pokemonId) {
