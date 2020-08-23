@@ -1,3 +1,4 @@
+using System;
 using System.Threading.Tasks;
 
 using Microsoft.EntityFrameworkCore;
@@ -16,6 +17,13 @@ namespace Persistence.Repositories.Implementations {
 
     public async Task<Pokemon> FindById(int id) {
       return await dbContext.Pokemons
+        .FirstOrDefaultAsync(pkmn => pkmn.Id == id);
+    }
+
+    public async Task<Pokemon> FindByIdWithEvolutions(int id) {
+      return await dbContext.Pokemons
+        .Include(x => x.PreEvolution)
+        .Include(x => x.Evolution)
         .FirstOrDefaultAsync(pkmn => pkmn.Id == id);
     }
 

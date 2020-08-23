@@ -80,22 +80,6 @@ namespace PokeAPI.Controllers {
       return Ok(response);
     }
 
-    [HttpPatch]
-    [Authorize]
-    [Route("add-pre-evolution")]
-    public async Task<ActionResult<PokemonViewModel>> AddPreEvolution(
-      [FromBody] EvolutionViewModel data
-    ) {
-      data.Validate();
-
-      if (data.Invalid)
-        return BadRequest(data.Notifications);
-
-      var response = await pokemonServices.AddPokemonPreEvolution(data);
-
-      return Ok(response);
-    }
-
     private bool ValidatePokemonNumber(int id) {
       return (id <= 0 || id >= 152);
     }

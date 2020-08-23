@@ -15,22 +15,9 @@ namespace Persistence.Mappings {
         .HasMaxLength(50);
 
       builder
-        .Property(pkmn => pkmn.PreEvolutionId)
-        .IsRequired(false);
-      builder
-        .HasOne(pkmn => pkmn.PreEvolution)
-        .WithOne(pkmn => pkmn.Evolution)
-        .HasForeignKey<Pokemon>(pkmn => pkmn.PreEvolutionId)
-        .OnDelete(DeleteBehavior.Cascade);
-
-      builder
-        .Property(pkmn => pkmn.EvolutionId)
-        .IsRequired(false);
-      builder
-        .HasOne(pkmn => pkmn.Evolution)
+        .HasMany(pkmn => pkmn.Evolution)
         .WithOne(pkmn => pkmn.PreEvolution)
-        .HasForeignKey<Pokemon>(pkmn => pkmn.EvolutionId)
-        .OnDelete(DeleteBehavior.Cascade);
+        .OnDelete(DeleteBehavior.SetNull);
 
       builder
         .Property(pkmn => pkmn.EvolutionLevel)

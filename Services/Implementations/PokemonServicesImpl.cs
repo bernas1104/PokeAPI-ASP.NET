@@ -1,3 +1,4 @@
+using System.Linq;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 
@@ -113,22 +114,22 @@ namespace Services.Implementations {
     }
 
     public async Task<PokemonViewModel> AddPokemonEvolution(EvolutionViewModel data) {
-      return new PokemonViewModel();
-    }
-
-    public async Task<PokemonViewModel> AddPokemonPreEvolution(EvolutionViewModel data) {
       await CheckPokemonExists(data.pokemonId);
       await CheckPokemonExists(data.pokemonEvolutionId);
 
       var pokemon = await pokemonRepository.FindById(data.pokemonId);
+      var evolutionPokemon = await pokemonRepository
+        .FindByIdWithEvolutions(data.pokemonEvolutionId);
 
-      if (pokemon.PreEvolutionId != null)
-        throw new PokemonException("Pokemon can have only one pre-evolution", 400);
+      if (evolutionPokemon.PreEvolutionId != null) {
+        throw new PokemonException(
+          "Pokemon evolution can have only one pre evolution",
+          400
+        );
+      }
 
-      var preEvolutionPokemon = await pokemonRepository.FindById(data.pokemonEvolutionId);
-
-      pokemon.PreEvolutionId = preEvolutionPokemon.Id;
-      pokemon.PreEvolution = preEvolutionPokemon;
+      evolutionPokemon.PreEvolution = pokemon;
+      evolutionPokemon.PreEvolutionId = pokemon.Id;
 
       await pokemonRepository.SaveChangesToDatabase();
 
