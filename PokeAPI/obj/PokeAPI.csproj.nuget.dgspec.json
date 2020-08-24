@@ -1,0 +1,322 @@
+{
+  "format": 1,
+  "restore": {
+    "/home/bernardo/Desktop/PokeAPI-ASP.NET/PokeAPI/PokeAPI.csproj": {}
+  },
+  "projects": {
+    "/home/bernardo/Desktop/PokeAPI-ASP.NET/Domain/Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/bernardo/Desktop/PokeAPI-ASP.NET/Domain/Domain.csproj",
+        "projectName": "Domain",
+        "projectPath": "/home/bernardo/Desktop/PokeAPI-ASP.NET/Domain/Domain.csproj",
+        "packagesPath": "/home/bernardo/.nuget/packages/",
+        "outputPath": "/home/bernardo/Desktop/PokeAPI-ASP.NET/Domain/obj/",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "/usr/share/dotnet/sdk/NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "/home/bernardo/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/3.1.302/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/home/bernardo/Desktop/PokeAPI-ASP.NET/Persistence/Persistence.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/bernardo/Desktop/PokeAPI-ASP.NET/Persistence/Persistence.csproj",
+        "projectName": "Persistence",
+        "projectPath": "/home/bernardo/Desktop/PokeAPI-ASP.NET/Persistence/Persistence.csproj",
+        "packagesPath": "/home/bernardo/.nuget/packages/",
+        "outputPath": "/home/bernardo/Desktop/PokeAPI-ASP.NET/Persistence/obj/",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "/usr/share/dotnet/sdk/NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "/home/bernardo/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {
+              "/home/bernardo/Desktop/PokeAPI-ASP.NET/Domain/Domain.csproj": {
+                "projectPath": "/home/bernardo/Desktop/PokeAPI-ASP.NET/Domain/Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.1.6, )"
+            },
+            "Npgsql.EntityFrameworkCore.PostgreSQL": {
+              "target": "Package",
+              "version": "[3.1.4, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/3.1.302/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/home/bernardo/Desktop/PokeAPI-ASP.NET/PokeAPI/PokeAPI.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/bernardo/Desktop/PokeAPI-ASP.NET/PokeAPI/PokeAPI.csproj",
+        "projectName": "PokeAPI",
+        "projectPath": "/home/bernardo/Desktop/PokeAPI-ASP.NET/PokeAPI/PokeAPI.csproj",
+        "packagesPath": "/home/bernardo/.nuget/packages/",
+        "outputPath": "/home/bernardo/Desktop/PokeAPI-ASP.NET/PokeAPI/obj/",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "/usr/share/dotnet/sdk/NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "/home/bernardo/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {
+              "/home/bernardo/Desktop/PokeAPI-ASP.NET/Domain/Domain.csproj": {
+                "projectPath": "/home/bernardo/Desktop/PokeAPI-ASP.NET/Domain/Domain.csproj"
+              },
+              "/home/bernardo/Desktop/PokeAPI-ASP.NET/Persistence/Persistence.csproj": {
+                "projectPath": "/home/bernardo/Desktop/PokeAPI-ASP.NET/Persistence/Persistence.csproj"
+              },
+              "/home/bernardo/Desktop/PokeAPI-ASP.NET/Services/Services.csproj": {
+                "projectPath": "/home/bernardo/Desktop/PokeAPI-ASP.NET/Services/Services.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[10.0.0, )"
+            },
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[8.0.1, )"
+            },
+            "JsonModelBinder": {
+              "target": "Package",
+              "version": "[2.1.1, )"
+            },
+            "Microsoft.AspNetCore.Authentication": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[3.1.6, )"
+            },
+            "Microsoft.AspNetCore.Mvc.NewtonsoftJson": {
+              "target": "Package",
+              "version": "[3.1.7, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.1.6, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[12.0.3, )"
+            },
+            "Npgsql.EntityFrameworkCore.PostgreSQL": {
+              "target": "Package",
+              "version": "[3.1.4, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.NETCore.App.Host.linux-x64",
+              "version": "[3.1.6, 3.1.6]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/3.1.302/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/home/bernardo/Desktop/PokeAPI-ASP.NET/Services/Services.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/bernardo/Desktop/PokeAPI-ASP.NET/Services/Services.csproj",
+        "projectName": "Services",
+        "projectPath": "/home/bernardo/Desktop/PokeAPI-ASP.NET/Services/Services.csproj",
+        "packagesPath": "/home/bernardo/.nuget/packages/",
+        "outputPath": "/home/bernardo/Desktop/PokeAPI-ASP.NET/Services/obj/",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "/usr/share/dotnet/sdk/NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "/home/bernardo/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {
+              "/home/bernardo/Desktop/PokeAPI-ASP.NET/Domain/Domain.csproj": {
+                "projectPath": "/home/bernardo/Desktop/PokeAPI-ASP.NET/Domain/Domain.csproj"
+              },
+              "/home/bernardo/Desktop/PokeAPI-ASP.NET/Persistence/Persistence.csproj": {
+                "projectPath": "/home/bernardo/Desktop/PokeAPI-ASP.NET/Persistence/Persistence.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[10.0.0, )"
+            },
+            "Flunt": {
+              "target": "Package",
+              "version": "[1.0.5, )"
+            },
+            "Microsoft.AspNetCore.Authentication": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[3.1.6, )"
+            },
+            "Microsoft.AspNetCore.Identity": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/3.1.302/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
