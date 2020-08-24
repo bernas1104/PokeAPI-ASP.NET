@@ -15,8 +15,8 @@ jobs:
     -   uses: docker/build-push-action@v1.1.0
         with:
           # Username used to log in to a Docker registry. If not set then no login will occur
-          username: bernas1104
+          username: ${{ secrets.DOCKER_USERNAME }}
           # Password or personal access token used to log in to a Docker registry. If not set then no login will occur
-          password: 110492-Bb
+          password: ${{ secrets.DOCKER_PASSWORD }}
           # Docker repository to tag the image with
           repository: poke-api
